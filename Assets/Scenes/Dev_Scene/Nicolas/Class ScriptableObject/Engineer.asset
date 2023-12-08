@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d17e812a0171c1d4a84508308bba68ec, type: 3}
   m_Name: Engineer
   m_EditorClassIdentifier: 
-  description: 
+  description: Base Of Engineer Data
   gameObjectmodel: {fileID: 0}
-  HP: 0
-  Armor: 0
-  Speed: 0
-  Damage: 0
+  classArmor: 0
+  classSpeed: 0
+  classDamage: 0

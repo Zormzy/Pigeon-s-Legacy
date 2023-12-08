@@ -9,11 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d17e812a0171c1d4a84508308bba68ec, type: 3}
-  m_Name: Thief
+  m_Script: {fileID: 11500000, guid: 530328c011258354084d894a4f703344, type: 3}
+  m_Name: ObjectData
   m_EditorClassIdentifier: 
-  description: Base Of Thief Data
+  description: 
   gameObjectmodel: {fileID: 0}
-  classArmor: 0
-  classSpeed: 0
-  classDamage: 0
+  bonusHeavyArmor: 2
+  bonusAverageArmor: 1
+  bonusLongWeapon: 2
+  bonusShortWeapon: 1
+  bonusDistanceWeapon: 1
+  healthKit: 14

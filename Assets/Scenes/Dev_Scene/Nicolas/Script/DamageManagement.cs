@@ -7,10 +7,14 @@ public class DamageManagement : MonoBehaviour
 {
     [Header("ScriptableObject")]
     [SerializeField] private List<StatsData> characterStats;
+    [SerializeField] private List<ClassData> classStats;
+
 
     private int _damageReduced;
     private List<int> characterHP;
     private List<int> characterArmor;
+    private List<int> classArmor;
+
 
     private void Awake()
     {
@@ -18,13 +22,13 @@ public class DamageManagement : MonoBehaviour
     }
 
 
-    public void TakeDamage(int indexCharacter,int damage)
-    { 
-        _damageReduced = damage -  characterArmor[indexCharacter];
+    public void TakeDamage(int indexCharacter, int damage, int indexClass)
+    {
+        _damageReduced = damage - characterArmor[indexCharacter] - classArmor[indexClass];
 
         if (characterHP[indexCharacter] - _damageReduced <= 0)
         {
-            DestroyWhenDeath();
+            OnCharacterDeath();
         }
         else
         {
@@ -32,22 +36,24 @@ public class DamageManagement : MonoBehaviour
         }
     }
 
-
-    public void DestroyWhenDeath()
+    public void OnCharacterDeath()
     {
-        Destroy(gameObject);        
+        Debug.Log("Character Death");
     }
-
 
     private void DamageManagementInitialization()
     {
         characterHP = new List<int>();
         characterArmor = new List<int>();
 
-        foreach (var character in characterStats)
+        foreach (var _character in characterStats)
         {
-            characterHP.Add(character.HP);
-            characterArmor.Add(character.Armor);
-        }   
+            characterHP.Add(_character.HP);
+            characterArmor.Add(_character.Armor);
+        }
+        foreach (ClassData _class in classStats)
+        {
+            classArmor.Add(_class.classArmor);
+        }
     }
 }

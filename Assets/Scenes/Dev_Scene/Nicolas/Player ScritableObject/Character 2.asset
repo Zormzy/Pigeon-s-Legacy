@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 691e5043f2765f8408129901562a6810, type: 3}
-  m_Name: Guerrier
+  m_Name: Character 2
   m_EditorClassIdentifier: 
-  name: Guerrier
-  description: Base of Guerrier data
+  name: Character 2
+  description: Base of Character Data
   gameObjectmodel: {fileID: 0}
   HP: 15
-  Armor: 3
+  Armor: 1
   Speed: 1
-  Damage: 3
+  Damage: 1

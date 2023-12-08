@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 691e5043f2765f8408129901562a6810, type: 3}
-  m_Name: "M\xE9decin"
+  m_Name: Character 1
   m_EditorClassIdentifier: 
-  name: "M\xE9decin"
-  description: "Base of M\xE9decin data"
+  name: Character 1
+  description: Base of Character Data
   gameObjectmodel: {fileID: 0}
-  _HP: 0
-  _Armor: 0
-  _Speed: 0
-  _Damage: 0
+  HP: 15
+  Armor: 1
+  Speed: 1
+  Damage: 1

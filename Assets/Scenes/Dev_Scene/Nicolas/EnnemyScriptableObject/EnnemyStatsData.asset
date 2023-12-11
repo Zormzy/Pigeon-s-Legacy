@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffcaa11d2335a8d4995a2f71f6c3d157, type: 3}
   m_Name: EnnemyStatsData
   m_EditorClassIdentifier: 
-  name: 
-  description: 
+  name: Chat Robot
+  description: "Enemy n\xB01"
   gameObjectmodel: {fileID: 0}
-  HP: 0
-  Damage: 0
+  HP: 10
+  Armor: 0
+  Speed: 0
+  Damage: 8

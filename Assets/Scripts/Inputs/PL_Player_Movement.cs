@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PL_Player_Movement : MonoBehaviour
 {
-    private Transform tranformPlayer;
+    private Transform transformPlayer;
     private float moveTimer;
     private float rotateTimer;
     private Vector3 moveTarget;
@@ -17,18 +15,18 @@ public class PL_Player_Movement : MonoBehaviour
     private bool rotate = false;
     private Vector3 contextRotationValue;
     [SerializeField] private float cooldownMoveTime;
-    [SerializeField] private float groundSize;
-    [SerializeField] private float lerpTime;
+    public static float groundSize = 1;
+    public static float lerpTime = 17;
     [SerializeField] private PL_Player_Collision playerCollision;
 
     private void Awake()
     {
-        tranformPlayer = transform;
+        transformPlayer = transform;
         moveTimer = 0;
         rotateTimer = 0;
         rotation = 0;
-        rotationTarget = tranformPlayer.rotation;
-        moveTarget = tranformPlayer.position;
+        rotationTarget = transformPlayer.rotation;
+        moveTarget = transformPlayer.position;
     }
 
     private void Update()
@@ -43,21 +41,20 @@ public class PL_Player_Movement : MonoBehaviour
 
     private void MovePLayer()
     {
-        if(move && playerCollision.IsCanGo(contextValue) && moveTimer <= 0 && tranformPlayer.position == moveTarget)
+        if(move && playerCollision.IsCanGo(contextValue) && moveTimer <= 0 && transformPlayer.position == moveTarget)
         {
-            moveTarget += tranformPlayer.forward * groundSize * contextValue.z;
-            moveTarget += tranformPlayer.right * groundSize * contextValue.x;
+            moveTarget += transformPlayer.forward * groundSize * contextValue.z;
+            moveTarget += transformPlayer.right * groundSize * contextValue.x;
             moveTarget.x = Mathf.RoundToInt(moveTarget.x);
             moveTarget.z = Mathf.RoundToInt(moveTarget.z);
             moveTimer = cooldownMoveTime;
         }
 
-        if (tranformPlayer.position == moveTarget)
+        if (transformPlayer.position == moveTarget)
         {
-            tranformPlayer.position.Set((int)tranformPlayer.position.x, (int)tranformPlayer.position.y, (int)tranformPlayer.position.z);
-            print(moveTarget);
+            transformPlayer.position.Set((int)transformPlayer.position.x, (int)transformPlayer.position.y, (int)transformPlayer.position.z);
         }
-        tranformPlayer.position = Vector3.Lerp(tranformPlayer.position, moveTarget, lerpTime * Time.deltaTime);
+        transformPlayer.position = Vector3.Lerp(transformPlayer.position, moveTarget, lerpTime * Time.deltaTime);
     }
     public void MovePlayerInput(InputAction.CallbackContext ctx)
     {
@@ -69,14 +66,14 @@ public class PL_Player_Movement : MonoBehaviour
         }
     }
 
-    public void RotatePLayer()
+    private void RotatePLayer()
     {
-        if(rotate && rotationTarget == tranformPlayer.rotation)
+        if(rotate && rotationTarget == transformPlayer.rotation)
         {
             rotationTarget = Quaternion.Euler(0, rotation + 90 * contextRotationValue.y, 0);
             rotation += 90 * contextRotationValue.y;
         }
-        tranformPlayer.rotation = Quaternion.Lerp(tranformPlayer.rotation, rotationTarget, lerpTime * Time.deltaTime);
+        transformPlayer.rotation = Quaternion.Lerp(transformPlayer.rotation, rotationTarget, lerpTime * Time.deltaTime);
     }
 
     public void RotatePlayerInput(InputAction.CallbackContext ctx)

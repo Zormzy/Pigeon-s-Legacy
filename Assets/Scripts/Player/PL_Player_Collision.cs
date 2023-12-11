@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem.HID;
 
 public class PL_Player_Collision : MonoBehaviour
 {
@@ -43,7 +40,12 @@ public class PL_Player_Collision : MonoBehaviour
                 case "Exit": break; // finir le niveau
                 default: break;
             }
-        }else if (Physics.Raycast(transformPlayer.position, -transformPlayer.right, out RaycastHit hitLeft, 1))
+
+            canGoLeft = true;
+            canGoRight = true;
+            canGoBack = true;
+        }
+        else if (Physics.Raycast(transformPlayer.position, -transformPlayer.right, out RaycastHit hitLeft, 1))
         {
             canGoLeft = false;
             canGoForward = true;

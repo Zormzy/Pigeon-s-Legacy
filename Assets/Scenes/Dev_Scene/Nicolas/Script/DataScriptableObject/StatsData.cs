@@ -11,5 +11,4 @@ public class StatsData : ScriptableObject
     public int Armor;
     public int Speed;
     public int Damage;
-
 }

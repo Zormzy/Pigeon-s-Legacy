@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoorOpened
       objectReference: {fileID: 0}
+    - target: {fileID: 7530266816267105733, guid: 06d1c4096f6e61b44b2aeee0b68067c0, type: 3}
+      propertyPath: m_TagString
+      value: OpenDoor
+      objectReference: {fileID: 0}
     - target: {fileID: 9122084411232593960, guid: 06d1c4096f6e61b44b2aeee0b68067c0, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.5

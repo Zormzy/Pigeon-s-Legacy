@@ -1,18 +1,18 @@
-using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class UiManager : MonoBehaviour
 {
 
-    [SerializeField] public DamageManagement damageManagement;
+    [SerializeField] private DamageManagement damageManagement;
 
     [Header("ScriptableObject")]
     [SerializeField] private List<StatsData> characterStats;
     [SerializeField] private List<ClassData> classStats;
 
-    [Header ("Character1")]
+    [Header("Character1")]
     [SerializeField] private Slider healthBar_1;
     [SerializeField] private Image healthFill_1;
     [Header("Character2")]
@@ -24,14 +24,17 @@ public class UiManager : MonoBehaviour
     [Header("Character4")]
     [SerializeField] private Slider healthBar_4;
     [SerializeField] private Image healthFill_4;
+    private List<Slider> healthBars;
+    [SerializeField] private List<TextMeshProUGUI> charactersHp;
 
-    private List<int> characterHP;
-
-
+    private void Awake()
+    {
+        healthBars = new List<Slider>() {healthBar_1, healthBar_2, healthBar_3, healthBar_4 };
+    }
     // Start is called before the first frame update
     void Start()
     {
-        
+        SetInitialHealth(characterStats[0].MaxHP);
     }
 
     // Update is called once per frame
@@ -40,23 +43,21 @@ public class UiManager : MonoBehaviour
         
     }
 
-    public void SetInitialHealth(int maxHealth1, int maxHealth2, int maxHealth3, int maxHealth4)
+    public void SetInitialHealth(int maxHealth)
     {
-        healthBar_1.maxValue = maxHealth1;
-        healthBar_1.value = maxHealth1;
-
-        healthBar_2.maxValue = maxHealth2;
-        healthBar_2.value = maxHealth2;
-
-        healthBar_3.maxValue = maxHealth3;
-        healthBar_3.value = maxHealth3;
-
-        healthBar_4.maxValue = maxHealth4;
-        healthBar_4.value = maxHealth4;
+        foreach (Slider slider in healthBars)
+        {
+            slider.maxValue = maxHealth;
+            slider.value = maxHealth;
+        }
     }
 
-    private void SetHealth()
+    public void SetHealth()
     {
-
+        for (int i = 0; i < characterStats.Count; i++)
+        {
+            healthBars[i].value = characterStats[i].HP;
+            charactersHp[i].text = healthBars[i].value.ToString() + " / " + healthBars[i].maxValue.ToString();
+        }
     }
 }

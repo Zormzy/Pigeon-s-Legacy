@@ -1,6 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class DamageManagement : MonoBehaviour
@@ -8,6 +6,7 @@ public class DamageManagement : MonoBehaviour
     [Header("ScriptableObject")]
     [SerializeField] private List<StatsData> characterStats;
     [SerializeField] private List<ClassData> classStats;
+    [SerializeField] private UiManager uiManager;
 
     private int _damageReduced;
     private List<int> characterHP;
@@ -17,7 +16,7 @@ public class DamageManagement : MonoBehaviour
 
     private void Awake()
     {
-        DamageManagementInitialization();
+       // DamageManagementInitialization();
     }
 
 
@@ -32,6 +31,7 @@ public class DamageManagement : MonoBehaviour
         else
         {
             characterHP[indexCharacter] -= _damageReduced;
+            uiManager.SetHealth();
         }
     }
 
@@ -40,7 +40,7 @@ public class DamageManagement : MonoBehaviour
         Debug.Log("Character Death");
     }
 
-    private void DamageManagementInitialization()
+    public void DamageManagementInitialization()
     {
 
         characterHP = new List<int>();
@@ -56,6 +56,4 @@ public class DamageManagement : MonoBehaviour
             classArmor.Add(_class.classArmor);
         }
     }
-
-
 }

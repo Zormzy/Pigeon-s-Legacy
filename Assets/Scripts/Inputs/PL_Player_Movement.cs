@@ -25,7 +25,6 @@ public class PL_Player_Movement : MonoBehaviour
         moveTimer = 0;
         rotateTimer = 0;
         rotation = transformPlayer.eulerAngles.y;
-        print(rotation);
         rotationTarget = transformPlayer.rotation;
         moveTarget = transformPlayer.position;
     }

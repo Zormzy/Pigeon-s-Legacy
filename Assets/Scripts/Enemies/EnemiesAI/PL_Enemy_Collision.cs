@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PL_Enemy_Collision : MonoBehaviour
@@ -6,7 +7,7 @@ public class PL_Enemy_Collision : MonoBehaviour
     private bool canGoForward, canGoLeft, canGoRight, canGoBack;
     public static PL_Enemy_Collision Instance;
     private bool playerInFront;
-    private string[] nametags = new string[9] { "ClosedLockChest", "ClosedChest", "ClosedLockDoor", "ClosedDoor", "Trap", "DesactivatedTrap", "Exit", "wall", "Player"};
+    private string[] nametags = new string[] { "ClosedLockChest", "ClosedChest", "ClosedLockDoor", "ClosedDoor", "Trap", "DesactivatedTrap", "Exit", "Player", "wall" };
     private RaycastHit[] raycastsHit = new RaycastHit[4];
     private void Awake()
     {
@@ -35,15 +36,14 @@ public class PL_Enemy_Collision : MonoBehaviour
         Debug.DrawRay(transformEnemy.position, transformEnemy.right, Color.blue);
         Debug.DrawRay(transformEnemy.position, -transformEnemy.forward, Color.red);
         Debug.DrawRay(transformEnemy.position, -transformEnemy.right, Color.black);
-        foreach (string nametag in nametags)
+        if (Physics.Raycast(transformEnemy.position, transformEnemy.forward, out raycastsHit[0], 1))
         {
-            if (Physics.Raycast(transformEnemy.position, transformEnemy.forward, out raycastsHit[0], 1)) canGoForward = raycastsHit[0].transform.tag != nametag;
-            if (Physics.Raycast(transformEnemy.position, -transformEnemy.right, out raycastsHit[1], 1)) canGoLeft = raycastsHit[1].transform.tag != nametag;
-            if (Physics.Raycast(transformEnemy.position, transformEnemy.right, out raycastsHit[2], 1)) canGoRight = raycastsHit[2].transform.tag != nametag;
-            if (Physics.Raycast(transformEnemy.position, -transformEnemy.forward, out raycastsHit[3], 1)) canGoBack = raycastsHit[3].transform.tag != nametag;
+            canGoForward = !Array.Exists(nametags, element => element == raycastsHit[0].transform.tag);
         }
-
-        print("collision forward : " + canGoForward);
+        if (Physics.Raycast(transformEnemy.position, -transformEnemy.right, out raycastsHit[1], 1)) canGoLeft = raycastsHit[1].transform.tag != tag;
+        if (Physics.Raycast(transformEnemy.position, transformEnemy.right, out raycastsHit[2], 1)) canGoRight = raycastsHit[2].transform.tag != tag;
+        if (Physics.Raycast(transformEnemy.position, -transformEnemy.forward, out raycastsHit[3], 1)) canGoBack = raycastsHit[3].transform.tag != tag;
+        print("after can go forward : " + canGoForward);
     }
     public bool IsCanGo(string direction)
     {
@@ -57,5 +57,12 @@ public class PL_Enemy_Collision : MonoBehaviour
     public bool IsPlayerInFront()
     {
         return playerInFront;
+    }
+
+    public string ObjectInFront()
+    {
+        if (Physics.Raycast(transformEnemy.position, transformEnemy.forward, out raycastsHit[0], 1))
+            return raycastsHit[0].transform.tag;
+        else return null;
     }
 }

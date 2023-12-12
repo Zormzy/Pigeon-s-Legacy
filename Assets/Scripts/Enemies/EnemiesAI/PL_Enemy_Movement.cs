@@ -19,6 +19,12 @@ public class PL_Enemy_Movement : MonoBehaviour
 
     private void Awake()
     {
+        Initialize();
+    }
+
+    private void Initialize()
+    {
+
         transformEnemy = transform;
         moveTimer = 0;
         rotateTimer = 0;
@@ -30,27 +36,26 @@ public class PL_Enemy_Movement : MonoBehaviour
         playerCollision = GetComponent<PL_Enemy_Collision>();
     }
 
-    private void Update()
+    private void LateUpdate()
     {
-        if (moveTimer > 0)
-            moveTimer -= Time.deltaTime;
-        if (rotateTimer > 0)
-            rotateTimer -= Time.deltaTime;
+        Timer();
         MoveEnemy();
+        RotateEnemy();
+    }
 
-        transformEnemy.rotation = Quaternion.Slerp(transform.rotation, lookOnLook, PL_Player_Movement.lerpTime * Time.deltaTime);
+    private void Timer()
+    {
+        if (moveTimer >= 0)
+            moveTimer -= Time.deltaTime;
+        if (rotateTimer >= 0)
+            rotateTimer -= Time.deltaTime;
     }
 
     private void MoveEnemy()
     {
-        print("can go forward : " + enemyCollision.IsCanGo("forward"));
-        print("can go left : " + enemyCollision.IsCanGo("left"));
-        print("can go right : " + enemyCollision.IsCanGo("right"));
-        print("can go back : " + enemyCollision.IsCanGo("back"));
-        if (!enemyCollision.IsCanGo("forward"))
+        if (!enemyCollision.IsCanGo("forward") && playerCollision.ObjectInFront() != "Player")
         {
-            print("tourne");
-            RotateEnemy(false, 90);
+            RotateTowardsEnemy(Quaternion.AngleAxis(transformEnemy.eulerAngles.y + 90, Vector3.up));
         }
 
         if (enemyCollision.IsCanGo("forward") && moveTimer <= 0 && transformEnemy.position == moveTarget)
@@ -61,22 +66,28 @@ public class PL_Enemy_Movement : MonoBehaviour
             moveTimer = cooldownMoveTime;
         }
 
-        //if (transformEnemy.position == moveTarget)
-        //{
-        //    transformEnemy.position.Set((int)transformEnemy.position.x, (int)transformEnemy.position.y, (int)transformEnemy.position.z);
-        //}
         transformEnemy.position = Vector3.Lerp(transformEnemy.position, moveTarget, PL_Player_Movement.lerpTime * Time.deltaTime);
 
-        if((Mathf.Abs(transformPlayer.position.x - transformEnemy.position.x) <= .01f ||
-            Mathf.Abs(transformPlayer.position.z - transformEnemy.position.z) <= .01f) && playerDetecter.IsPlayerDetected())
+        if ((Mathf.Abs(transformPlayer.position.x - transformEnemy.position.x) <= .01f ||
+             Mathf.Abs(transformPlayer.position.z - transformEnemy.position.z) <= .01f) && playerDetecter.IsPlayerDetected())
         {
-            RotateEnemy(true, 0);
+            RotateTowardsEnemy(Quaternion.LookRotation(transformPlayer.position - transformEnemy.position));
+        }
+
+    }
+
+    private void RotateTowardsEnemy(Quaternion target)
+    {
+        if (rotateTimer <= 0)
+        {
+            lookOnLook = target;
+            rotateTimer = .5f;
         }
     }
 
-    public void RotateEnemy(bool player, float angle)
+    private void RotateEnemy()
     {
-       if(transformEnemy.rotation == lookOnLook) lookOnLook = (player) ? Quaternion.LookRotation(transformPlayer.position - transformEnemy.position) : Quaternion.AngleAxis(transformEnemy.eulerAngles.y + angle, Vector3.up);
+        transformEnemy.rotation = Quaternion.Slerp(transform.rotation, lookOnLook, PL_Player_Movement.lerpTime * Time.deltaTime);
     }
 }
     

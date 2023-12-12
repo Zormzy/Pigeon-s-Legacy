@@ -36,6 +36,5 @@ public class PL_Enemy_PlayerDetecter : MonoBehaviour
 
     private void Update()
     {
-        print(playerDetected);
     }
 }

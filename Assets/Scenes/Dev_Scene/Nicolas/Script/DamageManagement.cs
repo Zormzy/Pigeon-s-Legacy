@@ -9,7 +9,6 @@ public class DamageManagement : MonoBehaviour
     [SerializeField] private List<StatsData> characterStats;
     [SerializeField] private List<ClassData> classStats;
 
-
     private int _damageReduced;
     private List<int> characterHP;
     private List<int> characterArmor;
@@ -43,6 +42,7 @@ public class DamageManagement : MonoBehaviour
 
     private void DamageManagementInitialization()
     {
+
         characterHP = new List<int>();
         characterArmor = new List<int>();
 

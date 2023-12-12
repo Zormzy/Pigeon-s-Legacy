@@ -2,7 +2,16 @@ using UnityEngine;
 
 public class PL_Enemy_Movement : MonoBehaviour
 {
+    [Header("Components")]
+    [SerializeField] private float cooldownMoveTime;
+    [SerializeField] private Transform transformPlayer;
+    [SerializeField] private PL_Enemy_PlayerDetecter playerDetecter;
+    private PL_Enemy_Collision enemyCollision;
+    //private PL_Enemy_Collision playerCollision;
+    private PL_Enemy_Attack enemyAttack;
     private Transform transformEnemy;
+
+    [Header("Variables")]
     private float moveTimer;
     private float rotateTimer;
     private Vector3 moveTarget;
@@ -11,11 +20,6 @@ public class PL_Enemy_Movement : MonoBehaviour
     private bool move = true;
     private bool rotate = false;
     private Quaternion lookOnLook = Quaternion.identity;
-    private PL_Enemy_Collision enemyCollision;
-    private PL_Enemy_Collision playerCollision;
-    [SerializeField] private float cooldownMoveTime;
-    [SerializeField] private Transform transformPlayer;
-    [SerializeField] private PL_Enemy_PlayerDetecter playerDetecter;
 
     private void Awake()
     {
@@ -24,7 +28,6 @@ public class PL_Enemy_Movement : MonoBehaviour
 
     private void Initialize()
     {
-
         transformEnemy = transform;
         moveTimer = 0;
         rotateTimer = 0;
@@ -33,7 +36,8 @@ public class PL_Enemy_Movement : MonoBehaviour
         moveTarget = transformEnemy.position;
         rotate = true;
         enemyCollision = GetComponent<PL_Enemy_Collision>();
-        playerCollision = GetComponent<PL_Enemy_Collision>();
+        //playerCollision = GetComponent<PL_Enemy_Collision>();
+        enemyAttack = GetComponent<PL_Enemy_Attack>();
     }
 
     private void LateUpdate()
@@ -47,33 +51,41 @@ public class PL_Enemy_Movement : MonoBehaviour
     {
         if (moveTimer >= 0)
             moveTimer -= Time.deltaTime;
+
         if (rotateTimer >= 0)
             rotateTimer -= Time.deltaTime;
     }
 
     private void MoveEnemy()
     {
-        if (!enemyCollision.IsCanGo("forward") && playerCollision.ObjectInFront() != "Player")
+        if (enemyCollision.IsPlayerInFront())
         {
-            RotateTowardsEnemy(Quaternion.AngleAxis(transformEnemy.eulerAngles.y + 90, Vector3.up));
+            enemyAttack._isAttacking = true;
         }
-
-        if (enemyCollision.IsCanGo("forward") && moveTimer <= 0 && transformEnemy.position == moveTarget)
+        else
         {
-            moveTarget += transformEnemy.forward * PL_Player_Movement.groundSize;
-            moveTarget.x = Mathf.RoundToInt(moveTarget.x);
-            moveTarget.z = Mathf.RoundToInt(moveTarget.z);
-            moveTimer = cooldownMoveTime;
+            enemyAttack._isAttacking = false;
+            if (!enemyCollision.IsCanGo("forward") && enemyCollision.ObjectInFront() != "Player")
+            {
+                RotateTowardsEnemy(Quaternion.AngleAxis(transformEnemy.eulerAngles.y + 90, Vector3.up));
+            }
+
+            if (enemyCollision.IsCanGo("forward") && moveTimer <= 0 && transformEnemy.position == moveTarget)
+            {
+                moveTarget += transformEnemy.forward * PL_Player_Movement.groundSize;
+                moveTarget.x = Mathf.RoundToInt(moveTarget.x);
+                moveTarget.z = Mathf.RoundToInt(moveTarget.z);
+                moveTimer = cooldownMoveTime;
+            }
+
+            transformEnemy.position = Vector3.Lerp(transformEnemy.position, moveTarget, PL_Player_Movement.lerpTime * Time.deltaTime);
+
+            if ((Mathf.Abs(transformPlayer.position.x - transformEnemy.position.x) <= .01f ||
+                 Mathf.Abs(transformPlayer.position.z - transformEnemy.position.z) <= .01f) && playerDetecter.IsPlayerDetected())
+            {
+                RotateTowardsEnemy(Quaternion.LookRotation(transformPlayer.position - transformEnemy.position));
+            }
         }
-
-        transformEnemy.position = Vector3.Lerp(transformEnemy.position, moveTarget, PL_Player_Movement.lerpTime * Time.deltaTime);
-
-        if ((Mathf.Abs(transformPlayer.position.x - transformEnemy.position.x) <= .01f ||
-             Mathf.Abs(transformPlayer.position.z - transformEnemy.position.z) <= .01f) && playerDetecter.IsPlayerDetected())
-        {
-            RotateTowardsEnemy(Quaternion.LookRotation(transformPlayer.position - transformEnemy.position));
-        }
-
     }
 
     private void RotateTowardsEnemy(Quaternion target)

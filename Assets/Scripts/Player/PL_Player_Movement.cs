@@ -33,8 +33,10 @@ public class PL_Player_Movement : MonoBehaviour
     {
         if (moveTimer > 0)
             moveTimer -= Time.deltaTime;
+
         if (rotateTimer > 0)
             rotateTimer -= Time.deltaTime;
+
         MovePLayer();
         RotatePLayer();
     }

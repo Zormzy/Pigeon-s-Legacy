@@ -5,8 +5,9 @@ public class PL_Player_Collision : MonoBehaviour
     private Transform transformPlayer;
     private bool canGoForward, canGoLeft, canGoRight, canGoBack;
     public static PL_Player_Collision Instance;
-    private string[] nametags = new string[8] { "ClosedLockChest", "ClosedChest", "ClosedLockDoor", "ClosedDoor", "Trap", "DesactivatedTrap", "Exit", "wall" };
+    private string[] nametags = new string[9] { "ClosedLockChest", "ClosedChest", "ClosedLockDoor", "ClosedDoor", "Trap", "DesactivatedTrap", "Exit", "wall", "Enemy" };
     private RaycastHit[] raycastsHit = new RaycastHit[4];
+
     private void Awake()
     {
         transformPlayer = transform;
@@ -20,6 +21,7 @@ public class PL_Player_Collision : MonoBehaviour
             Destroy(this);
         }
     }
+
     private void Update()
     {
         CollisionDetectionPlayer();
@@ -40,6 +42,7 @@ public class PL_Player_Collision : MonoBehaviour
             if (Physics.Raycast(transformPlayer.position, transformPlayer.right, out raycastsHit[2], 1)) canGoRight = raycastsHit[2].transform.tag != nametag;
             if (Physics.Raycast(transformPlayer.position, -transformPlayer.forward, out raycastsHit[3], 1)) canGoBack = raycastsHit[3].transform.tag != nametag;
         }
+
         if (Physics.Raycast(transformPlayer.position, transformPlayer.forward, out raycastsHit[0], 1))
         {
             switch (raycastsHit[0].transform.tag)

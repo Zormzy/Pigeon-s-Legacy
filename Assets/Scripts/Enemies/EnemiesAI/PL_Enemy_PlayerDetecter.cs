@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PL_Enemy_PlayerDetecter : MonoBehaviour
@@ -32,9 +29,5 @@ public class PL_Enemy_PlayerDetecter : MonoBehaviour
     public bool IsPlayerDetected()
     {
         return playerDetected;
-    }
-
-    private void Update()
-    {
     }
 }

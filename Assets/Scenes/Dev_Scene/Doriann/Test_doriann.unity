@@ -1073,12 +1073,13 @@ GameObject:
   - component: {fileID: 1321590459}
   - component: {fileID: 1321590461}
   - component: {fileID: 1321590460}
+  - component: {fileID: 1321590462}
   - component: {fileID: 1321590458}
   - component: {fileID: 1321590457}
   - component: {fileID: 1321590456}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1196,6 +1197,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 731782d3da9f85f439ca337bf67523e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1321590462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1321590455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9b6df5d0c5ed1a4da627a02b2d76075, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isAttacking: 0
 --- !u!4 &1351727019 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2802354800731396091, guid: 3065f6bcee8f595409aeced681f999d3, type: 3}

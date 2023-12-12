@@ -2,7 +2,11 @@ using UnityEngine;
 
 public class PL_Player_Collision : MonoBehaviour
 {
+    [Header("Components")]
     private Transform transformPlayer;
+    private PL_Player_Interact _playerInteract;
+
+    [Header("Variables")]
     private bool canGoForward, canGoLeft, canGoRight, canGoBack;
     public static PL_Player_Collision Instance;
     private string[] nametags = new string[9] { "ClosedLockChest", "ClosedChest", "ClosedLockDoor", "ClosedDoor", "Trap", "DesactivatedTrap", "Exit", "wall", "Enemy" };
@@ -20,6 +24,7 @@ public class PL_Player_Collision : MonoBehaviour
             print("you have 2 scripts");
             Destroy(this);
         }
+        _playerInteract = GetComponent<PL_Player_Interact>();
     }
 
     private void Update()
@@ -50,11 +55,19 @@ public class PL_Player_Collision : MonoBehaviour
                 case "ClosedLockChest": break; //si le joueur a une clef, ouvrir le coffre
                 case "ClosedChest": break;
                 case "ClosedLockDoor": break; //si le joueur a une clef, ouvrir la porte
-                case "ClosedDoor": break; //ouvrir la porte
+                case "ClosedDoor":
+                    _playerInteract.interactionText.SetActive(true);
+                    _playerInteract.objectInFront = raycastsHit[0].transform.gameObject;
+                    break;
                 case "Trap": break; //proposer de désactiver
                 case "DesactivatedTrap": break;
-                case "Exit": break; // finir le niveau
-                default: break;
+                case "Exit":
+                    _playerInteract.interactionText.SetActive(true);
+                    _playerInteract.objectInFront = raycastsHit[0].transform.gameObject;
+                    break;
+                default:
+                    _playerInteract.interactionText.SetActive(false); 
+                    break;
             }
         }
     }

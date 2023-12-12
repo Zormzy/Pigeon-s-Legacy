@@ -13,12 +13,12 @@ public class PL_Enemy_PlayerDetecter : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        playerDetected = true;
+        playerDetected = (other.transform.tag == "Player") || playerDetected;
     }
     private void OnTriggerStay(Collider other)
     {
         print("player detected");
-        playerDetected = true;
+        playerDetected = (other.transform.tag == "Player") || playerDetected;
     }
 
     private void OnTriggerExit(Collider other)

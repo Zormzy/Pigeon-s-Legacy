@@ -22,7 +22,7 @@ public class PL_Enemy_Movement : MonoBehaviour
     private float rotation;
     private bool move = true;
     private bool rotate = false;
-    private Quaternion lookOnLook = Quaternion.identity;
+    private Quaternion lookOnLook;
     private bool mooving = false;
 
     private void Awake()
@@ -34,8 +34,9 @@ public class PL_Enemy_Movement : MonoBehaviour
     {
         transformEnemy = transform;
         moveTimer = 1.3f;
-        rotateTimer = 0;
-        rotation = 0;
+        rotateTimer = 0;/*
+        rotation = 0;*/
+        lookOnLook = transformEnemy.rotation;
         rotationTarget = transformEnemy.rotation;
         moveTarget = transformEnemy.position;
         rotate = true;
@@ -46,7 +47,7 @@ public class PL_Enemy_Movement : MonoBehaviour
         transformPlayer = player.transform;
     }
 
-    private void LateUpdate()
+    private void Update()
     {
         Timer();
         MoveEnemy();
@@ -65,7 +66,7 @@ public class PL_Enemy_Movement : MonoBehaviour
     private void MoveEnemy()
     {
         enemyAttack._isAttacking = enemyCollision.IsPlayerInFront();
-        if (!enemyCollision.IsCanGo("forward") && enemyCollision.ObjectInFront() != "Player")
+        if (!enemyCollision.IsCanGo("forward") && enemyCollision.ObjectInFront() != "Player" && enemyCollision.ObjectInFront() != null)
         {
             RotateTowardsEnemy(Quaternion.AngleAxis(transformEnemy.eulerAngles.y + 90, Vector3.up));
         }

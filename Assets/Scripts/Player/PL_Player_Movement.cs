@@ -18,7 +18,6 @@ public class PL_Player_Movement : MonoBehaviour
     public static float groundSize = 1;
     public static float lerpTime = 17;
     private PL_Player_Collision playerCollision;
-    [SerializeField] private GameObject enemy;
     private PL_Enemy_Movement enemyMovement;
     private bool mooving = false;
     private RaycastHit[] raycastHitsDetectEnemy = new RaycastHit[8];
@@ -33,7 +32,6 @@ public class PL_Player_Movement : MonoBehaviour
         rotationTarget = transformPlayer.rotation;
         moveTarget = transformPlayer.position;
         playerCollision = GetComponent<PL_Player_Collision>();
-        enemyMovement = enemy.GetComponent<PL_Enemy_Movement>();
     }
 
     private void Update()
@@ -52,7 +50,7 @@ public class PL_Player_Movement : MonoBehaviour
 
     private void MovePLayer()
     {
-        if(move && playerCollision.IsCanGo(contextValue) && moveTimer <= 0 && transformPlayer.position == moveTarget && (!IsInPlayerArea() || IsInPlayerArea() && !enemyMovement.IsMoving()))
+        if(move && playerCollision.IsCanGo(contextValue) && moveTimer <= 0 && transformPlayer.position == moveTarget && (enemyMovement == null || enemyMovement != null && (!IsInPlayerArea() || IsInPlayerArea() && !enemyMovement.IsMoving())))
         {
             moveTarget += transformPlayer.forward * groundSize * contextValue.z;
             moveTarget += transformPlayer.right * groundSize * contextValue.x;
@@ -89,7 +87,12 @@ public class PL_Player_Movement : MonoBehaviour
         raycastHitsDetectEnemyBool[7] = Physics.Raycast(transformPlayer.position, (transformPlayer.forward + -transformPlayer.right), out raycastHitsDetectEnemy[7], 1);
         for(int i = 0;i<8; i++)
         {
-           if(raycastHitsDetectEnemyBool[i]) retour = (raycastHitsDetectEnemy[i].transform.tag == "Enemy") ? true : false;
+           if(raycastHitsDetectEnemyBool[i])
+           {
+               retour = (raycastHitsDetectEnemy[i].transform.tag == "Enemy") ? true : false;
+
+               enemyMovement = raycastHitsDetectEnemy[i].transform.gameObject.GetComponent<PL_Enemy_Movement>();
+           }
            if (retour) break;
         }
         return retour;

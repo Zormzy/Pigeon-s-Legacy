@@ -40,16 +40,12 @@ public class PL_Enemy_Collision : MonoBehaviour
         Debug.DrawRay(transformEnemy.position, -transformEnemy.right, Color.black);
         if (Physics.Raycast(transformEnemy.position, transformEnemy.forward, out raycastsHit[0], 1))
         {
-            canGoForward = !Array.Exists(nametags, element => element == raycastsHit[0].transform.tag);
-            if (raycastsHit[0].transform.tag == "Player")
-                playerInFront = true;
-            else
-                playerInFront = false;
+            canGoForward = !Array.Exists(nametags, element => element == raycastsHit[0].transform.tag); 
+            playerInFront = raycastsHit[0].transform.tag == "Player";
         }
-        if (Physics.Raycast(transformEnemy.position, -transformEnemy.right, out raycastsHit[1], 1)) canGoLeft = raycastsHit[1].transform.tag != tag;
-        if (Physics.Raycast(transformEnemy.position, transformEnemy.right, out raycastsHit[2], 1)) canGoRight = raycastsHit[2].transform.tag != tag;
-        if (Physics.Raycast(transformEnemy.position, -transformEnemy.forward, out raycastsHit[3], 1)) canGoBack = raycastsHit[3].transform.tag != tag;
-        print("after can go forward : " + canGoForward);
+        if (Physics.Raycast(transformEnemy.position, -transformEnemy.right, out raycastsHit[1], 1)) canGoLeft = !Array.Exists(nametags, element => element == raycastsHit[1].transform.tag);
+        if (Physics.Raycast(transformEnemy.position, transformEnemy.right, out raycastsHit[2], 1)) canGoRight = !Array.Exists(nametags, element => element == raycastsHit[2].transform.tag);
+        if (Physics.Raycast(transformEnemy.position, -transformEnemy.forward, out raycastsHit[3], 1)) canGoBack = !Array.Exists(nametags, element => element == raycastsHit[3].transform.tag);
     }
     public bool IsCanGo(string direction)
     {

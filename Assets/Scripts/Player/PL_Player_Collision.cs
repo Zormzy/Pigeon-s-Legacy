@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PL_Player_Collision : MonoBehaviour
@@ -40,13 +41,18 @@ public class PL_Player_Collision : MonoBehaviour
         Debug.DrawRay(transformPlayer.position, -transformPlayer.forward, Color.red);
         Debug.DrawRay(transformPlayer.position, -transformPlayer.right, Color.black);
 
-        foreach (string nametag in nametags)
+        if (Physics.Raycast(transformPlayer.position, transformPlayer.forward, out raycastsHit[0], 1)) canGoForward = !Array.Exists(nametags, element => element == raycastsHit[0].transform.tag);
+        if (Physics.Raycast(transformPlayer.position, -transformPlayer.right, out raycastsHit[1], 1)) canGoLeft = !Array.Exists(nametags, element => element == raycastsHit[1].transform.tag);
+        if (Physics.Raycast(transformPlayer.position, transformPlayer.right, out raycastsHit[2], 1)) canGoRight = !Array.Exists(nametags, element => element == raycastsHit[2].transform.tag);
+        if (Physics.Raycast(transformPlayer.position, -transformPlayer.forward, out raycastsHit[3], 1)) canGoBack = !Array.Exists(nametags, element => element == raycastsHit[3].transform.tag);
+
+        /*foreach (string nametag in nametags)
         {
             if(Physics.Raycast(transformPlayer.position, transformPlayer.forward, out raycastsHit[0], 1)) canGoForward = raycastsHit[0].transform.tag != nametag;
             if (Physics.Raycast(transformPlayer.position, -transformPlayer.right, out raycastsHit[1], 1)) canGoLeft = raycastsHit[1].transform.tag != nametag;
             if (Physics.Raycast(transformPlayer.position, transformPlayer.right, out raycastsHit[2], 1)) canGoRight = raycastsHit[2].transform.tag != nametag;
             if (Physics.Raycast(transformPlayer.position, -transformPlayer.forward, out raycastsHit[3], 1)) canGoBack = raycastsHit[3].transform.tag != nametag;
-        }
+        }*/
 
         if (Physics.Raycast(transformPlayer.position, transformPlayer.forward, out raycastsHit[0], 1))
         {
@@ -66,9 +72,12 @@ public class PL_Player_Collision : MonoBehaviour
                     _playerInteract.objectInFront = raycastsHit[0].transform.gameObject;
                     break;
                 default:
-                    _playerInteract.interactionText.SetActive(false); 
-                    break;
+                    _playerInteract.interactionText.SetActive(false); break;
             }
+        }
+        else
+        {
+            _playerInteract.interactionText.SetActive(false);
         }
     }
 

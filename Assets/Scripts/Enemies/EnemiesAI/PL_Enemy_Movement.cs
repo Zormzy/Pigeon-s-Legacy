@@ -4,12 +4,15 @@ public class PL_Enemy_Movement : MonoBehaviour
 {
     [Header("Components")]
     [SerializeField] private float cooldownMoveTime;
-    [SerializeField] private Transform transformPlayer;
+    [SerializeField] private GameObject player;
     [SerializeField] private PL_Enemy_PlayerDetecter playerDetecter;
+    
     private PL_Enemy_Collision enemyCollision;
     //private PL_Enemy_Collision playerCollision;
     private PL_Enemy_Attack enemyAttack;
     private Transform transformEnemy;
+    private PL_Player_Movement playerMovement;
+    private Transform transformPlayer;
 
     [Header("Variables")]
     private float moveTimer;
@@ -20,6 +23,7 @@ public class PL_Enemy_Movement : MonoBehaviour
     private bool move = true;
     private bool rotate = false;
     private Quaternion lookOnLook = Quaternion.identity;
+    private bool mooving = false;
 
     private void Awake()
     {
@@ -29,7 +33,7 @@ public class PL_Enemy_Movement : MonoBehaviour
     private void Initialize()
     {
         transformEnemy = transform;
-        moveTimer = 0;
+        moveTimer = 1.3f;
         rotateTimer = 0;
         rotation = 0;
         rotationTarget = transformEnemy.rotation;
@@ -38,6 +42,8 @@ public class PL_Enemy_Movement : MonoBehaviour
         enemyCollision = GetComponent<PL_Enemy_Collision>();
         //playerCollision = GetComponent<PL_Enemy_Collision>();
         enemyAttack = GetComponent<PL_Enemy_Attack>();
+        playerMovement = player.GetComponent<PL_Player_Movement>();
+        transformPlayer = player.transform;
     }
 
     private void LateUpdate()
@@ -58,33 +64,32 @@ public class PL_Enemy_Movement : MonoBehaviour
 
     private void MoveEnemy()
     {
-        if (enemyCollision.IsPlayerInFront())
+        enemyAttack._isAttacking = enemyCollision.IsPlayerInFront();
+        if (!enemyCollision.IsCanGo("forward") && enemyCollision.ObjectInFront() != "Player")
         {
-            enemyAttack._isAttacking = true;
+            RotateTowardsEnemy(Quaternion.AngleAxis(transformEnemy.eulerAngles.y + 90, Vector3.up));
         }
-        else
+
+        if (enemyCollision.IsCanGo("forward") && moveTimer <= 0 && transformEnemy.position == moveTarget && (!playerMovement.IsInPlayerArea() || playerMovement.IsInPlayerArea() && !playerMovement.IsMoving()))
         {
-            enemyAttack._isAttacking = false;
-            if (!enemyCollision.IsCanGo("forward") && enemyCollision.ObjectInFront() != "Player")
-            {
-                RotateTowardsEnemy(Quaternion.AngleAxis(transformEnemy.eulerAngles.y + 90, Vector3.up));
-            }
+            moveTarget += transformEnemy.forward * PL_Player_Movement.groundSize;
+            moveTarget.x = Mathf.RoundToInt(moveTarget.x);
+            moveTarget.z = Mathf.RoundToInt(moveTarget.z);
+            moveTimer = cooldownMoveTime;
+            mooving = true;
+        }
 
-            if (enemyCollision.IsCanGo("forward") && moveTimer <= 0 && transformEnemy.position == moveTarget)
-            {
-                moveTarget += transformEnemy.forward * PL_Player_Movement.groundSize;
-                moveTarget.x = Mathf.RoundToInt(moveTarget.x);
-                moveTarget.z = Mathf.RoundToInt(moveTarget.z);
-                moveTimer = cooldownMoveTime;
-            }
+        if (transformEnemy.position == moveTarget)
+        {
+            mooving = false;
+        }
 
-            transformEnemy.position = Vector3.Lerp(transformEnemy.position, moveTarget, PL_Player_Movement.lerpTime * Time.deltaTime);
+        transformEnemy.position = Vector3.Lerp(transformEnemy.position, moveTarget, PL_Player_Movement.lerpTime * Time.deltaTime);
 
-            if ((Mathf.Abs(transformPlayer.position.x - transformEnemy.position.x) <= .01f ||
-                 Mathf.Abs(transformPlayer.position.z - transformEnemy.position.z) <= .01f) && playerDetecter.IsPlayerDetected())
-            {
-                RotateTowardsEnemy(Quaternion.LookRotation(transformPlayer.position - transformEnemy.position));
-            }
+        if ((Mathf.Abs(transformPlayer.position.x - transformEnemy.position.x) <= .01f ||
+             Mathf.Abs(transformPlayer.position.z - transformEnemy.position.z) <= .01f) && playerDetecter.IsPlayerDetected())
+        {
+            RotateTowardsEnemy(Quaternion.LookRotation(transformPlayer.position - transformEnemy.position));
         }
     }
 
@@ -100,6 +105,11 @@ public class PL_Enemy_Movement : MonoBehaviour
     private void RotateEnemy()
     {
         transformEnemy.rotation = Quaternion.Slerp(transform.rotation, lookOnLook, PL_Player_Movement.lerpTime * Time.deltaTime);
+    }
+
+    public bool IsMoving()
+    {
+        return mooving;
     }
 }
     

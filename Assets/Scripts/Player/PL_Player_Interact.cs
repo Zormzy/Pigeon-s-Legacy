@@ -7,18 +7,7 @@ public class PL_Player_Interact : MonoBehaviour
     public GameObject objectInFront;
     public GameObject interactionText;
     [SerializeField] private GameObject endGameMenu;
-
-    [Header("Variables")]
-    private string _interactible;
-
-    //public void InteractPlayer()
-    //{
-    //    interactionText.SetActive(true);
-    //    if (objectInFront.tag == "interactible")
-    //    {
-    //        //interagir
-    //    }
-    //}
+    [SerializeField] private EndMenu endGameMenuManager;
 
     public void OnPlayerInteract(InputAction.CallbackContext context)
     {
@@ -37,7 +26,7 @@ public class PL_Player_Interact : MonoBehaviour
 
     public void OnPlayerExit()
     {
-        //endGameMenu.GetComponent<EndMenu>().OnGameOverCheck(true);
+        endGameMenuManager.OnGameOverCheck(true);
         endGameMenu.SetActive(true);
     }
 }

@@ -45,7 +45,6 @@ public class PL_Player_Movement : MonoBehaviour
         MovePLayer();
         RotatePLayer();
         IsInPlayerArea();
-
     }
 
     private void MovePLayer()

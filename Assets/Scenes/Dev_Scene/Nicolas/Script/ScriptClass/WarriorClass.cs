@@ -8,7 +8,7 @@ public class WarriorClass : ClassesSkills
     private int damage;
     public override void Skill1(GameObject target)
     {
-        damage = statsData.Damage + classData.classDamage;   
+        damage = statsData.Damage + classData.classDamage;
         //call Enemy function TakeDamage (damage)
     }
 

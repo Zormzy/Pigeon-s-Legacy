@@ -56,4 +56,6 @@ public class DamageManagement : MonoBehaviour
             classArmor.Add(_class.classArmor);
         }
     }
+
+
 }

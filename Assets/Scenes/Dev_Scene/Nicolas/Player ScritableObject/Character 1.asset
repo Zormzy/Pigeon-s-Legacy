@@ -15,6 +15,7 @@ MonoBehaviour:
   name: Character 1
   description: Base of Character Data
   gameObjectmodel: {fileID: 0}
+  MaxHP: 15
   HP: 15
   Armor: 1
   Speed: 1

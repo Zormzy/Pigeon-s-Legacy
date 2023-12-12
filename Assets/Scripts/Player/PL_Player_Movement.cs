@@ -17,37 +17,54 @@ public class PL_Player_Movement : MonoBehaviour
     [SerializeField] private float cooldownMoveTime;
     public static float groundSize = 1;
     public static float lerpTime = 17;
-    [SerializeField] private PL_Player_Collision playerCollision;
+    private PL_Player_Collision playerCollision;
+    [SerializeField] private GameObject enemy;
+    private PL_Enemy_Movement enemyMovement;
+    private bool mooving = false;
+    private RaycastHit[] raycastHitsDetectEnemy = new RaycastHit[8];
+    private bool[] raycastHitsDetectEnemyBool = new bool[8];
 
     private void Awake()
     {
         transformPlayer = transform;
         moveTimer = 0;
         rotateTimer = 0;
-        rotation = 0;
+        rotation = transformPlayer.eulerAngles.y;
         rotationTarget = transformPlayer.rotation;
         moveTarget = transformPlayer.position;
+        playerCollision = GetComponent<PL_Player_Collision>();
+        enemyMovement = enemy.GetComponent<PL_Enemy_Movement>();
     }
 
     private void Update()
     {
         if (moveTimer > 0)
             moveTimer -= Time.deltaTime;
+
         if (rotateTimer > 0)
             rotateTimer -= Time.deltaTime;
+
         MovePLayer();
         RotatePLayer();
+        IsInPlayerArea();
+
     }
 
     private void MovePLayer()
     {
-        if(move && playerCollision.IsCanGo(contextValue) && moveTimer <= 0 && transformPlayer.position == moveTarget)
+        if(move && playerCollision.IsCanGo(contextValue) && moveTimer <= 0 && transformPlayer.position == moveTarget && (!IsInPlayerArea() || IsInPlayerArea() && !enemyMovement.IsMoving()))
         {
             moveTarget += transformPlayer.forward * groundSize * contextValue.z;
             moveTarget += transformPlayer.right * groundSize * contextValue.x;
             moveTarget.x = Mathf.RoundToInt(moveTarget.x);
             moveTarget.z = Mathf.RoundToInt(moveTarget.z);
             moveTimer = cooldownMoveTime;
+            mooving = true;
+        }
+
+        if (transformPlayer.position == moveTarget)
+        {
+            mooving = false;
         }
 
         if (transformPlayer.position == moveTarget)
@@ -56,6 +73,28 @@ public class PL_Player_Movement : MonoBehaviour
         }
         transformPlayer.position = Vector3.Lerp(transformPlayer.position, moveTarget, lerpTime * Time.deltaTime);
     }
+
+    public bool IsInPlayerArea()
+    {
+        bool retour = false;
+        Debug.DrawRay(transformPlayer.position, (transformPlayer.forward) * 2, Color.green);
+        Debug.DrawRay(transformPlayer.position, (transformPlayer.forward + transformPlayer.right), Color.red);
+        raycastHitsDetectEnemyBool[0] = Physics.Raycast(transformPlayer.position, (transformPlayer.forward) * 2, out raycastHitsDetectEnemy[0], 2);
+        raycastHitsDetectEnemyBool[1] = Physics.Raycast(transformPlayer.position, (transformPlayer.forward + transformPlayer.right), out raycastHitsDetectEnemy[1], 1);
+        raycastHitsDetectEnemyBool[2] = Physics.Raycast(transformPlayer.position, (transformPlayer.right) * 2, out raycastHitsDetectEnemy[2], 2);
+        raycastHitsDetectEnemyBool[3] = Physics.Raycast(transformPlayer.position, (-transformPlayer.forward + transformPlayer.right), out raycastHitsDetectEnemy[3], 1);
+        raycastHitsDetectEnemyBool[4] = Physics.Raycast(transformPlayer.position, (-transformPlayer.forward) * 2, out raycastHitsDetectEnemy[4], 2);
+        raycastHitsDetectEnemyBool[5] = Physics.Raycast(transformPlayer.position, (-transformPlayer.forward + -transformPlayer.right), out raycastHitsDetectEnemy[5], 1);
+        raycastHitsDetectEnemyBool[6] = Physics.Raycast(transformPlayer.position, (-transformPlayer.right) * 2, out raycastHitsDetectEnemy[6], 2);
+        raycastHitsDetectEnemyBool[7] = Physics.Raycast(transformPlayer.position, (transformPlayer.forward + -transformPlayer.right), out raycastHitsDetectEnemy[7], 1);
+        for(int i = 0;i<8; i++)
+        {
+           if(raycastHitsDetectEnemyBool[i]) retour = (raycastHitsDetectEnemy[i].transform.tag == "Enemy") ? true : false;
+           if (retour) break;
+        }
+        return retour;
+    }
+
     public void MovePlayerInput(InputAction.CallbackContext ctx)
     {
         contextValue = ctx.ReadValue<Vector3>();
@@ -88,5 +127,10 @@ public class PL_Player_Movement : MonoBehaviour
         {
             rotate = false;
         }
+    }
+
+    public bool IsMoving()
+    {
+        return mooving;
     }
 }

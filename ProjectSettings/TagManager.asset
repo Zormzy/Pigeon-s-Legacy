@@ -6,6 +6,15 @@ TagManager:
   tags:
   - interactible
   - wall
+  - ClosedLockChest
+  - ClosedChest
+  - OpenChest
+  - ClosedLockDoor
+  - ClosedDoor
+  - OpenDoor
+  - Trap
+  - DesactivatedTrap
+  - Exit
   layers:
   - Default
   - TransparentFX

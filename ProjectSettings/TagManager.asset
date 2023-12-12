@@ -6,6 +6,14 @@ TagManager:
   tags:
   - interactible
   - wall
+  - ClosedLockChest
+  - ClosedChest
+  - OpenChest
+  - ClosedLockDoor
+  - ClosedDoor
+  - OpenDoor
+  - Trap
+  - DesactivatedTrap
   - Enemy
   - Exit
   layers:

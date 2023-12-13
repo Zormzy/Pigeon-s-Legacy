@@ -47,7 +47,7 @@ public class UiManager : MonoBehaviour
     {
         for (int i = 0; i < characterStats.Count; i++)
         {
-            healthBars[i].value = damageManagement.characterHP[i];
+            healthBars[i].value = characterStats[i].HP;
             //charactersHp[i].text = healthBars[i].value.ToString() + " / " + healthBars[i].maxValue.ToString();
         }
     }

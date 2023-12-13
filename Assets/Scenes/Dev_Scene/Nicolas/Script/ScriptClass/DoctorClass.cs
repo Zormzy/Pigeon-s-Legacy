@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class DoctorClass : ClassesSkills
@@ -7,6 +8,10 @@ public class DoctorClass : ClassesSkills
     [SerializeField] private StatsData statsData;
     [SerializeField] private HealthKitData healthKitData;
     [SerializeField] private Transform _playerTransform;
+    [SerializeField] private GameObject player;
+    [SerializeField] private List<StatsData> characterStats;
+    [SerializeField] private UiManager uiManager;
+    [SerializeField] private DamageManagement damageManagement;
 
     private float[] cooldowns = new float[4];
     private int _damage;
@@ -37,26 +42,30 @@ public class DoctorClass : ClassesSkills
 
         if (cooldowns[2] > 0)
         {
-            cooldowns[3] -= Time.deltaTime;
+            cooldowns[2] -= Time.deltaTime;
         }
     }
 
     public override void Skill2()
-    {  
-        statsData.MaxHP = 15;
+    {
         if (cooldowns[2] <= 0)
         {
-            if (statsData.HP > 0)
+            if (damageManagement.currentAttackedPlayer.HP + healthKitData.regenHP >= damageManagement.currentAttackedPlayer.MaxHP)
             {
-                statsData.HP += healthKitData.regenHP;
+                print("damage higher");
+                damageManagement.currentAttackedPlayer.HP = 15;
+                uiManager.SetHealth();
+            }
+            else if (damageManagement.currentAttackedPlayer.HP > 0)
+            {
+                print("heal");
+                //si on a le medkit
+                damageManagement.currentAttackedPlayer.HP += healthKitData.regenHP;
+                uiManager.SetHealth();
                 //Destroy(target.gameObject);
                 // use medkit
             }
 
-            if (statsData.HP + healthKitData.regenHP > statsData.MaxHP)
-            {
-                statsData.HP = 15;
-            }
             cooldowns[2] = cooldowns[3];
         }
     }

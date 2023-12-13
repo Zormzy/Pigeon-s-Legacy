@@ -17,3 +17,5 @@ MonoBehaviour:
   classArmor: 0
   classSpeed: 0
   classDamage: 0
+  cooldownAttack: 1
+  cooldownSkill: 1

@@ -6,6 +6,9 @@ TagManager:
   tags:
   - wall
   - interactibles
+  - ClosedChest
+  - ClosedLockChest
+  - OpenChest
   layers:
   - Default
   - TransparentFX

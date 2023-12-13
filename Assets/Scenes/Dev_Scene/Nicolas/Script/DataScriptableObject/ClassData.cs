@@ -9,5 +9,7 @@ public class ClassData : ScriptableObject
     public int classArmor;
     public int classSpeed;
     public int classDamage;
+    public float cooldownAttack;
+    public float cooldownSkill;
 
 }

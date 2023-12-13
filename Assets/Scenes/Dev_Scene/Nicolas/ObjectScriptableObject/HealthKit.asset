@@ -14,9 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: 
   gameObjectmodel: {fileID: 0}
-  bonusHeavyArmor: 2
-  bonusAverageArmor: 1
-  bonusLongWeapon: 2
-  bonusShortWeapon: 1
-  bonusDistanceWeapon: 1
-  healthKit: 14
+  regenHP: 5

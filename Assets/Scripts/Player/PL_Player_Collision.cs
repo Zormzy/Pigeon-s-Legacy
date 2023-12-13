@@ -10,7 +10,7 @@ public class PL_Player_Collision : MonoBehaviour
     [Header("Variables")]
     private bool canGoForward, canGoLeft, canGoRight, canGoBack;
     public static PL_Player_Collision Instance;
-    private string[] nametags = new string[9] { "ClosedLockChest", "ClosedChest", "ClosedLockDoor", "ClosedDoor", "Trap", "DesactivatedTrap", "Exit", "wall", "Enemy" };
+    private string[] nametags = new string[7] { "ClosedLockChest", "ClosedChest", "ClosedLockDoor", "ClosedDoor", "Exit", "wall", "Enemy" };
     private RaycastHit[] raycastsHit = new RaycastHit[4];
 
     private void Awake()
@@ -46,14 +46,6 @@ public class PL_Player_Collision : MonoBehaviour
         if (Physics.Raycast(transformPlayer.position, transformPlayer.right, out raycastsHit[2], 1)) canGoRight = !Array.Exists(nametags, element => element == raycastsHit[2].transform.tag);
         if (Physics.Raycast(transformPlayer.position, -transformPlayer.forward, out raycastsHit[3], 1)) canGoBack = !Array.Exists(nametags, element => element == raycastsHit[3].transform.tag);
 
-        /*foreach (string nametag in nametags)
-        {
-            if(Physics.Raycast(transformPlayer.position, transformPlayer.forward, out raycastsHit[0], 1)) canGoForward = raycastsHit[0].transform.tag != nametag;
-            if (Physics.Raycast(transformPlayer.position, -transformPlayer.right, out raycastsHit[1], 1)) canGoLeft = raycastsHit[1].transform.tag != nametag;
-            if (Physics.Raycast(transformPlayer.position, transformPlayer.right, out raycastsHit[2], 1)) canGoRight = raycastsHit[2].transform.tag != nametag;
-            if (Physics.Raycast(transformPlayer.position, -transformPlayer.forward, out raycastsHit[3], 1)) canGoBack = raycastsHit[3].transform.tag != nametag;
-        }*/
-
         if (Physics.Raycast(transformPlayer.position, transformPlayer.forward, out raycastsHit[0], 1))
         {
             switch (raycastsHit[0].transform.tag)
@@ -65,9 +57,7 @@ public class PL_Player_Collision : MonoBehaviour
                     _playerInteract.interactionText.SetActive(true);
                     _playerInteract.objectInFront = raycastsHit[0].transform.gameObject;
                     break;
-                case "Trap": break; //proposer de désactiver
-                case "DesactivatedTrap": break;
-                case "Exit":
+                case "Exit": 
                     _playerInteract.interactionText.SetActive(true);
                     _playerInteract.objectInFront = raycastsHit[0].transform.gameObject;
                     break;

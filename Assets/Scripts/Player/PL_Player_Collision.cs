@@ -36,10 +36,10 @@ public class PL_Player_Collision : MonoBehaviour
     private void CollisionDetectionPlayer()
     {
         canGoForward = canGoBack = canGoLeft = canGoRight = true;
-        Debug.DrawRay(transformPlayer.position, transformPlayer.forward, Color.green);
-        Debug.DrawRay(transformPlayer.position, transformPlayer.right, Color.blue);
-        Debug.DrawRay(transformPlayer.position, -transformPlayer.forward, Color.red);
-        Debug.DrawRay(transformPlayer.position, -transformPlayer.right, Color.black);
+        //Debug.DrawRay(transformPlayer.position, transformPlayer.forward, Color.green);
+        //Debug.DrawRay(transformPlayer.position, transformPlayer.right, Color.blue);
+        //Debug.DrawRay(transformPlayer.position, -transformPlayer.forward, Color.red);
+        //Debug.DrawRay(transformPlayer.position, -transformPlayer.right, Color.black);
 
         if (Physics.Raycast(transformPlayer.position, transformPlayer.forward, out raycastsHit[0], 1)) canGoForward = !Array.Exists(nametags, element => element == raycastsHit[0].transform.tag);
         if (Physics.Raycast(transformPlayer.position, -transformPlayer.right, out raycastsHit[1], 1)) canGoLeft = !Array.Exists(nametags, element => element == raycastsHit[1].transform.tag);

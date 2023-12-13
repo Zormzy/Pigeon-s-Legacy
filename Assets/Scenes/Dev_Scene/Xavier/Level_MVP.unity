@@ -172,8 +172,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b25f204c217cbc408680b40591ba4e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  classData: {fileID: 0}
-  statsData: {fileID: 0}
+  classData: {fileID: 11400000, guid: 35515265acf45a74a8b2b1a49dfdc88e, type: 2}
+  statsData: {fileID: 11400000, guid: 6ef3f89dd23d06348bea1800ab915b20, type: 2}
+  _playerTransform: {fileID: 996413066}
 --- !u!1 &9140183
 GameObject:
   m_ObjectHideFlags: 0
@@ -2948,10 +2949,10 @@ MonoBehaviour:
       - m_Target: {fileID: 1095615707}
         m_TargetAssemblyTypeName: DoctorClass, Assembly-CSharp
         m_MethodName: Skill1
-        m_Mode: 2
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3929,10 +3930,10 @@ MonoBehaviour:
       - m_Target: {fileID: 5293457}
         m_TargetAssemblyTypeName: ThiefClass, Assembly-CSharp
         m_MethodName: Skill2
-        m_Mode: 2
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4205,10 +4206,10 @@ MonoBehaviour:
       - m_Target: {fileID: 1702655277}
         m_TargetAssemblyTypeName: EngineerClass, Assembly-CSharp
         m_MethodName: Skill1
-        m_Mode: 2
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4575,10 +4576,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7582449904402707780, guid: 7cf9936ba7a64994da4d458f593ed338, type: 3}
-      propertyPath: _enemyStats
-      value: 
-      objectReference: {fileID: 11400000, guid: 5bdfa3babe1b3ec418c1602b6377aa86, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4666,7 +4663,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 964212497}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1702655277}
+        m_TargetAssemblyTypeName: EngineerClass, Assembly-CSharp
+        m_MethodName: Skill2
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &964212497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5005,45 +5014,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 700228838}
     - target: {fileID: 2567449999453437655, guid: a54e1bc9f49c96a41b7a7aaf77cd2e3f, type: 3}
-      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2567449999453437655, guid: a54e1bc9f49c96a41b7a7aaf77cd2e3f, type: 3}
-      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2567449999453437655, guid: a54e1bc9f49c96a41b7a7aaf77cd2e3f, type: 3}
-      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2567449999453437655, guid: a54e1bc9f49c96a41b7a7aaf77cd2e3f, type: 3}
-      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 996413065}
-    - target: {fileID: 2567449999453437655, guid: a54e1bc9f49c96a41b7a7aaf77cd2e3f, type: 3}
       propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 700228839}
-    - target: {fileID: 2567449999453437655, guid: a54e1bc9f49c96a41b7a7aaf77cd2e3f, type: 3}
-      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2567449999453437655, guid: a54e1bc9f49c96a41b7a7aaf77cd2e3f, type: 3}
-      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnPlayerInteract
-      objectReference: {fileID: 0}
-    - target: {fileID: 2567449999453437655, guid: a54e1bc9f49c96a41b7a7aaf77cd2e3f, type: 3}
-      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PauseMenuOpen
-      objectReference: {fileID: 0}
-    - target: {fileID: 2567449999453437655, guid: a54e1bc9f49c96a41b7a7aaf77cd2e3f, type: 3}
-      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PauseMenu, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 2567449999453437655, guid: a54e1bc9f49c96a41b7a7aaf77cd2e3f, type: 3}
-      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 2802354800731396091, guid: a54e1bc9f49c96a41b7a7aaf77cd2e3f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -5114,17 +5087,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff2877907e391e742a83a22c9efac6dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &996413065 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 750825252247826146, guid: a54e1bc9f49c96a41b7a7aaf77cd2e3f, type: 3}
+--- !u!4 &996413066 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2802354800731396091, guid: a54e1bc9f49c96a41b7a7aaf77cd2e3f, type: 3}
   m_PrefabInstance: {fileID: 996413050}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 996413051}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94fd2fda9b05d5141937daebcada4bce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1009714546
 GameObject:
   m_ObjectHideFlags: 0
@@ -5653,9 +5620,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b69b2d3fed35df8469dff605719bc85d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  classData: {fileID: 0}
-  statsData: {fileID: 0}
-  healthKitData: {fileID: 0}
+  classData: {fileID: 11400000, guid: e4ef7bf8118c2d644916884baadf1efd, type: 2}
+  statsData: {fileID: 11400000, guid: 80699af27117bd84388b44da89d2c46e, type: 2}
+  healthKitData: {fileID: 11400000, guid: f8dd84b6f9e277d438b51bd93b76acb3, type: 2}
+  _playerTransform: {fileID: 996413066}
 --- !u!1 &1102342529
 GameObject:
   m_ObjectHideFlags: 0
@@ -7269,8 +7237,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f7c7c9ab6c104749a6c79cee06e0b39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  classData: {fileID: 0}
-  statsData: {fileID: 0}
+  classData: {fileID: 11400000, guid: 6925b0775370e6e4fb5aec24ed0a3271, type: 2}
+  statsData: {fileID: 11400000, guid: 4bbcdb7be069bb743a6a2b41d8ffa9fb, type: 2}
+  _playerTransform: {fileID: 996413066}
 --- !u!1001 &1339877051
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7286,18 +7255,6 @@ PrefabInstance:
     - target: {fileID: 5463153753070673401, guid: d368d654646c63443a57a8623e3c85b0, type: 3}
       propertyPath: m_Name
       value: trigger
-      objectReference: {fileID: 0}
-    - target: {fileID: 6336490331442546095, guid: d368d654646c63443a57a8623e3c85b0, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 6336490331442546095, guid: d368d654646c63443a57a8623e3c85b0, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 6336490331442546095, guid: d368d654646c63443a57a8623e3c85b0, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6336490331442546095, guid: d368d654646c63443a57a8623e3c85b0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7338,10 +7295,6 @@ PrefabInstance:
     - target: {fileID: 6336490331442546095, guid: d368d654646c63443a57a8623e3c85b0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6336490331442546095, guid: d368d654646c63443a57a8623e3c85b0, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7615,10 +7568,10 @@ MonoBehaviour:
       - m_Target: {fileID: 1321686894}
         m_TargetAssemblyTypeName: WarriorClass, Assembly-CSharp
         m_MethodName: Skill2
-        m_Mode: 2
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -8881,7 +8834,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1570850063}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1095615707}
+        m_TargetAssemblyTypeName: DoctorClass, Assembly-CSharp
+        m_MethodName: Skill2
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1570850063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9473,10 +9438,10 @@ MonoBehaviour:
       - m_Target: {fileID: 5293457}
         m_TargetAssemblyTypeName: ThiefClass, Assembly-CSharp
         m_MethodName: Skill1
-        m_Mode: 2
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -9785,8 +9750,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f40f17d57bec8664f8b7a27877a4bcab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  classData: {fileID: 0}
-  statsData: {fileID: 0}
+  classData: {fileID: 11400000, guid: c5d143c04d5439842aabe07063096711, type: 2}
+  statsData: {fileID: 11400000, guid: d3e29e72a92e15b4991fd9f26a6e9474, type: 2}
+  _playerTransform: {fileID: 996413066}
 --- !u!1 &1707321284
 GameObject:
   m_ObjectHideFlags: 0
@@ -11644,10 +11610,10 @@ MonoBehaviour:
       - m_Target: {fileID: 1321686894}
         m_TargetAssemblyTypeName: WarriorClass, Assembly-CSharp
         m_MethodName: Skill1
-        m_Mode: 2
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

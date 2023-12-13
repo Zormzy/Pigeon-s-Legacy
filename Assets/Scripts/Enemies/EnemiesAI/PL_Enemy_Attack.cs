@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PL_Enemy_Attack : MonoBehaviour
 {
@@ -6,6 +7,10 @@ public class PL_Enemy_Attack : MonoBehaviour
     [SerializeField] private EnnemyStatsData _enemyStats;
     private GameObject _player;
     private DamageManagement _damageManagement;
+
+    [Header("Character1")]
+    [SerializeField] private Slider healthBarEnnemy;
+    [SerializeField] private Image healthFill;
 
     [Header("Varibales")]
     public bool _isAttacking;
@@ -18,6 +23,8 @@ public class PL_Enemy_Attack : MonoBehaviour
     private void Awake()
     {
         PL_Enemy_Attack_Initialization();
+        healthBarEnnemy.maxValue = _enemyStats.HP;
+        healthBarEnnemy.value = _enemyStats.HP;
     }
 
     private void Update()
@@ -45,6 +52,8 @@ public class PL_Enemy_Attack : MonoBehaviour
             OnEnemyDeath();
         else
             _enemyHitPoints -= ((damage - _enemyArmorPoints));
+            healthBarEnnemy.value -= ((damage - _enemyArmorPoints));
+
     }
 
     private void OnEnemyDeath()

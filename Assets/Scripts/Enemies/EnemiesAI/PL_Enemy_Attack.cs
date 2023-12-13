@@ -3,7 +3,7 @@ using UnityEngine;
 public class PL_Enemy_Attack : MonoBehaviour
 {
     [Header("Components")]
-    //[SerializeField] private EnemyStatsData _enemyStats;
+    [SerializeField] private EnnemyStatsData _enemyStats;
     private GameObject _player;
     private DamageManagement _damageManagement;
 
@@ -32,8 +32,7 @@ public class PL_Enemy_Attack : MonoBehaviour
     {
         if (_attackTimerCount >= _attackTimer)
         {
-            Debug.Log("Enemy attack");
-            //_damageManagement.TakeDamage(Random.Range(0, 2), _attackDamage);
+            _damageManagement.TakeDamage(Random.Range(0, 1), _enemyAttackDamage);
             _attackTimerCount = 0;
         }
         else
@@ -56,9 +55,9 @@ public class PL_Enemy_Attack : MonoBehaviour
     private void PL_Enemy_Attack_Initialization()
     {
         _isAttacking = false;
-        //_attackDamage = _enemyStats.Damage;
-        //_enemyHitPoints = _enemyStats.HP;
-        //_enemyArmorPoints = _enemyStats.Armor;
+        _enemyAttackDamage = _enemyStats.Damage;
+        _enemyHitPoints = _enemyStats.HP;
+        _enemyArmorPoints = _enemyStats.Armor;
         _attackTimer = 1f;
         _attackTimerCount = 0f;
         _player = GameObject.FindGameObjectWithTag("Player");

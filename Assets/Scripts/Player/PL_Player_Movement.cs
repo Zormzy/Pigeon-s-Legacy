@@ -45,7 +45,6 @@ public class PL_Player_Movement : MonoBehaviour
         MovePLayer();
         RotatePLayer();
         IsInPlayerArea();
-
     }
 
     private void MovePLayer()
@@ -75,8 +74,8 @@ public class PL_Player_Movement : MonoBehaviour
     public bool IsInPlayerArea()
     {
         bool retour = false;
-        Debug.DrawRay(transformPlayer.position, (transformPlayer.forward) * 2, Color.green);
-        Debug.DrawRay(transformPlayer.position, (transformPlayer.forward + transformPlayer.right), Color.red);
+        //Debug.DrawRay(transformPlayer.position, (transformPlayer.forward) * 2, Color.green);
+        //Debug.DrawRay(transformPlayer.position, (transformPlayer.forward + transformPlayer.right), Color.red);
         raycastHitsDetectEnemyBool[0] = Physics.Raycast(transformPlayer.position, (transformPlayer.forward) * 2, out raycastHitsDetectEnemy[0], 2);
         raycastHitsDetectEnemyBool[1] = Physics.Raycast(transformPlayer.position, (transformPlayer.forward + transformPlayer.right), out raycastHitsDetectEnemy[1], 1);
         raycastHitsDetectEnemyBool[2] = Physics.Raycast(transformPlayer.position, (transformPlayer.right) * 2, out raycastHitsDetectEnemy[2], 2);

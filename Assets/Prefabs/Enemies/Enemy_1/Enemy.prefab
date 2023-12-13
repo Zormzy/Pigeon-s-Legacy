@@ -76,6 +76,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9b6df5d0c5ed1a4da627a02b2d76075, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _enemyStats: {fileID: 11400000, guid: 5bdfa3babe1b3ec418c1602b6377aa86, type: 2}
   _isAttacking: 0
 --- !u!33 &7328558548170774701
 MeshFilter:

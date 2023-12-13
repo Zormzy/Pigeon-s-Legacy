@@ -16,6 +16,8 @@ TagManager:
   - DesactivatedTrap
   - Enemy
   - Exit
+  - interactibles
+  - Door
   layers:
   - Default
   - TransparentFX

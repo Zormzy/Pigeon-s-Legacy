@@ -11,7 +11,7 @@ public class PL_MainMenuButtons : MonoBehaviour
 
     public void OnCommencerBtn()
     {
-        SceneManager.LoadScene("Level_1");
+        SceneManager.LoadScene("Level_MVP");
     }
 
     public void OnCreditsBtn()

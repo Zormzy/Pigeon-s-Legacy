@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class UiManager : MonoBehaviour
 {
-
     [SerializeField] private DamageManagement damageManagement;
 
     [Header("ScriptableObject")]
@@ -24,23 +23,15 @@ public class UiManager : MonoBehaviour
     [Header("Character4")]
     [SerializeField] private Slider healthBar_4;
     [SerializeField] private Image healthFill_4;
+
+    [Header("HealthBars")]
     private List<Slider> healthBars;
     [SerializeField] private List<TextMeshProUGUI> charactersHp;
 
     private void Awake()
     {
         healthBars = new List<Slider>() {healthBar_1, healthBar_2, healthBar_3, healthBar_4 };
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
         SetInitialHealth(characterStats[0].MaxHP);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void SetInitialHealth(int maxHealth)
@@ -56,8 +47,8 @@ public class UiManager : MonoBehaviour
     {
         for (int i = 0; i < characterStats.Count; i++)
         {
-            healthBars[i].value = characterStats[i].HP;
-            charactersHp[i].text = healthBars[i].value.ToString() + " / " + healthBars[i].maxValue.ToString();
+            healthBars[i].value = damageManagement.characterHP[i];
+            //charactersHp[i].text = healthBars[i].value.ToString() + " / " + healthBars[i].maxValue.ToString();
         }
     }
 }

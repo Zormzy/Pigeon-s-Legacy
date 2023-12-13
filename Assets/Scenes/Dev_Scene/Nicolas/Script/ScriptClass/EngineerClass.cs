@@ -1,20 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EngineerClass : ClassesSkills
 {
-
+    [Header("Components")]
     [SerializeField] private ClassData classData;
     [SerializeField] private StatsData statsData;
-    private int damage;
-    public override void Skill1(GameObject target)
+    [SerializeField] private Transform _playerTransform;
+
+    private int _damage;
+    private RaycastHit _raycastHit;
+
+    public override void Skill1()
     {
-        damage = statsData.Damage + classData.classDamage;
-        //call Enemy function TakeDamage (damage)
+        _damage = statsData.Damage + classData.classDamage;
+        if (Physics.Raycast(_playerTransform.position, _playerTransform.forward, out _raycastHit, 2))
+            if (_raycastHit.transform.CompareTag("Enemy"))
+                _raycastHit.transform.GetComponent<PL_Enemy_Attack>().OnTakeDamage(_damage);
     }
 
-    public override void Skill2(GameObject target)
+    public override void Skill2()
     {
 
     }

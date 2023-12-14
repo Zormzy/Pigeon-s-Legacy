@@ -34,20 +34,17 @@ public class DamageManagement : MonoBehaviour
             OnCharacterDeath();
         else
         {
-            _damageToPlayer.SetActive(true);
             characterHP[4 - characterArmor.Count] -= _damageReduced;
             uiManager.SetHealth();
-
-            StartCoroutine(Desactivate());
-            
+            _damageToPlayer.SetActive(true);
+            StartCoroutine(Desactivate());           
         }
     }
 
     private IEnumerator Desactivate()
     {
         yield return new WaitForSeconds(0.25f);
-        _damageToPlayer.SetActive(false);
-        
+        _damageToPlayer.SetActive(false);  
     }
 
     public void OnCharacterDeath()

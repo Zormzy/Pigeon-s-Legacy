@@ -8,7 +8,6 @@ public class PL_MainMenuButtons : MonoBehaviour
     [SerializeField] private GameObject _commencerBtn;
     [SerializeField] private GameObject _creditsBtn;
     [SerializeField] private GameObject _quitterBtn;
-    [SerializeField] private TutoManager _tutoData;
 
     //Start Button
     public void OnCommencerBtn()

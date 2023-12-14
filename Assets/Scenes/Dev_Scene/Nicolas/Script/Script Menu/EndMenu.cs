@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class EndMenu : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI gameOverTitle;
+    [SerializeField] private TutoData _tutoData;
 
     public void EndMainMenu()
     {
@@ -15,7 +16,8 @@ public class EndMenu : MonoBehaviour
     public void Replay()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        string nomSceneActuelle = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(nomSceneActuelle);
     }
 
     public void OnGameOverCheck(bool _isWin)

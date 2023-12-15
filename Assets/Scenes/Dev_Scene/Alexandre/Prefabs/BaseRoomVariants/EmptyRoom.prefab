@@ -52,6 +52,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoorFrame (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6199465854593806904, guid: 4658c726b70cf4d4f89b0abf1cdbd4e8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3.077027
+      objectReference: {fileID: 0}
+    - target: {fileID: 6199465854593806904, guid: 4658c726b70cf4d4f89b0abf1cdbd4e8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.049999245
+      objectReference: {fileID: 0}
+    - target: {fileID: 8629475052513770450, guid: 4658c726b70cf4d4f89b0abf1cdbd4e8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.3293927
+      objectReference: {fileID: 0}
+    - target: {fileID: 8629475052513770450, guid: 4658c726b70cf4d4f89b0abf1cdbd4e8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4.0548
+      objectReference: {fileID: 0}
+    - target: {fileID: 8629475052513770450, guid: 4658c726b70cf4d4f89b0abf1cdbd4e8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.5701
+      objectReference: {fileID: 0}
+    - target: {fileID: 8629475052513770450, guid: 4658c726b70cf4d4f89b0abf1cdbd4e8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.9726
+      objectReference: {fileID: 0}
+    - target: {fileID: 8841248378981504073, guid: 4658c726b70cf4d4f89b0abf1cdbd4e8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.3532252
+      objectReference: {fileID: 0}
+    - target: {fileID: 8841248378981504073, guid: 4658c726b70cf4d4f89b0abf1cdbd4e8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4.1446958
+      objectReference: {fileID: 0}
+    - target: {fileID: 8841248378981504073, guid: 4658c726b70cf4d4f89b0abf1cdbd4e8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.5594
+      objectReference: {fileID: 0}
+    - target: {fileID: 8841248378981504073, guid: 4658c726b70cf4d4f89b0abf1cdbd4e8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.9275
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -108,7 +148,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6140750036350367093, guid: 672f7016baec99240a5a1ef89df3cba0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 6140750036350367093, guid: 672f7016baec99240a5a1ef89df3cba0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -116,7 +156,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6140750036350367093, guid: 672f7016baec99240a5a1ef89df3cba0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 48
       objectReference: {fileID: 0}
     - target: {fileID: 6140750036350367093, guid: 672f7016baec99240a5a1ef89df3cba0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -213,6 +253,54 @@ PrefabInstance:
     - target: {fileID: 5316088219030733149, guid: 4658c726b70cf4d4f89b0abf1cdbd4e8, type: 3}
       propertyPath: m_Name
       value: DoorFrame (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6199465854593806904, guid: 4658c726b70cf4d4f89b0abf1cdbd4e8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3.0349
+      objectReference: {fileID: 0}
+    - target: {fileID: 6199465854593806904, guid: 4658c726b70cf4d4f89b0abf1cdbd4e8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.014
+      objectReference: {fileID: 0}
+    - target: {fileID: 8629475052513770450, guid: 4658c726b70cf4d4f89b0abf1cdbd4e8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.1821668
+      objectReference: {fileID: 0}
+    - target: {fileID: 8629475052513770450, guid: 4658c726b70cf4d4f89b0abf1cdbd4e8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4.038846
+      objectReference: {fileID: 0}
+    - target: {fileID: 8629475052513770450, guid: 4658c726b70cf4d4f89b0abf1cdbd4e8, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.49235
+      objectReference: {fileID: 0}
+    - target: {fileID: 8629475052513770450, guid: 4658c726b70cf4d4f89b0abf1cdbd4e8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.4842
+      objectReference: {fileID: 0}
+    - target: {fileID: 8629475052513770450, guid: 4658c726b70cf4d4f89b0abf1cdbd4e8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 8841248378981504073, guid: 4658c726b70cf4d4f89b0abf1cdbd4e8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.3902938
+      objectReference: {fileID: 0}
+    - target: {fileID: 8841248378981504073, guid: 4658c726b70cf4d4f89b0abf1cdbd4e8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4.0211706
+      objectReference: {fileID: 0}
+    - target: {fileID: 8841248378981504073, guid: 4658c726b70cf4d4f89b0abf1cdbd4e8, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.4788
+      objectReference: {fileID: 0}
+    - target: {fileID: 8841248378981504073, guid: 4658c726b70cf4d4f89b0abf1cdbd4e8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.5407
+      objectReference: {fileID: 0}
+    - target: {fileID: 8841248378981504073, guid: 4658c726b70cf4d4f89b0abf1cdbd4e8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.9045999
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -32,7 +32,7 @@ public class PL_Enemy_Attack : MonoBehaviour
     {
         if (_attackTimerCount >= _attackTimer)
         {
-            _damageManagement.TakeDamage(Random.Range(0, 1), _enemyAttackDamage);
+            _damageManagement.TakeDamage(0, _enemyAttackDamage);
             _attackTimerCount = 0;
         }
         else

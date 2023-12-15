@@ -9,11 +9,13 @@ public class PL_MainMenuButtons : MonoBehaviour
     [SerializeField] private GameObject _creditsBtn;
     [SerializeField] private GameObject _quitterBtn;
 
+    //Start Button
     public void OnCommencerBtn()
     {
-        SceneManager.LoadScene("Level_MVP");
+        SceneManager.LoadScene("Level_MVP");        
     }
 
+    //Credits Button
     public void OnCreditsBtn()
     {
         _creditsCanvas.SetActive(true);
@@ -22,6 +24,7 @@ public class PL_MainMenuButtons : MonoBehaviour
         _quitterBtn.SetActive(false);
     }
 
+    //Button return in credits canvas
     public void OnRetournerBtn()
     {
         _commencerBtn.SetActive(true);
@@ -30,6 +33,7 @@ public class PL_MainMenuButtons : MonoBehaviour
         _creditsCanvas.SetActive(false);
     }
 
+    // Leave Button
     public void OnQuitterBtn()
     {
         Application.Quit();

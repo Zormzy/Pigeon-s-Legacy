@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,6 +13,7 @@ public class DamageManagement : MonoBehaviour
     [SerializeField] private List<ClassData> classStats;
     [SerializeField] private UiManager uiManager;
     [SerializeField] private PL_Position_PositionManager positionManager;
+    [SerializeField] private GameObject _damageToPlayer;
 
     private int _damageReduced;
     public List<int> characterHP;
@@ -42,7 +44,15 @@ public class DamageManagement : MonoBehaviour
             positionManager.CharacterStats()[0].HP -= _damageReduced;
             currentAttackedPlayer = positionManager.CharacterStats()[0];
             uiManager.SetHealth();
+            _damageToPlayer.SetActive(true);
+            StartCoroutine(Desactivate());           
         }
+    }
+
+    private IEnumerator Desactivate()
+    {
+        yield return new WaitForSeconds(0.25f);
+        _damageToPlayer.SetActive(false);  
     }
 
     public void OnCharacterDeath()

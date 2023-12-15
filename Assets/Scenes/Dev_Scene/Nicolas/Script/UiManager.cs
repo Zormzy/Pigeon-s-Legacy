@@ -7,6 +7,7 @@ public class UiManager : MonoBehaviour
 {
     [SerializeField] private DamageManagement damageManagement;
 
+
     [Header("ScriptableObject")]
     [SerializeField] private List<StatsData> characterStats;
     [SerializeField] private List<ClassData> classStats;

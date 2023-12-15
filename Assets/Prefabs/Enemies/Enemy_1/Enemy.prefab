@@ -12,8 +12,6 @@ GameObject:
   - component: {fileID: 7875298789829747940}
   - component: {fileID: 3894644536847952956}
   - component: {fileID: 7582449904402707780}
-  - component: {fileID: 7328558548170774701}
-  - component: {fileID: 7561076048895212247}
   - component: {fileID: 7585890409628797143}
   m_Layer: 0
   m_Name: Enemy
@@ -78,57 +76,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyStats: {fileID: 11400000, guid: 5bdfa3babe1b3ec418c1602b6377aa86, type: 2}
+  healthBarEnnemy: {fileID: 0}
+  healthFill: {fileID: 0}
   _isAttacking: 0
---- !u!33 &7328558548170774701
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3367952878814225925}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &7561076048895212247
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3367952878814225925}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 0a0c9b9bb7ce09741bd51cf454f144fa, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &7585890409628797143
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -203,7 +153,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 61d1d8beded665443b7c961d3fda849d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -247,7 +197,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 345f3bacdc81c73438ad3a05717624dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTransform: {fileID: 0}
+  transformPlayer: {fileID: 0}
+  transformEnemy: {fileID: 4312144372008862668}
   sprites:
   - {fileID: 21300000, guid: 5bcf532fb4d1e87449e8c9a4a77014c3, type: 3}
   - {fileID: 21300000, guid: 0763dd79ed00d9f4d9c4ad5bf811f7d5, type: 3}

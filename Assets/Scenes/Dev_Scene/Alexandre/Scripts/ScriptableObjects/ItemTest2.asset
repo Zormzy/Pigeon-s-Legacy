@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 17184075a97905b46939a7e0668fc6b3, type: 3}
-  m_Name: ItemTest
+  m_Name: ItemTest2
   m_EditorClassIdentifier: 
-  Icon: {fileID: 0}
   ID: 0
+  DisplayName: test item
+  Description: cesi est saaaanic
+  Icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   MaxStackSize: 1
-  DisplayName: TestItem1
-  Description: Ceci est un test Item

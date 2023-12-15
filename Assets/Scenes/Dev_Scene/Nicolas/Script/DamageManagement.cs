@@ -12,6 +12,7 @@ public class DamageManagement : MonoBehaviour
     [SerializeField] private List<StatsData> characterStats;
     [SerializeField] private List<ClassData> classStats;
     [SerializeField] private UiManager uiManager;
+    [SerializeField] private PL_Position_PositionManager positionManager;
     [SerializeField] private GameObject _damageToPlayer;
 
     private int _damageReduced;
@@ -19,6 +20,7 @@ public class DamageManagement : MonoBehaviour
     private List<int> characterArmor;
     private List<int> classArmor;
     public StatsData currentAttackedPlayer;
+    private int index = 0;
 
 
     private void Awake()
@@ -28,19 +30,19 @@ public class DamageManagement : MonoBehaviour
 
     private void Update()
     {
-        characterHP[4 - characterArmor.Count] = characterStats[4 - characterArmor.Count].HP;
+        //characterHP[0] = positionManager.CharacterStats()[0].HP;
     }
 
     public void TakeDamage(int indexCharacter, int damage)
     {
         _damageReduced = damage - characterArmor[indexCharacter] - classArmor[indexCharacter];
 
-        if (characterStats[4 - characterArmor.Count].HP - _damageReduced <= 0)
+        if (positionManager.CharacterStats()[0].HP - _damageReduced <= 0)
             OnCharacterDeath();
         else
         {
-            characterStats[4 - characterArmor.Count].HP -= _damageReduced;
-            currentAttackedPlayer = characterStats[4 - characterArmor.Count];
+            positionManager.CharacterStats()[0].HP -= _damageReduced;
+            currentAttackedPlayer = positionManager.CharacterStats()[0];
             uiManager.SetHealth();
             _damageToPlayer.SetActive(true);
             StartCoroutine(Desactivate());           
@@ -55,15 +57,21 @@ public class DamageManagement : MonoBehaviour
 
     public void OnCharacterDeath()
     {
-        if (characterArmor.Count == 2)
+        if (index == 2)
         {
             endGameMenuManager.OnGameOverCheck(false);
             endGameMenu.SetActive(true);
         }
         else
         {
-            characterArmor.RemoveAt(0);
-            classArmor.RemoveAt(0);
+            //characterArmor.RemoveAt(index);
+            //classArmor.RemoveAt(index);
+            positionManager.CharacterStatsValue()[positionManager.CharacterStatsValue().FindIndex(dropdown => dropdown.value == 1)].value = 0;
+            positionManager.CharacterStatsValue()[positionManager.CharacterStatsValue().FindIndex(dropdown => dropdown.value == 2)].value = 1;
+            positionManager.CharacterStatsValue()[positionManager.CharacterStatsValue().FindIndex(dropdown => dropdown.value == 3)].value = 2;
+            positionManager.CharacterStatsValue()[positionManager.CharacterStatsValue().FindIndex(dropdown => dropdown.value == 0)].value = 3;
+            index++;
+
         }
     }
 

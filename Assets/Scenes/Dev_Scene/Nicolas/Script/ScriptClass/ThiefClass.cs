@@ -37,7 +37,7 @@ public class ThiefClass : ClassesSkills
 
         if (cooldowns[2] > 0)
         {
-            cooldowns[3] -= Time.deltaTime;
+            cooldowns[2] -= Time.deltaTime;
         }
 
         Debug.DrawRay(_playerTransform.position, _playerTransform.forward, Color.red);

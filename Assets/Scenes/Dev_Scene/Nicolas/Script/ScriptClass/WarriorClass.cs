@@ -37,7 +37,7 @@ public class WarriorClass : ClassesSkills
 
         if (cooldowns[2] > 0)
         {
-            cooldowns[3] -= Time.deltaTime;
+            cooldowns[2] -= Time.deltaTime;
         }
     }
     public override void Skill2()

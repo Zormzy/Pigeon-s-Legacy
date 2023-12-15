@@ -12,15 +12,15 @@ public class PL_Enemy_Collision : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            print("you have 2 scripts");
-            Destroy(this);
-        }
+    //    if (Instance == null)
+    //    {
+    //        Instance = this;
+    //    }
+    //    else
+    //    {
+    //        print("you have 2 scripts");
+    //        Destroy(this);
+    //    }
 
         transformEnemy = transform;
         playerInFront = false;

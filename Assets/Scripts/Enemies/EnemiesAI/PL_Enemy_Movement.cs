@@ -24,6 +24,10 @@ public class PL_Enemy_Movement : MonoBehaviour
     private bool rotate = false;
     private Quaternion lookOnLook;
     private bool mooving = false;
+    private float lerpTime = 0;
+    private float lerpTimeRotation = 0;
+    [SerializeField] private float moveSpeed;
+    [SerializeField] private float rotateSpeed;
 
     private void Awake()
     {
@@ -73,6 +77,7 @@ public class PL_Enemy_Movement : MonoBehaviour
 
         if (enemyCollision.IsCanGo("forward") && moveTimer <= 0 && transformEnemy.position == moveTarget && (!playerMovement.IsInPlayerArea() || playerMovement.IsInPlayerArea() && !playerMovement.IsMoving()))
         {
+            lerpTime = 0;
             moveTarget += transformEnemy.forward * PL_Player_Movement.groundSize;
             moveTarget.x = Mathf.RoundToInt(moveTarget.x);
             moveTarget.z = Mathf.RoundToInt(moveTarget.z);
@@ -84,13 +89,19 @@ public class PL_Enemy_Movement : MonoBehaviour
         {
             mooving = false;
         }
+        if (lerpTime < moveSpeed)
+        {
+            lerpTime += Time.deltaTime;
 
-        transformEnemy.position = Vector3.Lerp(transformEnemy.position, moveTarget, PL_Player_Movement.lerpTime * Time.deltaTime);
+            float t = lerpTime / moveSpeed;
+            transformEnemy.position = Vector3.Lerp(transformEnemy.position, moveTarget, t);
+        }
 
         if ((Mathf.Abs(transformPlayer.position.x - transformEnemy.position.x) <= .01f ||
              Mathf.Abs(transformPlayer.position.z - transformEnemy.position.z) <= .01f) && playerDetecter.IsPlayerDetected())
         {
             RotateTowardsEnemy(Quaternion.LookRotation(transformPlayer.position - transformEnemy.position));
+            lerpTimeRotation = 0;
         }
     }
 
@@ -105,7 +116,18 @@ public class PL_Enemy_Movement : MonoBehaviour
 
     private void RotateEnemy()
     {
-        transformEnemy.rotation = Quaternion.Slerp(transform.rotation, lookOnLook, PL_Player_Movement.lerpTime * Time.deltaTime);
+        if (lerpTimeRotation < rotateSpeed)
+        {
+            lerpTimeRotation += Time.deltaTime;
+
+            float t = lerpTimeRotation / rotateSpeed;
+            transformEnemy.rotation = Quaternion.Lerp(transformEnemy.rotation, lookOnLook, t);
+        }
+        else
+        {
+
+            lerpTimeRotation = 0;
+        }
     }
 
     public bool IsMoving()

@@ -20,7 +20,10 @@ public class TutoManager : MonoBehaviour
             tuto2.SetActive(false);
             tuto3.SetActive(false);
             tuto4.SetActive(false);
+            CharacterUI.SetActive(true);
+            Time.timeScale = 1;
         }
+
     }
 
     //when tuto 1 finish 

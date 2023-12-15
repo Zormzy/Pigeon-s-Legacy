@@ -9,25 +9,40 @@ public class InventorySlot
     [SerializeField] private int stackSize;
     public InventoryItemData ItemData => itemData;
     public int StackSize => stackSize;
+
     public InventorySlot(InventoryItemData source, int amount)
     {
         itemData = source;
         stackSize = amount;
     }
+
     public InventorySlot()
     {
         ClearSlot();
     }
+
     public void ClearSlot()
     {
         itemData = null;
         stackSize = -1;
     }
+    public void AssignItem(InventorySlot invSlot)
+    {
+        if (ItemData == invSlot.ItemData) AddToStack(invSlot.stackSize);
+        else
+        {
+            itemData = invSlot.ItemData;
+            stackSize = 0;
+            AddToStack(invSlot.stackSize);
+        }
+    }
+
     public void UpdateInventorySlot(InventoryItemData data, int amount)
     {
         itemData = data;
         stackSize = amount;
     }
+
     public bool RoomLeftInStack(int amountToAdd, out int amountRemaining)
     {
         amountRemaining = ItemData.MaxStackSize - stackSize;
@@ -35,16 +50,15 @@ public class InventorySlot
     }
     public bool RoomLeftInStack(int amountToAdd)
     {
-        if (stackSize + amountToAdd < itemData.MaxStackSize) return true;
+        if (stackSize + amountToAdd <= itemData.MaxStackSize) return true;
         else return false;
     }
     public void AddToStack(int amount)
     {
-        stackSize = amount;
+        stackSize += amount;
     }
-
-    public void removeFromStack(int amount)
+    public void RemoveFromStack(int amount)
     {
-        stackSize -= amount;
+        stackSize += amount;
     }
 }

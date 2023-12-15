@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [System.Serializable]
-public class NewBehaviourScript : MonoBehaviour
+public class InventoryHolder : MonoBehaviour
 {
     [SerializeField] private int inventorySize;
     [SerializeField] protected InventorySystem inventorySystem;
@@ -15,5 +15,4 @@ public class NewBehaviourScript : MonoBehaviour
     {
         inventorySystem = new InventorySystem(inventorySize);
     }
-
 }

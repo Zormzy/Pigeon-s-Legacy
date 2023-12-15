@@ -76,7 +76,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyStats: {fileID: 11400000, guid: 5bdfa3babe1b3ec418c1602b6377aa86, type: 2}
-  healthBarEnnemy: {fileID: 0}
+  healthBarEnnemy: {fileID: 503526794536992832}
   healthFill: {fileID: 0}
   _isAttacking: 0
 --- !u!65 &7585890409628797143

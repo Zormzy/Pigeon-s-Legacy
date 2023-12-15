@@ -115,9 +115,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6236794217652433494}
     m_Modifications:
+    - target: {fileID: 4208256970511591067, guid: 74f901f5d154f8c419cf3bd665306b64, type: 3}
+      propertyPath: m_TagString
+      value: ClosedDoor
+      objectReference: {fileID: 0}
     - target: {fileID: 5285054954120802397, guid: 74f901f5d154f8c419cf3bd665306b64, type: 3}
       propertyPath: m_Name
       value: DoorClosed
+      objectReference: {fileID: 0}
+    - target: {fileID: 5285054954120802397, guid: 74f901f5d154f8c419cf3bd665306b64, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 6658143593174657428, guid: 74f901f5d154f8c419cf3bd665306b64, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6863643955359083952, guid: 74f901f5d154f8c419cf3bd665306b64, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.241
       objectReference: {fileID: 0}
     - target: {fileID: 8194521523612127381, guid: 74f901f5d154f8c419cf3bd665306b64, type: 3}
       propertyPath: m_LocalScale.x
@@ -141,7 +157,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8194521523612127381, guid: 74f901f5d154f8c419cf3bd665306b64, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.75
+      value: -3.785
       objectReference: {fileID: 0}
     - target: {fileID: 8194521523612127381, guid: 74f901f5d154f8c419cf3bd665306b64, type: 3}
       propertyPath: m_LocalRotation.w

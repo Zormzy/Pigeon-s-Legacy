@@ -64,7 +64,7 @@ MonoBehaviour:
   cooldownMoveTime: 0
   player: {fileID: 0}
   playerDetecter: {fileID: 0}
-  moveSpeed: 0.2
+  moveSpeed: 0.5
   rotateSpeed: 0.5
 --- !u!114 &7582449904402707780
 MonoBehaviour:

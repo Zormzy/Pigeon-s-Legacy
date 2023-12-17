@@ -19,17 +19,19 @@ public class PL_Enemy_Attack : MonoBehaviour
     private int _enemyArmorPoints;
     private float _attackTimer;
     private float _attackTimerCount;
+    private PL_Enemy_Collision enemyCollision;
 
     private void Awake()
     {
         PL_Enemy_Attack_Initialization();
         healthBarEnnemy.maxValue = _enemyStats.HP;
         healthBarEnnemy.value = _enemyStats.HP;
+        enemyCollision = GetComponent<PL_Enemy_Collision>();
     }
 
     private void Update()
     {
-        if (_isAttacking)
+        if (enemyCollision.IsPlayerInFront())
             OnEnemyAttack();
         else if (_attackTimerCount != 0)
             _attackTimerCount = 0;

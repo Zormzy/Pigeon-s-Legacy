@@ -9,6 +9,7 @@ public class PL_Enemy_Collision : MonoBehaviour
     private bool playerInFront;
     private string[] nametags = new string[] { "ClosedLockChest", "ClosedChest", "ClosedLockDoor", "ClosedDoor", "Trap", "DesactivatedTrap", "Exit", "Player", "wall" };
     private RaycastHit[] raycastsHit = new RaycastHit[4];
+    private PL_Enemy_Attack enemyAttack;
 
     private void Awake()
     {
@@ -24,6 +25,7 @@ public class PL_Enemy_Collision : MonoBehaviour
 
         transformEnemy = transform;
         playerInFront = false;
+        enemyAttack = GetComponent<PL_Enemy_Attack>();
     }
 
     private void Update()
@@ -40,7 +42,7 @@ public class PL_Enemy_Collision : MonoBehaviour
         Debug.DrawRay(transformEnemy.position, -transformEnemy.right, Color.black);
         if (Physics.Raycast(transformEnemy.position, transformEnemy.forward, out raycastsHit[0], 1))
         {
-            canGoForward = !Array.Exists(nametags, element => element == raycastsHit[0].transform.tag); 
+            canGoForward = !Array.Exists(nametags, element => element == raycastsHit[0].transform.tag);
             playerInFront = raycastsHit[0].transform.tag == "Player";
         }
         if (Physics.Raycast(transformEnemy.position, -transformEnemy.right, out raycastsHit[1], 1)) canGoLeft = !Array.Exists(nametags, element => element == raycastsHit[1].transform.tag);

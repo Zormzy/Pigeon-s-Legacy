@@ -29,7 +29,7 @@ public class PL_Enemy_Movement : MonoBehaviour
     [SerializeField] private float moveSpeed;
     [SerializeField] private float rotateSpeed;
 
-    private void Awake()
+    private void OnEnable()
     {
         Initialize();
     }
@@ -76,6 +76,7 @@ public class PL_Enemy_Movement : MonoBehaviour
         }
         if (enemyCollision.IsCanGo("forward") && moveTimer <= 0 && transformEnemy.position == moveTarget && (!playerMovement.IsInPlayerArea() || playerMovement.IsInPlayerArea() && !playerMovement.IsMoving()))
         {
+            print("enemy moving");
             lerpTime = 0;
             moveTarget += transformEnemy.forward * PL_Player_Movement.groundSize;
             moveTarget.x = Mathf.RoundToInt(moveTarget.x);

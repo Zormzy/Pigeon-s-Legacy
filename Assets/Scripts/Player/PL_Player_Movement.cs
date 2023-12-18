@@ -4,7 +4,6 @@ using UnityEngine.InputSystem;
 public class PL_Player_Movement : MonoBehaviour
 {
     private Transform transformPlayer;
-    private float moveTimer;
     private float rotateTimer;
     private Vector3 moveTarget;
     private Quaternion rotationTarget;
@@ -14,19 +13,20 @@ public class PL_Player_Movement : MonoBehaviour
     private Vector3 contextValue;
     private bool rotate = false;
     private Vector3 contextRotationValue;
-    [SerializeField] private float cooldownMoveTime;
     public static float groundSize = 1;
-    public static float lerpTime = 17;
     private PL_Player_Collision playerCollision;
     private PL_Enemy_Movement enemyMovement;
     private bool mooving = false;
     private RaycastHit[] raycastHitsDetectEnemy = new RaycastHit[8];
     private bool[] raycastHitsDetectEnemyBool = new bool[8];
+    private float lerpTime = 0;
+    private float lerpTimeRotation = 0;
+    [SerializeField] private float moveSpeed;
+    [SerializeField] private float rotateSpeed;
 
     private void Awake()
     {
         transformPlayer = transform;
-        moveTimer = 0;
         rotateTimer = 0;
         rotation = transformPlayer.eulerAngles.y;
         rotationTarget = transformPlayer.rotation;
@@ -36,8 +36,6 @@ public class PL_Player_Movement : MonoBehaviour
 
     private void Update()
     {
-        if (moveTimer > 0)
-            moveTimer -= Time.deltaTime;
 
         if (rotateTimer > 0)
             rotateTimer -= Time.deltaTime;
@@ -49,13 +47,13 @@ public class PL_Player_Movement : MonoBehaviour
 
     private void MovePLayer()
     {
-        if(move && playerCollision.IsCanGo(contextValue) && moveTimer <= 0 && transformPlayer.position == moveTarget && (enemyMovement == null || enemyMovement != null && (!IsInPlayerArea() || IsInPlayerArea() && !enemyMovement.IsMoving())))
+        if(move && playerCollision.IsCanGo(contextValue) && transformPlayer.position == moveTarget && (enemyMovement == null || enemyMovement != null && (!IsInPlayerArea() || IsInPlayerArea() && !enemyMovement.IsMoving())))
         {
+            lerpTime = 0;
             moveTarget += transformPlayer.forward * groundSize * contextValue.z;
             moveTarget += transformPlayer.right * groundSize * contextValue.x;
             moveTarget.x = Mathf.RoundToInt(moveTarget.x);
             moveTarget.z = Mathf.RoundToInt(moveTarget.z);
-            moveTimer = cooldownMoveTime;
             mooving = true;
         }
 
@@ -68,7 +66,13 @@ public class PL_Player_Movement : MonoBehaviour
         {
             transformPlayer.position.Set((int)transformPlayer.position.x, (int)transformPlayer.position.y, (int)transformPlayer.position.z);
         }
-        transformPlayer.position = Vector3.Lerp(transformPlayer.position, moveTarget, lerpTime * Time.deltaTime);
+        if(lerpTime < moveSpeed)
+        {
+            lerpTime += Time.deltaTime;
+
+            float t = lerpTime / moveSpeed;
+            transformPlayer.position = Vector3.Lerp(transformPlayer.position, moveTarget, t);
+        }
     }
 
     public bool IsInPlayerArea()
@@ -111,10 +115,18 @@ public class PL_Player_Movement : MonoBehaviour
     {
         if(rotate && rotationTarget == transformPlayer.rotation)
         {
+            lerpTimeRotation = 0;
             rotationTarget = Quaternion.Euler(0, rotation + 90 * contextRotationValue.y, 0);
             rotation += 90 * contextRotationValue.y;
         }
-        transformPlayer.rotation = Quaternion.Lerp(transformPlayer.rotation, rotationTarget, lerpTime * Time.deltaTime);
+
+        if (lerpTimeRotation < rotateSpeed)
+        {
+            lerpTimeRotation += Time.deltaTime;
+
+            float t = lerpTimeRotation / rotateSpeed;
+            transformPlayer.rotation = Quaternion.Lerp(transformPlayer.rotation, rotationTarget, t);
+        }
     }
 
     public void RotatePlayerInput(InputAction.CallbackContext ctx)

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Trap_1
   damage: 4
-  cooldown: 2
+  cooldown: 4
   difused: 0

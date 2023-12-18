@@ -9,12 +9,16 @@ public class PL_Player_Interact : MonoBehaviour
     [SerializeField] private GameObject endGameMenu;
     [SerializeField] private EndMenu endGameMenuManager;
 
+
     public void OnPlayerInteract(InputAction.CallbackContext context)
     {
-        switch (objectInFront.tag)
+        if (objectInFront)
         {
-            case "ClosedDoor": OnPlayerOpenDoor(objectInFront); break;
-            case "Exit": OnPlayerExit(); break;
+            switch (objectInFront.tag)
+            {
+                case "ClosedDoor": OnPlayerOpenDoor(objectInFront); break;
+                case "Exit": OnPlayerExit(); break;
+            }
         }
         interactionText.SetActive(false);
     }

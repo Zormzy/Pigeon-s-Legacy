@@ -20,13 +20,11 @@ public class PL_Enemy_Attack : MonoBehaviour
     private float _attackTimer;
     private float _attackTimerCount;
     private PL_Enemy_Collision enemyCollision;
+    private PL_Enemy_EnemySpawner spawner;
 
-    private void Awake()
+    private void OnEnable()
     {
         PL_Enemy_Attack_Initialization();
-        healthBarEnnemy.maxValue = _enemyStats.HP;
-        healthBarEnnemy.value = _enemyStats.HP;
-        enemyCollision = GetComponent<PL_Enemy_Collision>();
     }
 
     private void Update()
@@ -53,14 +51,21 @@ public class PL_Enemy_Attack : MonoBehaviour
         if (_enemyHitPoints - (damage - _enemyArmorPoints) <= 0)
             OnEnemyDeath();
         else
+        {
             _enemyHitPoints -= ((damage - _enemyArmorPoints));
             healthBarEnnemy.value -= ((damage - _enemyArmorPoints));
+        }
 
     }
 
     private void OnEnemyDeath()
     {
         gameObject.SetActive(false);
+        spawner.EnemySelectPosition();
+        _enemyHitPoints = _enemyStats.HP;
+        print("enemy dead");
+        gameObject.SetActive(true);
+        healthBarEnnemy.value = 11;
     }
 
     private void PL_Enemy_Attack_Initialization()
@@ -73,5 +78,9 @@ public class PL_Enemy_Attack : MonoBehaviour
         _attackTimerCount = 0f;
         _player = GameObject.FindGameObjectWithTag("Player");
         _damageManagement = _player.GetComponent<DamageManagement>();
+        healthBarEnnemy.maxValue = _enemyStats.HP;
+        healthBarEnnemy.value = _enemyStats.HP;
+        enemyCollision = GetComponent<PL_Enemy_Collision>();
+        spawner = GetComponent<PL_Enemy_EnemySpawner>();
     }
 }

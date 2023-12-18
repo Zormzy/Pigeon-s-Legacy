@@ -45,6 +45,10 @@ public class PL_Enemy_Collision : MonoBehaviour
             canGoForward = !Array.Exists(nametags, element => element == raycastsHit[0].transform.tag);
             playerInFront = raycastsHit[0].transform.tag == "Player";
         }
+        else
+        {
+            playerInFront = false;
+        }
         if (Physics.Raycast(transformEnemy.position, -transformEnemy.right, out raycastsHit[1], 1)) canGoLeft = !Array.Exists(nametags, element => element == raycastsHit[1].transform.tag);
         if (Physics.Raycast(transformEnemy.position, transformEnemy.right, out raycastsHit[2], 1)) canGoRight = !Array.Exists(nametags, element => element == raycastsHit[2].transform.tag);
         if (Physics.Raycast(transformEnemy.position, -transformEnemy.forward, out raycastsHit[3], 1)) canGoBack = !Array.Exists(nametags, element => element == raycastsHit[3].transform.tag);

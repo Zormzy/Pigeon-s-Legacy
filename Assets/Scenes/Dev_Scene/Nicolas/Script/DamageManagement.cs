@@ -62,6 +62,7 @@ public class DamageManagement : MonoBehaviour
         {
             endGameMenuManager.OnGameOverCheck(false);
             endGameMenu.SetActive(true);
+ 
         }
         else
         {

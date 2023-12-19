@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4312144372008862668}
-  - component: {fileID: 4439564755017848229}
   - component: {fileID: 7875298789829747940}
   - component: {fileID: 3894644536847952956}
   - component: {fileID: 7582449904402707780}
@@ -39,19 +38,6 @@ Transform:
   - {fileID: 7825074935366883128}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4439564755017848229
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3367952878814225925}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e3ee73f1fc6a0645839c15f42900478, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EnemyPosition: {fileID: 11400000, guid: 1d4fc58ba9942ab4294e1311804b2240, type: 2}
 --- !u!114 &7875298789829747940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76,9 +62,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f46e942854c86d846ac02873f949cfa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldownMoveTime: 0
-  player: {fileID: 0}
   playerDetecter: {fileID: 8326213308131136874}
+  player: {fileID: 0}
   moveSpeed: 0.5
   rotateSpeed: 0.5
 --- !u!114 &7582449904402707780
@@ -97,7 +82,6 @@ MonoBehaviour:
   healthBarEnnemy: {fileID: 3789759541916386685}
   healthFill: {fileID: 5362093517037107871}
   _isAttacking: 0
-  spawner: {fileID: 4439564755017848229}
 --- !u!65 &7585890409628797143
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -216,8 +200,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 345f3bacdc81c73438ad3a05717624dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transformPlayer: {fileID: 0}
-  transformEnemy: {fileID: 4312144372008862668}
   sprites:
   - {fileID: 21300000, guid: 5bcf532fb4d1e87449e8c9a4a77014c3, type: 3}
   - {fileID: 21300000, guid: 0763dd79ed00d9f4d9c4ad5bf811f7d5, type: 3}

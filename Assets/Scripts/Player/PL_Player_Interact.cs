@@ -7,15 +7,12 @@ public class PL_Player_Interact : MonoBehaviour
     [Header("Components")]
     [HideInInspector] public GameObject objectInFront;
     public GameObject interactionText;
-    private GameObject endGameMenu;
+    [SerializeField] private GameObject endGameMenu;
     private EndMenu endGameMenuManager;
-    [HideInInspector] public GameObject notAvailableText;
     private bool hasKey = false;
 
     private void Start()
     {
-        endGameMenu = GameObject.FindGameObjectWithTag("EndMenu");
-        notAvailableText = GameObject.FindGameObjectWithTag("NotAvailable");
         endGameMenuManager = endGameMenu.GetComponent<EndMenu>();
     }
 

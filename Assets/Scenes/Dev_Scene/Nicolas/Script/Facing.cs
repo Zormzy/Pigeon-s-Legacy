@@ -2,8 +2,13 @@ using UnityEngine;
 
 public class Facing : MonoBehaviour
 {
-    [SerializeField] private Transform facing;
+    private Transform facing;
 
+
+    private void Start()
+    {
+        facing = GameObject.FindGameObjectWithTag("Player").transform;
+    }
     // Update is called once per frame
     void Update()
     {

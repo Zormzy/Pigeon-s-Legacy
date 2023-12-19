@@ -5,13 +5,19 @@ using UnityEngine.InputSystem;
 public class PL_Player_Interact : MonoBehaviour
 {
     [Header("Components")]
-    public GameObject objectInFront;
+    [HideInInspector] public GameObject objectInFront;
     public GameObject interactionText;
-    [SerializeField] private GameObject endGameMenu;
-    [SerializeField] private EndMenu endGameMenuManager;
-    public GameObject notAvailableText;
+    private GameObject endGameMenu;
+    private EndMenu endGameMenuManager;
+    [HideInInspector] public GameObject notAvailableText;
     private bool hasKey = false;
 
+    private void Start()
+    {
+        endGameMenu = GameObject.FindGameObjectWithTag("EndMenu");
+        notAvailableText = GameObject.FindGameObjectWithTag("NotAvailable");
+        endGameMenuManager = endGameMenu.GetComponent<EndMenu>();
+    }
 
     public void OnPlayerInteract(InputAction.CallbackContext context)
     {

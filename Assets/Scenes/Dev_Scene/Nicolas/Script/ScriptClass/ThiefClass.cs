@@ -5,11 +5,18 @@ public class ThiefClass : ClassesSkills
     [Header("Components")]
     [SerializeField] private ClassData classData;
     [SerializeField] private StatsData statsData;
-    [SerializeField] private Transform _playerTransform;
+    private Transform _playerTransform;
     private float[] cooldowns = new float[4];
 
     private int _damage;
     private RaycastHit _raycastHit;
+    private AudioSource audioSource;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+        _playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+    }
 
     private void Awake()
     {
@@ -25,6 +32,7 @@ public class ThiefClass : ClassesSkills
                 _raycastHit.transform.GetComponent<PL_Enemy_Attack>().OnTakeDamage(_damage);
                 cooldowns[0] = cooldowns[1];
                 print("thief attack");
+                audioSource.Play();
             }
     }
 

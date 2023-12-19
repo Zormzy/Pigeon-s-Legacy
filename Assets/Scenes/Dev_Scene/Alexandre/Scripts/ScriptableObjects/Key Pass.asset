@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 17184075a97905b46939a7e0668fc6b3, type: 3}
-  m_Name: ItemTest1
+  m_Name: Key Pass
   m_EditorClassIdentifier: 
-  ID: 0
-  DisplayName: Sanic
-  Description: "Ceci est un crois\xE9"
-  Icon: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  ID: 4
+  DisplayName: KeyPass
+  Description: "Ceci est une cl\xE9 destin\xE9e \xE0 ouvrir une porte"
+  Icon: {fileID: 21300000, guid: 2694106c7cec430418835819806b3fa6, type: 3}
   MaxStackSize: 1

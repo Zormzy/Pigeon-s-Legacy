@@ -25,6 +25,7 @@ public class PL_Player_Interact : MonoBehaviour
         {
             switch (objectInFront.tag)
             {
+                case "ClosedChest": OnPlayerOpenChest(objectInFront); break;
                 case "ClosedDoor": OnPlayerOpenDoor(objectInFront); break;
                 case "ClosedLockedDoor" : if (hasKey) OnPlayerOpenDoor(objectInFront); break;
                 case "Exit": OnPlayerExit(); break;

@@ -3,17 +3,20 @@ using UnityEngine;
 public class PL_Trap_PlayerDetecter : MonoBehaviour
 {
     [SerializeField] private PL_Trap_Scriptable trapScriptable;
+    [SerializeField] private ParticleSystem trapParticle;
     private DamageManagement damageManagement;
     private float baseCooldown;
     private float cooldown;
     private int damage;
     private bool difused;
+    private Transform transformTrap;
 
     private void Awake()
     {
         baseCooldown = cooldown = trapScriptable.cooldown;
         damage = trapScriptable.damage;
         difused = trapScriptable.difused;
+        transformTrap = transform;
     }
 
     private void Update()
@@ -31,7 +34,9 @@ public class PL_Trap_PlayerDetecter : MonoBehaviour
             damageManagement = other.GetComponent<DamageManagement>();
             damageManagement.TakeDamage(Random.Range(0, 1), damage);
             cooldown = baseCooldown;
-            print("Trap attack player : ");
+            ParticleSystem greenParticle = Instantiate(trapParticle, transformTrap);
+            Destroy(greenParticle, 1);
+            print("Trap attack player");
         }
     }
 

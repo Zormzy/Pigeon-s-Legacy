@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 17184075a97905b46939a7e0668fc6b3, type: 3}
-  m_Name: ItemTest2
+  m_Name: MediumArmor
   m_EditorClassIdentifier: 
-  ID: 0
-  DisplayName: test item
-  Description: cesi est saaaanic
-  Icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  ID: 1
+  DisplayName: MediumArmor
+  Description: Ceci est une armure moyenne
+  Icon: {fileID: 21300000, guid: 739f0a2acdc529a43a9fb500b70eb998, type: 3}
   MaxStackSize: 1

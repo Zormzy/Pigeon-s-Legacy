@@ -7,8 +7,8 @@ public class DoctorClass : ClassesSkills
     [SerializeField] private ClassData classData;
     [SerializeField] private StatsData statsData;
     [SerializeField] private HealthKitData healthKitData;
-    [SerializeField] private Transform _playerTransform;
-    [SerializeField] private GameObject player;
+    private Transform _playerTransform;
+    private GameObject player;
     [SerializeField] private List<StatsData> characterStats;
     [SerializeField] private UiManager uiManager;
     [SerializeField] private DamageManagement damageManagement;
@@ -16,6 +16,15 @@ public class DoctorClass : ClassesSkills
     private float[] cooldowns = new float[4];
     private int _damage;
     private RaycastHit _raycastHit;
+    private AudioSource audioSource;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        _playerTransform = player.transform;
+    }
+
     private void Awake()
     {
         cooldowns[0] = cooldowns[1] = classData.cooldownAttack;
@@ -30,6 +39,7 @@ public class DoctorClass : ClassesSkills
                 _raycastHit.transform.GetComponent<PL_Enemy_Attack>().OnTakeDamage(_damage);
                 cooldowns[0] = cooldowns[1];
                 print("doctor attack");
+                audioSource.Play();
             }
     }
 

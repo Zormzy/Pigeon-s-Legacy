@@ -7410,14 +7410,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 750825252247826146, guid: a54e1bc9f49c96a41b7a7aaf77cd2e3f, type: 3}
-      propertyPath: endGameMenu
-      value: 
-      objectReference: {fileID: 1009714546}
-    - target: {fileID: 750825252247826146, guid: a54e1bc9f49c96a41b7a7aaf77cd2e3f, type: 3}
-      propertyPath: endGameMenuManager
-      value: 
-      objectReference: {fileID: 700228838}
     - target: {fileID: 1896931116029993331, guid: a54e1bc9f49c96a41b7a7aaf77cd2e3f, type: 3}
       propertyPath: uiManager
       value: 
@@ -7427,10 +7419,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1009714546}
     - target: {fileID: 1896931116029993331, guid: a54e1bc9f49c96a41b7a7aaf77cd2e3f, type: 3}
-      propertyPath: _damageToPlayer
-      value: 
-      objectReference: {fileID: 1398455561}
-    - target: {fileID: 1896931116029993331, guid: a54e1bc9f49c96a41b7a7aaf77cd2e3f, type: 3}
       propertyPath: positionManager
       value: 
       objectReference: {fileID: 1257042895}
@@ -7438,10 +7426,6 @@ PrefabInstance:
       propertyPath: endGameMenuManager
       value: 
       objectReference: {fileID: 700228838}
-    - target: {fileID: 1942237771607963363, guid: a54e1bc9f49c96a41b7a7aaf77cd2e3f, type: 3}
-      propertyPath: field of view
-      value: 90
-      objectReference: {fileID: 0}
     - target: {fileID: 2567449999453437655, guid: a54e1bc9f49c96a41b7a7aaf77cd2e3f, type: 3}
       propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -7486,12 +7470,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5576665196968899392, guid: a54e1bc9f49c96a41b7a7aaf77cd2e3f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8430674035931500047, guid: a54e1bc9f49c96a41b7a7aaf77cd2e3f, type: 3}
       propertyPath: m_Name
       value: Player_test
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6493219563174896471, guid: a54e1bc9f49c96a41b7a7aaf77cd2e3f, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a54e1bc9f49c96a41b7a7aaf77cd2e3f, type: 3}
@@ -9674,11 +9663,6 @@ MonoBehaviour:
   healthFill_3: {fileID: 1641668980}
   healthBar_4: {fileID: 1299651510}
   healthFill_4: {fileID: 682104440}
-  charactersHp:
-  - {fileID: 2073175695}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!114 &1257042891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10510,11 +10494,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0.03199768, y: 0}
   m_SizeDelta: {x: -9.936, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1398455561 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6782301457354755377, guid: a54e1bc9f49c96a41b7a7aaf77cd2e3f, type: 3}
-  m_PrefabInstance: {fileID: 996413050}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1403432599
 GameObject:
   m_ObjectHideFlags: 0

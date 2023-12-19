@@ -3,8 +3,6 @@ using UnityEngine;
 public class PL_Enemy_Movement : MonoBehaviour
 {
     [Header("Components")]
-    [SerializeField] private float cooldownMoveTime;
-    [SerializeField] private GameObject player;
     [SerializeField] private PL_Enemy_PlayerDetecter playerDetecter;
     
     private PL_Enemy_Collision enemyCollision;
@@ -13,9 +11,9 @@ public class PL_Enemy_Movement : MonoBehaviour
     private Transform transformEnemy;
     private PL_Player_Movement playerMovement;
     private Transform transformPlayer;
+    private GameObject player;
 
     [Header("Variables")]
-    private float moveTimer;
     private float rotateTimer;
     private Vector3 moveTarget;
     private Quaternion rotationTarget;
@@ -29,6 +27,11 @@ public class PL_Enemy_Movement : MonoBehaviour
     [SerializeField] private float moveSpeed;
     [SerializeField] private float rotateSpeed;
 
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
+
     private void OnEnable()
     {
         Initialize();
@@ -37,7 +40,6 @@ public class PL_Enemy_Movement : MonoBehaviour
     private void Initialize()
     {
         transformEnemy = transform;
-        moveTimer = 1.3f;
         rotateTimer = 0;/*
         rotation = 0;*/
         lookOnLook = transformEnemy.rotation;
@@ -60,8 +62,6 @@ public class PL_Enemy_Movement : MonoBehaviour
 
     private void Timer()
     {
-        if (moveTimer >= 0)
-            moveTimer -= Time.deltaTime;
 
         if (rotateTimer >= 0)
             rotateTimer -= Time.deltaTime;
@@ -74,14 +74,13 @@ public class PL_Enemy_Movement : MonoBehaviour
         {
             RotateTowardsEnemy(Quaternion.LookRotation(transformPlayer.position - transformEnemy.position));
         }
-        if (enemyCollision.IsCanGo("forward") && moveTimer <= 0 && transformEnemy.position == moveTarget && (!playerMovement.IsInPlayerArea() || playerMovement.IsInPlayerArea() && !playerMovement.IsMoving()))
+        if (enemyCollision.IsCanGo("forward") && transformEnemy.position == moveTarget && (!playerMovement.IsInPlayerArea() || playerMovement.IsInPlayerArea() && !playerMovement.IsMoving()))
         {
             print("enemy moving");
             lerpTime = 0;
             moveTarget += transformEnemy.forward * PL_Player_Movement.groundSize;
             moveTarget.x = Mathf.RoundToInt(moveTarget.x);
             moveTarget.z = Mathf.RoundToInt(moveTarget.z);
-            moveTimer = cooldownMoveTime;
             mooving = true;
         }
         if(!enemyCollision.IsCanGo("forward") && enemyCollision.ObjectInFront() != "Player" && enemyCollision.ObjectInFront() != null)

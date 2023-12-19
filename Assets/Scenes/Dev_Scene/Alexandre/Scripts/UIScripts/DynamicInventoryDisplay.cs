@@ -1,18 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class DynamicInventoryDisplay : MonoBehaviour
+/*public class DynamicInventoryDisplay : InventoryDisplay
 {
-    // Start is called before the first frame update
-    void Start()
+     protected override void Start()
     {
-        
+        InventoryHolder.OnDynamicInventoryDisplayRequested += RefreshDynamicInventory();
+        base.Start();
     }
+    public void RefreshDynamicInventory()
+    {
 
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
-}
+}*/

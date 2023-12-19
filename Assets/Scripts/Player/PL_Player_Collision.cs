@@ -50,7 +50,10 @@ public class PL_Player_Collision : MonoBehaviour
         {
             switch (raycastsHit[0].transform.tag)
             {
-                case "ClosedLockChest": break; //si le joueur a une clef, ouvrir le coffre
+                case "ClosedChest":
+                    _playerInteract.interactionText.SetActive(true);
+                    _playerInteract.objectInFront = raycastsHit[0].transform.gameObject; 
+                    break;
                 case "ClosedChest": break;
                 case "ClosedLockDoor": 
                     if(!_playerInteract.HasKey()) _playerInteract.notAvailableText.SetActive(true);
@@ -59,6 +62,7 @@ public class PL_Player_Collision : MonoBehaviour
                     _playerInteract.interactionText.SetActive(true);
                     _playerInteract.objectInFront = raycastsHit[0].transform.gameObject;
                     break;
+                //exit
                 case "Exit": 
                     _playerInteract.interactionText.SetActive(true);
                     _playerInteract.objectInFront = raycastsHit[0].transform.gameObject;

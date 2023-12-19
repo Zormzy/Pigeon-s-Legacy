@@ -53,4 +53,8 @@ public class PL_Player_Interact : MonoBehaviour
         endGameMenuManager.OnGameOverCheck(true);
         endGameMenu.SetActive(true);
     }
+    public void OnPlayerOpenChest(GameObject chest)
+    {
+        Debug.Log("cpapt gros tqt");
+    }
 }

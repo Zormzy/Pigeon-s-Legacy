@@ -64,12 +64,12 @@ public class PL_Enemy_SpriteAnim : MonoBehaviour
     {
         if (Vector3.Angle(transformPlayer.position - transformEnemy.position, transformEnemy.forward) > 180f - 90 * 0.5f && Vector3.Angle(transformPlayer.position - transformEnemy.position, transformEnemy.forward) < 180f + 90 * 0.5f)
         {
-            print("L'ennemi tourne le dos au joueur !");
+            //print("L'ennemi tourne le dos au joueur !");
             front = false;
         }
         else
         {
-            print("L'ennemi est face au joueur !");
+            //("L'ennemi est face au joueur !");
             front = true;
         }
     }

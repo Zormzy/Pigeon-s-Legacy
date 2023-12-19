@@ -16,10 +16,10 @@ public class DamageManagement : MonoBehaviour
     [SerializeField] private GameObject _damageToPlayer;
 
     private int _damageReduced;
-    public List<int> characterHP;
+    [HideInInspector] public List<int> characterHP;
     private List<int> characterArmor;
     private List<int> classArmor;
-    public StatsData currentAttackedPlayer;
+    [HideInInspector] public StatsData currentAttackedPlayer;
     private int index = 0;
 
 

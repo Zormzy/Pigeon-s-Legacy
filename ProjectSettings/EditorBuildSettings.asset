@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Game_Scene/MainMenu.unity
     guid: 03e18cdd80f9848469de5ab19dcf8c8f
   - enabled: 1
-    path: Assets/Scenes/Dev_Scene/Xavier/Level_MVP.unity
-    guid: a56751ad443046943afee345996edc16
+    path: Assets/Scenes/Dev_Scene/Doriann/Lore_Scene.unity
+    guid: cb3cf3eeb927a1e4ca204e31f09b0b38
+  - enabled: 1
+    path: Assets/Scenes/Game_Scene/Tuto_test_phase2.unity
+    guid: c3833092ac290b9499706e842fed98d9
   m_configObjects: {}

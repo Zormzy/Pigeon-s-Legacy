@@ -163,9 +163,8 @@ RectTransform:
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3144824
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 4260483293571801743, guid: c0c0bf8bc3b6b0848b7dd94dd6815eed, type: 3}
+  m_PrefabInstance: {fileID: 1119587332490060245}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3144822}
   m_Enabled: 1
@@ -882,9 +881,8 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 36c562c71b68c7b48a3f863fde8caa13, type: 3}
 --- !u!1 &84431352
 GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 5158087666057890615, guid: 233bbf455a62b224083c3214dc2ac12c, type: 3}
+  m_PrefabInstance: {fileID: 4876941526174726311}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:

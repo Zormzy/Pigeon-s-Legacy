@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class PL_Enemy_SpriteAnim : MonoBehaviour
 {
-    [SerializeField] private Transform transformPlayer;
-    [SerializeField] private Transform transformEnemy;
+    private Transform transformPlayer;
+    private Transform transformEnemy;
     private Transform transformSprite;
     [SerializeField] List<Sprite> sprites = new List<Sprite>();
     private SpriteRenderer spriteRenderer;
     private bool front = false;
+
+    private void Start()
+    {
+        transformPlayer = GameObject.FindGameObjectWithTag("Player").transform;
+        transformEnemy = GetComponentInParent<Transform>();
+    }
 
     private void Awake()
     {

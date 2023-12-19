@@ -4,8 +4,13 @@ public class PL_Enemy_PlayerDetecter : MonoBehaviour
 {
     private bool playerDetected = false;
     private Transform transformTrigger;
-    [SerializeField] private GameObject player;
+    private GameObject player;
 
+
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
     private void Awake()
     {
         transformTrigger = transform;

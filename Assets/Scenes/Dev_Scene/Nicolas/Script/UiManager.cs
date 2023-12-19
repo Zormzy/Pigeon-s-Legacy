@@ -27,7 +27,6 @@ public class UiManager : MonoBehaviour
 
     [Header("HealthBars")]
     private List<Slider> healthBars;
-    [SerializeField] private List<TextMeshProUGUI> charactersHp;
 
     private void Awake()
     {
@@ -49,7 +48,6 @@ public class UiManager : MonoBehaviour
         for (int i = 0; i < characterStats.Count; i++)
         {
             healthBars[i].value = characterStats[i].HP;
-            //charactersHp[i].text = healthBars[i].value.ToString() + " / " + healthBars[i].maxValue.ToString();
         }
     }
 }

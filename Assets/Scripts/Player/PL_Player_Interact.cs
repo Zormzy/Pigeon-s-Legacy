@@ -1,23 +1,34 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PL_Player_Interact : MonoBehaviour
 {
     [Header("Components")]
-    public GameObject objectInFront;
+    [HideInInspector] public GameObject objectInFront;
     public GameObject interactionText;
-    public GameObject chestInFront;
-    public int i;
-    [SerializeField] private GameObject endGameMenu;
-    [SerializeField] private EndMenu endGameMenuManager;
+    private GameObject endGameMenu;
+    private EndMenu endGameMenuManager;
+    [HideInInspector] public GameObject notAvailableText;
+    private bool hasKey = false;
+
+    private void Start()
+    {
+        endGameMenu = GameObject.FindGameObjectWithTag("EndMenu");
+        notAvailableText = GameObject.FindGameObjectWithTag("NotAvailable");
+        endGameMenuManager = endGameMenu.GetComponent<EndMenu>();
+    }
 
     public void OnPlayerInteract(InputAction.CallbackContext context)
     {
-        switch (objectInFront.tag)
+        if (objectInFront)
         {
-            case "ClosedChest": OnPlayerOpenChest(objectInFront); break;
-            case "ClosedDoor": OnPlayerOpenDoor(objectInFront); break;
-            case "Exit": OnPlayerExit(); break;
+            switch (objectInFront.tag)
+            {
+                case "ClosedDoor": OnPlayerOpenDoor(objectInFront); break;
+                case "ClosedLockedDoor" : if (hasKey) OnPlayerOpenDoor(objectInFront); break;
+                case "Exit": OnPlayerExit(); break;
+            }
         }
         interactionText.SetActive(false);
     }
@@ -25,6 +36,16 @@ public class PL_Player_Interact : MonoBehaviour
     public void OnPlayerOpenDoor(GameObject door)
     {
         door.SetActive(false);
+    }
+
+    public void Key(bool has)
+    {
+        hasKey = has;
+    }
+
+    public bool HasKey()
+    {
+        return hasKey;
     }
 
     public void OnPlayerExit()

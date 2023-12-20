@@ -564,7 +564,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8019374505378071981, guid: 58c2f97aa1b45f84080b3df2dd3e95b4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 8019374505378071981, guid: 58c2f97aa1b45f84080b3df2dd3e95b4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4900,6 +4900,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 694227016}
     m_Modifications:
+    - target: {fileID: 3970754155258355515, guid: dc0d5413bc54cf144988a2afce596a79, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4502696701826766219, guid: dc0d5413bc54cf144988a2afce596a79, type: 3}
       propertyPath: m_LocalPosition.x
       value: 150
@@ -4940,6 +4944,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6593214271869646047, guid: dc0d5413bc54cf144988a2afce596a79, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7135224284169731526, guid: dc0d5413bc54cf144988a2afce596a79, type: 3}
       propertyPath: m_Name
       value: EndLevel
@@ -4949,7 +4957,8 @@ PrefabInstance:
       value: ClosedLockDoor
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1525379408966798821, guid: dc0d5413bc54cf144988a2afce596a79, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc0d5413bc54cf144988a2afce596a79, type: 3}
@@ -9547,7 +9556,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8019374505378071981, guid: 58c2f97aa1b45f84080b3df2dd3e95b4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2
+      value: 10000
       objectReference: {fileID: 0}
     - target: {fileID: 8019374505378071981, guid: 58c2f97aa1b45f84080b3df2dd3e95b4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -12345,6 +12354,7 @@ MonoBehaviour:
   _ButtonRejouer: {fileID: 1431647522}
   _ButtonNiveauSuivant: {fileID: 252451681}
   _tutoData: {fileID: 11400000, guid: fe99bd46ad10b8c4e9236c352df6eb98, type: 2}
+  buttonMainMenu: {fileID: 1280145441}
 --- !u!114 &1109128387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13683,7 +13693,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1109128386}
         m_TargetAssemblyTypeName: EndMenu, Assembly-CSharp
         m_MethodName: EndMainMenu
         m_Mode: 1
@@ -16082,7 +16092,7 @@ PrefabInstance:
       objectReference: {fileID: 1844139781}
     - target: {fileID: 4122924081770949219, guid: 532408e56da887a42841b486dee271af, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 4122924081770949219, guid: 532408e56da887a42841b486dee271af, type: 3}
       propertyPath: m_LocalPosition.y
@@ -18833,7 +18843,7 @@ PrefabInstance:
       objectReference: {fileID: 1844139781}
     - target: {fileID: 2695532062740889976, guid: c6719dc5629f5c8408e48b85d04c53e1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 2695532062740889976, guid: c6719dc5629f5c8408e48b85d04c53e1, type: 3}
       propertyPath: m_LocalPosition.y
@@ -21072,7 +21082,7 @@ PrefabInstance:
       objectReference: {fileID: 1844139781}
     - target: {fileID: 4659166586362295658, guid: 81ddfb5edd01c424abdcda8ad9ef6404, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 4659166586362295658, guid: 81ddfb5edd01c424abdcda8ad9ef6404, type: 3}
       propertyPath: m_LocalPosition.y

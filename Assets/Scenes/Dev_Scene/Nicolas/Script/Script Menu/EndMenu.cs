@@ -8,6 +8,7 @@ public class EndMenu : MonoBehaviour
     [SerializeField] private GameObject _ButtonRejouer;
     [SerializeField] private GameObject _ButtonNiveauSuivant;
     [SerializeField] private TutoData _tutoData;
+    [SerializeField] private GameObject buttonMainMenu;
 
     public void EndMainMenu()
     {
@@ -34,9 +35,19 @@ public class EndMenu : MonoBehaviour
         if (_isWin)
         {
             gameOverTitle.text = "Etage termine";
-            _ButtonNiveauSuivant.SetActive(true);
-            _ButtonRejouer.SetActive(false);
-        }  
+            if (SceneManager.GetActiveScene().name == "Final_Level_2")
+            {
+                print("jeu fini");
+                _ButtonRejouer.SetActive(true);
+                buttonMainMenu.SetActive(true);
+                _ButtonNiveauSuivant.SetActive(false);
+            }
+            else
+            {
+                _ButtonNiveauSuivant.SetActive(true);
+                _ButtonRejouer.SetActive(false);
+            }
+        }
         else
         {
             //gameOverTitle.text = "Votre equipe à succombe";

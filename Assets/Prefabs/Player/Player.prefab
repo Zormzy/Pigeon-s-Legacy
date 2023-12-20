@@ -531,7 +531,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 35515265acf45a74a8b2b1a49dfdc88e, type: 2}
   - {fileID: 11400000, guid: c5d143c04d5439842aabe07063096711, type: 2}
   - {fileID: 11400000, guid: e4ef7bf8118c2d644916884baadf1efd, type: 2}
-  uiManager: {fileID: 5241118228798794188, guid: 233bbf455a62b224083c3214dc2ac12c, type: 3}
   positionManager: {fileID: 4185332965643496090, guid: 233bbf455a62b224083c3214dc2ac12c, type: 3}
   _damageToPlayer: {fileID: 4669103742587982178}
   characterHP: 
@@ -562,7 +561,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectInFront: {fileID: 0}
   interactionText: {fileID: 6389440881812556277}
-  notAvailableText: {fileID: 5932657991004830259}
+  endGameMenu: {fileID: 0}
+  endGameMenuManager: {fileID: 0}
 --- !u!114 &8787531259881213589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -576,7 +576,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 0.5
-  rotateSpeed: 0.5
+  rotateSpeed: 2
 --- !u!33 &926146680331260664
 MeshFilter:
   m_ObjectHideFlags: 0

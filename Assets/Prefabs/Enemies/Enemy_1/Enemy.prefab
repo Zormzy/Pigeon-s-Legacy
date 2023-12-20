@@ -65,7 +65,7 @@ MonoBehaviour:
   playerDetecter: {fileID: 8326213308131136874}
   player: {fileID: 0}
   moveSpeed: 0.5
-  rotateSpeed: 0.5
+  rotateSpeed: 2
 --- !u!114 &7582449904402707780
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -54,7 +54,8 @@ public class PL_Player_Collision : MonoBehaviour
                     _playerInteract.interactionText.SetActive(true);
                     _playerInteract.objectInFront = raycastsHit[0].transform.gameObject;
                     break;
-                case "ClosedLockDoor": 
+                case "ClosedLockDoor":
+                    _playerInteract.interactionText.SetActive(true);
                     _playerInteract.objectInFront = raycastsHit[0].transform.gameObject; break; //si le joueur a une clef, ouvrir la porte
                 case "ClosedDoor":
                     _playerInteract.interactionText.SetActive(true);

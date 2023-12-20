@@ -22,7 +22,7 @@ public class PL_Player_Interact : MonoBehaviour
                     _spawnLoot = objectInFront.GetComponent<SpawnLoot>();
                     OnPlayerOpenChest(objectInFront); break;
                 case "ClosedDoor": OnPlayerOpenDoor(objectInFront); break;
-                case "ClosedLockedDoor" : if (hasKey) OnPlayerOpenDoor(objectInFront); break;
+                case "ClosedLockDoor" : if (hasKey) OnPlayerOpenDoor(objectInFront); break;
                 case "Exit": OnPlayerExit(); break;
                 default:break;
             }

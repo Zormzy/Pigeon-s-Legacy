@@ -11,7 +11,7 @@ public class PL_Enemy_Movement : MonoBehaviour
     private Transform transformEnemy;
     private PL_Player_Movement playerMovement;
     private Transform transformPlayer;
-    private GameObject player;
+    [SerializeField] private GameObject player;
 
     [Header("Variables")]
     private float rotateTimer;
@@ -26,12 +26,6 @@ public class PL_Enemy_Movement : MonoBehaviour
     private float lerpTimeRotation = 0;
     [SerializeField] private float moveSpeed;
     [SerializeField] private float rotateSpeed;
-
-    private void Start()
-    {
-        player = GameObject.FindGameObjectWithTag("Player");
-    }
-
     private void OnEnable()
     {
         Initialize();
@@ -69,6 +63,7 @@ public class PL_Enemy_Movement : MonoBehaviour
 
     private void MoveEnemy()
     {
+        print(transformPlayer.position);
         if ((Mathf.Abs(transformPlayer.position.x - transformEnemy.position.x) <= .01f ||
              Mathf.Abs(transformPlayer.position.z - transformEnemy.position.z) <= .01f) && playerDetecter.IsPlayerDetected())
         {

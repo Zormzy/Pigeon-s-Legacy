@@ -5,37 +5,60 @@ using UnityEngine.UIElements;
 public class PL_Enemy_EnemySpawner : MonoBehaviour
 {
     [SerializeField] private PL_Enemy_EnemySpawnPosition EnemyPosition;
-    private Transform transformEnemy;
-    private Vector3 positionSelected;
+    [HideInInspector] public List<GameObject> Enemies;
+    private List<Transform> transformEnemies = new List<Transform>();
+    private List<Vector3> positionSelected = new List<Vector3>();
     private int previousBoxIndex;
 
     private void Awake()
     {
-        for(int i = 0; i < EnemyPosition.caseOccuppied.Count; i++)
+        Enemies = GetAllChilds(transform);
+        //Enemies.Remove(transform.gameObject);
+        print(Enemies.Count);
+        for (int i = 0; i < Enemies.Count; i++)
+        {
+            print(Enemies[i].name);
+            transformEnemies.Add(Enemies[i].transform);
+            positionSelected.Add(EnemyPosition.enemyPositions[i]);
+            EnemySelectPosition(i);
+        }
+    }
+
+    List<GameObject> GetAllChilds(Transform t)
+    {
+        List<GameObject> ts = new List<GameObject>();
+
+        foreach (Transform tc in t)
+        {
+            ts.Add(tc.gameObject);
+        }
+
+        return ts;
+    }
+
+    public void EnemySelectPosition(int j)
+    {
+        previousBoxIndex = EnemyPosition.enemyPositions.IndexOf(positionSelected[j]);
+
+        for (int i = 0; i < EnemyPosition.caseOccuppied.Count; i++)
+        {
+            if (!EnemyPosition.caseOccuppied[i])
+            {
+                positionSelected[j] = EnemyPosition.enemyPositions[i];
+                EnemyPosition.caseOccuppied[previousBoxIndex] = false;
+                EnemyPosition.caseOccuppied[i] = true;
+                transformEnemies[j].position = positionSelected[j];
+                print("position found");
+                break;
+            }
+        }
+    }
+
+    private void OnApplicationQuit()
+    {
+        for (int i = 0; i < EnemyPosition.caseOccuppied.Count; i++)
         {
             EnemyPosition.caseOccuppied[i] = false;
         }
-        transformEnemy = transform;
-        positionSelected = EnemyPosition.enemyPositions[Random.Range(0, EnemyPosition.enemyPositions.Count)];
-        EnemySelectPosition();
-    }
-
-    public void EnemySelectPosition()
-    {
-        previousBoxIndex = EnemyPosition.enemyPositions.IndexOf(positionSelected);
-        positionSelected = EnemyPosition.enemyPositions[Random.Range(0, EnemyPosition.enemyPositions.Count)];
-        if (EnemyPosition.caseOccuppied[EnemyPosition.enemyPositions.IndexOf(positionSelected)])
-        {
-            EnemySelectPosition();
-            print("position occupied");
-        }
-        else
-        {
-            print(EnemyPosition.enemyPositions.IndexOf(positionSelected));
-            EnemyPosition.caseOccuppied[previousBoxIndex] = false;
-            EnemyPosition.caseOccuppied[EnemyPosition.enemyPositions.IndexOf(positionSelected)] = true;
-            transformEnemy.position = positionSelected;
-        }
-        
     }
 }

@@ -61,7 +61,7 @@ public class PL_Enemy_Attack : MonoBehaviour
     private void OnEnemyDeath()
     {
         gameObject.SetActive(false);
-        spawner.EnemySelectPosition();
+        spawner.EnemySelectPosition(spawner.Enemies.IndexOf(gameObject));
         _enemyHitPoints = _enemyStats.HP;
         print("enemy dead");
         gameObject.SetActive(true);

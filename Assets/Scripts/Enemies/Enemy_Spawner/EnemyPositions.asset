@@ -13,6 +13,13 @@ MonoBehaviour:
   m_Name: EnemyPositions
   m_EditorClassIdentifier: 
   enemyPositions:
-  - {x: 0, y: 1, z: 8}
-  - {x: 0, y: 1, z: 16}
-  caseOccuppied: 0001
+  - {x: 30, y: 1, z: 0}
+  - {x: 50, y: 1, z: 40}
+  - {x: 50, y: 1, z: -40}
+  - {x: 90, y: 1, z: -20}
+  - {x: 90, y: 1, z: 10}
+  - {x: 130, y: 1, z: 30}
+  - {x: 130, y: 1, z: -30}
+  - {x: 140, y: 1, z: 10}
+  - {x: 90, y: 1, z: 70}
+  caseOccuppied: 000000000000000000

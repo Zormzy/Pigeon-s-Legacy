@@ -11,7 +11,7 @@ public class DamageManagement : MonoBehaviour
     [Header("ScriptableObject")]
     [SerializeField] private List<StatsData> characterStats;
     [SerializeField] private List<ClassData> classStats;
-    [SerializeField] private UiManager uiManager;
+    private UiManager uiManager;
     [SerializeField] private PL_Position_PositionManager positionManager;
     [SerializeField] private GameObject _damageToPlayer;
 
@@ -26,6 +26,7 @@ public class DamageManagement : MonoBehaviour
     private void Awake()
     {
        DamageManagementInitialization();
+       uiManager = GameObject.FindObjectOfType<UiManager>();
     }
 
     private void Update()

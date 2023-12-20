@@ -81,6 +81,6 @@ public class PL_Enemy_Attack : MonoBehaviour
         healthBarEnnemy.maxValue = _enemyStats.HP;
         healthBarEnnemy.value = _enemyStats.HP;
         enemyCollision = GetComponent<PL_Enemy_Collision>();
-        spawner = GetComponent<PL_Enemy_EnemySpawner>();
+        spawner = GetComponentInParent<PL_Enemy_EnemySpawner>();
     }
 }

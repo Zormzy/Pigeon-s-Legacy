@@ -29,11 +29,6 @@ public class DamageManagement : MonoBehaviour
        uiManager = GameObject.FindObjectOfType<UiManager>();
     }
 
-    private void Update()
-    {
-        //characterHP[0] = positionManager.CharacterStats()[0].HP;
-    }
-
     public void TakeDamage(int indexCharacter, int damage)
     {
         _damageReduced = damage - characterArmor[indexCharacter] - classArmor[indexCharacter];
@@ -60,9 +55,10 @@ public class DamageManagement : MonoBehaviour
     {
         if (index == 2)
         {
-            endGameMenuManager.OnGameOverCheck(false);
             endGameMenu.SetActive(true);
- 
+            if(endGameMenu.activeSelf)
+                endGameMenuManager.OnGameOverCheck(false);
+
         }
         else
         {

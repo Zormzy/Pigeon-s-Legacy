@@ -8,13 +8,8 @@ public class PL_Player_Interact : MonoBehaviour
     [HideInInspector] public GameObject objectInFront;
     public GameObject interactionText;
     [SerializeField] private GameObject endGameMenu;
-    private EndMenu endGameMenuManager;
+    [SerializeField] private EndMenu endGameMenuManager;
     private bool hasKey = false;
-
-    private void Start()
-    {
-        endGameMenuManager = endGameMenu.GetComponent<EndMenu>();
-    }
 
     public void OnPlayerInteract(InputAction.CallbackContext context)
     {
@@ -48,11 +43,12 @@ public class PL_Player_Interact : MonoBehaviour
 
     public void OnPlayerExit()
     {
-        endGameMenuManager.OnGameOverCheck(true);
         endGameMenu.SetActive(true);
+        if (endGameMenu.activeSelf)
+            endGameMenuManager.OnGameOverCheck(true);
     }
     public void OnPlayerOpenChest(GameObject chest)
     {
-        Debug.Log("cpapt gros tqt");
+        Debug.Log("chest opened");
     }
 }

@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game_Scene/Tuto_test_phase2.unity
     guid: c3833092ac290b9499706e842fed98d9
+  - enabled: 1
+    path: Assets/Scenes/Game_Scene/Final_Level_1.unity
+    guid: d806ecdde31dc4d439e7dc5ae99a0edd
+  - enabled: 1
+    path: Assets/Scenes/Game_Scene/Final_Level2.unity
+    guid: 90827a45427b85a40adb734b60ac89c3
   m_configObjects: {}

@@ -6,14 +6,14 @@ public class PL_Trap_PlayerDetecter : MonoBehaviour
     [SerializeField] private ParticleSystem trapParticle;
     private DamageManagement damageManagement;
     private float baseCooldown;
-    private float cooldown;
+    private float cooldown = 0;
     private int damage;
     private bool difused;
     private Transform transformTrap;
 
     private void Awake()
     {
-        baseCooldown = cooldown = trapScriptable.cooldown;
+        baseCooldown = trapScriptable.cooldown;
         damage = trapScriptable.damage;
         difused = trapScriptable.difused;
         transformTrap = transform;

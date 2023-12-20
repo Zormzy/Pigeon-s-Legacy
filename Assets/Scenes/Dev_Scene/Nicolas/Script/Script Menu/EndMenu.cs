@@ -1,6 +1,5 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem.Controls;
 using UnityEngine.SceneManagement;
 
 public class EndMenu : MonoBehaviour
@@ -12,8 +11,9 @@ public class EndMenu : MonoBehaviour
 
     public void EndMainMenu()
     {
+        print("Main Menu");
         Time.timeScale = 1;
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene(0);
     }
 
     public void Replay()
@@ -21,6 +21,12 @@ public class EndMenu : MonoBehaviour
         Time.timeScale = 1;
         string nomSceneActuelle = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(nomSceneActuelle);
+    }
+
+    public void NextLevel()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void OnGameOverCheck(bool _isWin)
@@ -33,7 +39,7 @@ public class EndMenu : MonoBehaviour
         }  
         else
         {
-            gameOverTitle.text = "Votre equipe à succombe";
+            //gameOverTitle.text = "Votre equipe à succombe";
             _ButtonNiveauSuivant.SetActive(false);
             _ButtonRejouer.SetActive(true);
         }

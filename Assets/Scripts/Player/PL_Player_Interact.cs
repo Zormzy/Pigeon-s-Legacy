@@ -8,14 +8,9 @@ public class PL_Player_Interact : MonoBehaviour
     [HideInInspector] public GameObject objectInFront;
     public GameObject interactionText;
     [SerializeField] private GameObject endGameMenu;
-    private EndMenu endGameMenuManager;
+    [SerializeField] private EndMenu endGameMenuManager;
     private bool hasKey = false;
     private SpawnLoot _spawnLoot;
-
-    private void Start()
-    {
-        endGameMenuManager = endGameMenu.GetComponent<EndMenu>();
-    }
 
     public void OnPlayerInteract(InputAction.CallbackContext context)
     {
@@ -27,7 +22,7 @@ public class PL_Player_Interact : MonoBehaviour
                     _spawnLoot = objectInFront.GetComponent<SpawnLoot>();
                     OnPlayerOpenChest(objectInFront); break;
                 case "ClosedDoor": OnPlayerOpenDoor(objectInFront); break;
-                case "ClosedLockedDoor" : if (hasKey) OnPlayerOpenDoor(objectInFront); break;
+                case "ClosedLockDoor" : if (hasKey) OnPlayerOpenDoor(objectInFront); break;
                 case "Exit": OnPlayerExit(); break;
                 default:break;
             }
@@ -52,12 +47,13 @@ public class PL_Player_Interact : MonoBehaviour
 
     public void OnPlayerExit()
     {
-        endGameMenuManager.OnGameOverCheck(true);
         endGameMenu.SetActive(true);
+        if (endGameMenu.activeSelf)
+            endGameMenuManager.OnGameOverCheck(true);
     }
     public void OnPlayerOpenChest(GameObject chest)
     {
+        Debug.Log("chest opened");
         _spawnLoot.spawnLoot = true;
-       // Debug.Log("cpapt gros tqt");
     }
 }

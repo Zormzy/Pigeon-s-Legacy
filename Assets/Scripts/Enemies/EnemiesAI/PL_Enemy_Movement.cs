@@ -63,7 +63,6 @@ public class PL_Enemy_Movement : MonoBehaviour
 
     private void MoveEnemy()
     {
-        print(transformPlayer.position);
         if ((Mathf.Abs(transformPlayer.position.x - transformEnemy.position.x) <= .01f ||
              Mathf.Abs(transformPlayer.position.z - transformEnemy.position.z) <= .01f) && playerDetecter.IsPlayerDetected())
         {

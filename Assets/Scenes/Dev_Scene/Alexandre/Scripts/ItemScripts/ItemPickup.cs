@@ -8,6 +8,8 @@ public class ItemPickup : MonoBehaviour
     public float PickupRadius = 1f;
     public InventoryItemData ItemData;
     private SphereCollider myCollider;
+    [SerializeField] private OpenInventory menuManager;
+    [SerializeField] private PL_Player_Interact playerInteract;
 
     private void Awake()
     {
@@ -22,6 +24,8 @@ public class ItemPickup : MonoBehaviour
         if (!inventory) return;
         if (inventory.InventorySystem.AddToInventory(ItemData, 1))
         {
+            menuManager.WarriorClicked();
+            playerInteract.Key(true);
             Destroy(this.gameObject);
         }
     }

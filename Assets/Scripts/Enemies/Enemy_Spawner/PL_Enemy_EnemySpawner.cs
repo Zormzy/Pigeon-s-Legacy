@@ -54,7 +54,7 @@ public class PL_Enemy_EnemySpawner : MonoBehaviour
         }
     }
 
-    private void OnApplicationQuit()
+    private void OnDestroy()
     {
         for (int i = 0; i < EnemyPosition.caseOccuppied.Count; i++)
         {

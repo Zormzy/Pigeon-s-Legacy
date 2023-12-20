@@ -12,7 +12,7 @@ public class PL_MainMenuButtons : MonoBehaviour
     //Start Button
     public void OnCommencerBtn()
     {
-        SceneManager.LoadScene("Level_MVP");        
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);        
     }
 
     //Credits Button

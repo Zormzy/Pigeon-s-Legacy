@@ -489,7 +489,8 @@ PrefabInstance:
       value: DoorFrame
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8892799679613778411, guid: 13df8b509dbb88f41ad1f9b5c413bed9, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13df8b509dbb88f41ad1f9b5c413bed9, type: 3}

@@ -418,6 +418,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoorFrame
       objectReference: {fileID: 0}
+    - target: {fileID: 8904373764362371264, guid: 13df8b509dbb88f41ad1f9b5c413bed9, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e01c1c5ba9a13fb408bcb73ae6c94663, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

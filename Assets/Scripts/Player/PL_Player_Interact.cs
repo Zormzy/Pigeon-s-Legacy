@@ -10,17 +10,21 @@ public class PL_Player_Interact : MonoBehaviour
     [SerializeField] private GameObject endGameMenu;
     [SerializeField] private EndMenu endGameMenuManager;
     private bool hasKey = false;
+    private SpawnLoot _spawnLoot;
 
     public void OnPlayerInteract(InputAction.CallbackContext context)
     {
         if (objectInFront)
-        {
+        { 
             switch (objectInFront.tag)
             {
-                case "ClosedChest": OnPlayerOpenChest(objectInFront); break;
+                case "ClosedChest": 
+                    _spawnLoot = objectInFront.GetComponent<SpawnLoot>();
+                    OnPlayerOpenChest(objectInFront); break;
                 case "ClosedDoor": OnPlayerOpenDoor(objectInFront); break;
                 case "ClosedLockedDoor" : if (hasKey) OnPlayerOpenDoor(objectInFront); break;
                 case "Exit": OnPlayerExit(); break;
+                default:break;
             }
         }
         interactionText.SetActive(false);
@@ -50,5 +54,6 @@ public class PL_Player_Interact : MonoBehaviour
     public void OnPlayerOpenChest(GameObject chest)
     {
         Debug.Log("chest opened");
+        _spawnLoot.spawnLoot = true;
     }
 }

@@ -33,6 +33,8 @@ public class PL_Enemy_Attack : MonoBehaviour
             OnEnemyAttack();
         else if (_attackTimerCount != 0)
             _attackTimerCount = 0;
+
+        healthBarEnnemy.value = _enemyHitPoints;
     }
 
     public void OnEnemyAttack()
@@ -46,6 +48,7 @@ public class PL_Enemy_Attack : MonoBehaviour
             _attackTimerCount += Time.deltaTime;
     }
 
+
     public void OnTakeDamage(int damage)
     {
         if (_enemyHitPoints - (damage - _enemyArmorPoints) <= 0)
@@ -53,7 +56,6 @@ public class PL_Enemy_Attack : MonoBehaviour
         else
         {
             _enemyHitPoints -= ((damage - _enemyArmorPoints));
-            healthBarEnnemy.value -= ((damage - _enemyArmorPoints));
         }
 
     }

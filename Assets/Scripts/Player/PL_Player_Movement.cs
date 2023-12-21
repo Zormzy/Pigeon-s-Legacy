@@ -47,7 +47,7 @@ public class PL_Player_Movement : MonoBehaviour
 
     private void MovePLayer()
     {
-        if(move && playerCollision.IsCanGo(contextValue) && transformPlayer.position == moveTarget && (enemyMovement == null || enemyMovement != null && (!IsInPlayerArea() || IsInPlayerArea() && !enemyMovement.IsMoving())))
+        if (rotationTarget == transformPlayer.rotation && move && playerCollision.IsCanGo(contextValue) && transformPlayer.position == moveTarget && (enemyMovement == null || enemyMovement != null && (!IsInPlayerArea() || IsInPlayerArea() && !enemyMovement.IsMoving())))
         {
             lerpTime = 0;
             moveTarget += transformPlayer.forward * groundSize * contextValue.z;

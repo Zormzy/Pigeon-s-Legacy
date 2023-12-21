@@ -20,7 +20,7 @@ public class DamageManagement : MonoBehaviour
     private List<int> characterArmor;
     private List<int> classArmor;
     [HideInInspector] public StatsData currentAttackedPlayer;
-    private int index = 0;
+    public int index { get; private set; } = 0;
 
 
     private void Awake()
@@ -34,12 +34,14 @@ public class DamageManagement : MonoBehaviour
         _damageReduced = damage - characterArmor[indexCharacter] - classArmor[indexCharacter];
 
         if (positionManager.CharacterStats()[0].HP - _damageReduced <= 0)
+        {
+            positionManager.CharacterStats()[0].HP = 0;
             OnCharacterDeath();
+        }
         else
         {
             positionManager.CharacterStats()[0].HP -= _damageReduced;
             currentAttackedPlayer = positionManager.CharacterStats()[0];
-            uiManager.SetHealth();
             _damageToPlayer.SetActive(true);
             StartCoroutine(Desactivate());           
         }
@@ -58,7 +60,6 @@ public class DamageManagement : MonoBehaviour
             endGameMenu.SetActive(true);
             if(endGameMenu.activeSelf)
                 endGameMenuManager.OnGameOverCheck(false);
-
         }
         else
         {
@@ -93,5 +94,10 @@ public class DamageManagement : MonoBehaviour
             classArmor.Add(_class.classArmor);
         }
         currentAttackedPlayer = characterStats[0];
+    }
+
+    private void Update()
+    {
+        uiManager.SetHealth();
     }
 }

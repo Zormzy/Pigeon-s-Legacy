@@ -5,6 +5,8 @@ public class EngineerClass : ClassesSkills
     [Header("Components")]
     [SerializeField] private ClassData classData;
     [SerializeField] private StatsData statsData;
+    [SerializeField] private DamageManagement damageManagement;
+    private PL_Position_PositionManager positionManager;
     private Transform _playerTransform;
 
     private int _damage;
@@ -16,6 +18,7 @@ public class EngineerClass : ClassesSkills
     {
         audioSource = GetComponent<AudioSource>();
         _playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        positionManager = GetComponentInParent<PL_Position_PositionManager>();
     }
     private void Awake()
     {
@@ -25,7 +28,7 @@ public class EngineerClass : ClassesSkills
     public override void Skill1()
     {
         _damage = statsData.Damage + classData.classDamage;
-        if (Physics.Raycast(_playerTransform.position, _playerTransform.forward, out _raycastHit, 2))
+        if (Physics.Raycast(_playerTransform.position, _playerTransform.forward, out _raycastHit, 2) && damageManagement.index <= 2)
             if (_raycastHit.transform.CompareTag("Enemy") && cooldowns[0] <= 0)
             {
                 _raycastHit.transform.GetComponent<PL_Enemy_Attack>().OnTakeDamage(_damage);

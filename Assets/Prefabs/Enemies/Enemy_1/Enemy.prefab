@@ -294,6 +294,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4312144372008862668}
     m_Modifications:
+    - target: {fileID: 868360888154397650, guid: 2d9abe3997a386b4a85da2e51060a731, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6250575694281630589, guid: 2d9abe3997a386b4a85da2e51060a731, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -377,6 +381,10 @@ PrefabInstance:
     - target: {fileID: 6873685842737231916, guid: 2d9abe3997a386b4a85da2e51060a731, type: 3}
       propertyPath: m_Name
       value: CanvasEnnemyHP
+      objectReference: {fileID: 0}
+    - target: {fileID: 7223077429758229030, guid: 2d9abe3997a386b4a85da2e51060a731, type: 3}
+      propertyPath: m_Interactable
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8209289006068483798, guid: 2d9abe3997a386b4a85da2e51060a731, type: 3}
       propertyPath: m_AnchorMax.x

@@ -4,8 +4,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "TutoData", menuName = "Game/TutoData")]
 public class TutoData : ScriptableObject
 {
-    public bool tuto1;
-    public bool tuto2;
-    public bool tuto3;
-    public bool tuto4;
+    public bool tuto1 = false;
+    public bool tuto2 = false;
+    public bool tuto3 = false;
+    public bool tuto4 = false;
 }

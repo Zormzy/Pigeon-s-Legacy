@@ -1038,6 +1038,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoorFrame (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3104844724470743831, guid: 13df8b509dbb88f41ad1f9b5c413bed9, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3104844724470743831, guid: 13df8b509dbb88f41ad1f9b5c413bed9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3540507470681389443, guid: 13df8b509dbb88f41ad1f9b5c413bed9, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3540507470681389443, guid: 13df8b509dbb88f41ad1f9b5c413bed9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3540507470681389443, guid: 13df8b509dbb88f41ad1f9b5c413bed9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 8892799679613778411, guid: 13df8b509dbb88f41ad1f9b5c413bed9, type: 3}

@@ -5,6 +5,7 @@ public class WarriorClass : ClassesSkills
     [Header("Components")]
     [SerializeField] private ClassData classData;
     [SerializeField] private StatsData statsData;
+    [SerializeField] private DamageManagement damageManagement;
     private Transform _playerTransform;
 
     private int _damage;
@@ -26,7 +27,7 @@ public class WarriorClass : ClassesSkills
     public override void Skill1()
     {
         _damage = statsData.Damage + classData.classDamage;
-        if (Physics.Raycast(_playerTransform.position, _playerTransform.forward, out _raycastHit, 1))
+        if (Physics.Raycast(_playerTransform.position, _playerTransform.forward, out _raycastHit, 1) && damageManagement.index == 0)
             if (_raycastHit.transform.CompareTag("Enemy") && cooldowns[0] <= 0)
             {
                 cooldowns[0] = cooldowns[1];

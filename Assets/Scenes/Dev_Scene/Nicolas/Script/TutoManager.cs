@@ -13,6 +13,10 @@ public class TutoManager : MonoBehaviour
     {
         //set timescale to 0 for the tuto
         Time.timeScale = 0;
+        if (!_tutoData.tuto4)
+        {
+            CharacterUI.SetActive(false);
+        }
         // Tuto Finish set all tuto to false for so active ui tuto in restart
         if (_tutoData.tuto1 && _tutoData.tuto2 && _tutoData.tuto3 && _tutoData.tuto4)
         {
@@ -61,4 +65,13 @@ public class TutoManager : MonoBehaviour
         tuto4.SetActive(false);
         CharacterUI.SetActive(true);
     }
+
+    //private void OnDestroy()
+    //{
+    //    _tutoData.tuto1 = false;
+    //    _tutoData.tuto2 = false;
+    //    _tutoData.tuto3 = false;
+    //    _tutoData.tuto4 = false;
+
+    //}
 }

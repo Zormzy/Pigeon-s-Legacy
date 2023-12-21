@@ -7,7 +7,7 @@ public class PL_Enemy_Collision : MonoBehaviour
     private bool canGoForward, canGoLeft, canGoRight, canGoBack;
     public static PL_Enemy_Collision Instance;
     private bool playerInFront;
-    private string[] nametags = new string[] { "ClosedLockChest", "ClosedChest", "ClosedLockDoor", "ClosedDoor", "Trap", "DesactivatedTrap", "Exit", "Player", "wall" };
+    private string[] nametags = new string[] { "ClosedLockChest", "ClosedChest", "ClosedLockDoor", "ClosedDoor", "Exit", "Player", "wall" };
     private RaycastHit[] raycastsHit = new RaycastHit[4];
     private PL_Enemy_Attack enemyAttack;
 

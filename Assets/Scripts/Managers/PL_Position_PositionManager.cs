@@ -5,7 +5,7 @@ using UnityEngine;
 public class PL_Position_PositionManager : MonoBehaviour
 {
     [SerializeField] private List<StatsData> characterStats;
-    private List<StatsData> characterStatsOrdered = new List<StatsData>(){null, null, null, null};
+    [SerializeField] private List<StatsData> characterStatsOrdered = new List<StatsData>(){null, null, null, null};
     [SerializeField] private List<TMP_Dropdown> gestionDropdown;
     private bool changing = false;
     private int[] previousValues = new int[4];

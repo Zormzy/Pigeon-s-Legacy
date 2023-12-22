@@ -6,11 +6,13 @@ public class ThiefClass : ClassesSkills
     [SerializeField] private ClassData classData;
     [SerializeField] private StatsData statsData;
     [SerializeField] private DamageManagement damageManagement;
+    [SerializeField] private AudioClip difuseTrap;
+    [SerializeField] private AudioClip thief;
     private PL_Position_PositionManager positionManager;
     private Transform _playerTransform;
     private float[] cooldowns = new float[4];
 
-    private int _damage;
+    private float _damage;
     private RaycastHit _raycastHit;
     private AudioSource audioSource;
 
@@ -23,8 +25,8 @@ public class ThiefClass : ClassesSkills
 
     private void Awake()
     {
-        cooldowns[0] = cooldowns[1] = classData.cooldownAttack;
-        cooldowns[2] = cooldowns[3] = classData.cooldownSkill;
+        cooldowns[1] = classData.cooldownAttack - classData.classSpeed / 10;
+        cooldowns[3] = classData.cooldownSkill - classData.classSpeed / 10;
     }
     public override void Skill1()
     {
@@ -35,6 +37,7 @@ public class ThiefClass : ClassesSkills
                 _raycastHit.transform.GetComponent<PL_Enemy_Attack>().OnTakeDamage(_damage);
                 cooldowns[0] = cooldowns[1];
                 print("thief attack");
+                audioSource.clip = thief;
                 audioSource.Play();
             }
     }
@@ -52,17 +55,22 @@ public class ThiefClass : ClassesSkills
         }
 
         Debug.DrawRay(_playerTransform.position, _playerTransform.forward, Color.red);
+
+        print(cooldowns[1]);
+        print(classData.classSpeed / 10);
     }
 
     public override void Skill2()
     {
-        foreach(var raycastHit in Physics.RaycastAll(_playerTransform.position, _playerTransform.forward))
+        foreach(var raycastHit in Physics.RaycastAll(_playerTransform.position, _playerTransform.forward, 1))
         {
             if(raycastHit.transform.tag == "Trap" && cooldowns[2] <= 0)
             {
                 cooldowns[2] = cooldowns[3];
                 raycastHit.transform.gameObject.GetComponent<PL_Trap_PlayerDetecter>().DifuseTrap();
                 print("trap difused");
+                audioSource.clip = difuseTrap;
+                audioSource.Play();
                 break;
             }
         }

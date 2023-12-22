@@ -10,9 +10,16 @@ public class SpawnLoot : MonoBehaviour
     [SerializeField] [Range(1,50)] private int maxNumber = 2;
     [SerializeField] private Transform spawnPoint;
     private bool hasBeenCollected = false;
+    private GameObject player;
+    private Transform playerTransform;
 
     [SerializeField] public bool spawnLoot = true;
 
+    private void Start()
+    {
+        player = GameObject.Find("Player");
+        playerTransform = player.transform;
+    }
     private void OnValidate()
     {
         if (minNumber > maxNumber)
@@ -37,8 +44,7 @@ public class SpawnLoot : MonoBehaviour
     {
         for (int i = 0; i <number; i++)
         {
-            GameObject tempLoot = Instantiate(loot[Random.Range(0, loot.Count)]);
-            tempLoot.transform.position = spawnPoint.position;
+            GameObject tempLoot = Instantiate(loot[Random.Range(0, loot.Count)], playerTransform.position, Quaternion.identity);
             yield return new WaitForSeconds(0.15f);
         }
     }

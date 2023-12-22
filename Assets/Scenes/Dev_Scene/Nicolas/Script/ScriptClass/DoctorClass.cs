@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class DoctorClass : ClassesSkills
@@ -7,30 +8,29 @@ public class DoctorClass : ClassesSkills
     [SerializeField] private ClassData classData;
     [SerializeField] private StatsData statsData;
     [SerializeField] private HealthKitData healthKitData;
-    private PL_Position_PositionManager positionManager;
+    [SerializeField] private PL_Position_PositionManager positionManager;
     private Transform _playerTransform;
     private GameObject player;
-    [SerializeField] private List<StatsData> characterStats;
     [SerializeField] private UiManager uiManager;
     [SerializeField] private DamageManagement damageManagement;
 
     private float[] cooldowns = new float[4];
-    private int _damage;
+    private float _damage;
     private RaycastHit _raycastHit;
     private AudioSource audioSource;
+    private float[] HP = new float[4] { 0, 0, 0, 0};
 
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
         player = GameObject.FindGameObjectWithTag("Player");
         _playerTransform = player.transform;
-        positionManager = GetComponentInParent<PL_Position_PositionManager>();
     }
 
     private void Awake()
     {
-        cooldowns[0] = cooldowns[1] = classData.cooldownAttack;
-        cooldowns[2] = cooldowns[3] = classData.cooldownSkill;
+        cooldowns[1] = classData.cooldownAttack - classData.classSpeed / 10;
+        cooldowns[3] = classData.cooldownSkill - classData.classSpeed / 10;
     }
     public override void Skill1()
     {
@@ -45,6 +45,14 @@ public class DoctorClass : ClassesSkills
             }
     }
 
+    private void LateUpdate()
+    {
+        for (int i = 0; i < positionManager.CharacterStats().Count; i++)
+        {
+            HP[i] = positionManager.CharacterStats()[i].HP;
+        }
+    }
+
     private void Update()
     {
         if (cooldowns[0] > 0)
@@ -56,23 +64,26 @@ public class DoctorClass : ClassesSkills
         {
             cooldowns[2] -= Time.deltaTime;
         }
+
     }
 
     public override void Skill2()
     {
+        print("index : " + positionManager.CharacterStats().FindIndex(data => data.HP == HP.Min() && data.HP != 0));
+        StatsData healCharacter = positionManager.CharacterStats()[positionManager.CharacterStats().FindIndex(data => data.HP == HP.Min() && data.HP != 0)];
         if (cooldowns[2] <= 0)
         {
             if (damageManagement.currentAttackedPlayer.HP + healthKitData.regenHP >= damageManagement.currentAttackedPlayer.MaxHP)
             {
                 print("damage higher");
-                damageManagement.currentAttackedPlayer.HP = 15;
+                healCharacter.HP = 15;
                 uiManager.SetHealth();
             }
             else if (damageManagement.currentAttackedPlayer.HP > 0)
             {
                 print("heal");
                 //si on a le medkit
-                damageManagement.currentAttackedPlayer.HP += healthKitData.regenHP;
+                healCharacter.HP += healthKitData.regenHP;
                 uiManager.SetHealth();
                 //Destroy(target.gameObject);
                 // use medkit

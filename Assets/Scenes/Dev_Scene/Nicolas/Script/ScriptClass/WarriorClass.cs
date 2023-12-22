@@ -8,7 +8,7 @@ public class WarriorClass : ClassesSkills
     [SerializeField] private DamageManagement damageManagement;
     private Transform _playerTransform;
 
-    private int _damage;
+    private float _damage;
     private RaycastHit _raycastHit;
     private float[] cooldowns = new float[4];
     private AudioSource audioSource;
@@ -21,8 +21,8 @@ public class WarriorClass : ClassesSkills
 
     private void Awake()
     {
-        cooldowns[0] = cooldowns[1] = classData.cooldownAttack;
-        cooldowns[2] = cooldowns[3] = classData.cooldownSkill;
+        cooldowns[1] = classData.cooldownAttack - classData.classSpeed / 10;
+        cooldowns[3] = classData.cooldownSkill - classData.classSpeed / 10;
     }
     public override void Skill1()
     {

@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: Base Of Doctor Data
   gameObjectmodel: {fileID: 0}
-  classArmor: 0
-  classSpeed: 0
-  classDamage: 0
+  classArmor: 1
+  classSpeed: 2
+  classDamage: 2
   cooldownAttack: 1
-  cooldownSkill: 1
+  cooldownSkill: 20

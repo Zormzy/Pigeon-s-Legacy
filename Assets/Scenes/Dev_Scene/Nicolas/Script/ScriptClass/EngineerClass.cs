@@ -9,7 +9,7 @@ public class EngineerClass : ClassesSkills
     private PL_Position_PositionManager positionManager;
     private Transform _playerTransform;
 
-    private int _damage;
+    private float _damage;
     private RaycastHit _raycastHit;
     private float[] cooldowns = new float[4];
     private AudioSource audioSource;
@@ -22,8 +22,8 @@ public class EngineerClass : ClassesSkills
     }
     private void Awake()
     {
-        cooldowns[0] = cooldowns[1] = classData.cooldownAttack;
-        cooldowns[2] = cooldowns[3] = classData.cooldownSkill;
+        cooldowns[1] = classData.cooldownAttack - classData.classSpeed / 10;
+        cooldowns[3] = classData.cooldownSkill - classData.classSpeed / 10;
     }
     public override void Skill1()
     {

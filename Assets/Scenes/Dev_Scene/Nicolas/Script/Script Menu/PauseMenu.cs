@@ -5,34 +5,30 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] public GameObject pauseMenu;
-    private bool _gamePaused;
+    private OpenInventory openInventory;
 
     public void Start()
     {
-        _gamePaused = false;
+        openInventory = GetComponent<OpenInventory>();
     }
 
-    public void PauseMenuOpen(InputAction.CallbackContext context)
+    public void PauseInput(InputAction.CallbackContext context)
     {
-        if (context.performed && !_gamePaused)
+        if (!openInventory.inventoryOpened && context.performed)
         {
-            pauseMenu.SetActive(true);
-            Time.timeScale = 0;
-            _gamePaused = true;
+            Time.timeScale = (Time.timeScale == 0) ? 1 : 0;
+            pauseMenu.SetActive(!pauseMenu.activeSelf);
         }
-        else if (context.performed && _gamePaused)
-        {
-            pauseMenu.SetActive(false);
-            Time.timeScale = 1;
-            _gamePaused = false;
-        }
+
     }
 
-    public void Resume()
+    public void Pause()
     {
-        pauseMenu.SetActive(false);
-        Time.timeScale = 1;
-        _gamePaused = false;
+        if (!openInventory.inventoryOpened)
+        {
+            Time.timeScale = (Time.timeScale == 0) ? 1 : 0;
+            pauseMenu.SetActive(!pauseMenu.activeSelf);
+        };
     }
 
     public void MainMenu()

@@ -7,6 +7,7 @@ public class WarriorClass : ClassesSkills
     [SerializeField] private StatsData statsData;
     [SerializeField] private DamageManagement damageManagement;
     private Transform _playerTransform;
+    private PL_Position_PositionManager positionManager;
 
     private float _damage;
     private RaycastHit _raycastHit;
@@ -17,6 +18,7 @@ public class WarriorClass : ClassesSkills
     {
         audioSource = GetComponent<AudioSource>();
         _playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        positionManager = GameObject.FindAnyObjectByType<PL_Position_PositionManager>();
     }
 
     private void Awake()
@@ -27,7 +29,7 @@ public class WarriorClass : ClassesSkills
     public override void Skill1()
     {
         _damage = statsData.Damage + classData.classDamage;
-        if (Physics.Raycast(_playerTransform.position, _playerTransform.forward, out _raycastHit, 1) && damageManagement.index == 0)
+        if (Physics.Raycast(_playerTransform.position, _playerTransform.forward, out _raycastHit, 1) && positionManager.CharacterStats()[positionManager.CharacterStats().IndexOf(positionManager.CharacterStatsInordered()[0])].HP > 0)
             if (_raycastHit.transform.CompareTag("Enemy") && cooldowns[0] <= 0)
             {
                 cooldowns[0] = cooldowns[1];

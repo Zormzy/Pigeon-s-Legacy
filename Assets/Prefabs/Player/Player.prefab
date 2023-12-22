@@ -260,7 +260,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Vous n'avez pas la clef
+  m_text: "Vous n'avez pas la cl\xE9"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a2c004a635818824dabea546a8330340, type: 2}
   m_sharedMaterial: {fileID: -5460020035306269453, guid: a2c004a635818824dabea546a8330340, type: 2}

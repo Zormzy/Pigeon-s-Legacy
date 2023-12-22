@@ -6976,7 +6976,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1615187958}
         m_TargetAssemblyTypeName: OpenInventory, Assembly-CSharp
         m_MethodName: CloseInventory
         m_Mode: 1

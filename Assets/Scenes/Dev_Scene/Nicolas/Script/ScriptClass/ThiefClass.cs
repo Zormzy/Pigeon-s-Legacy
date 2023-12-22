@@ -31,7 +31,7 @@ public class ThiefClass : ClassesSkills
     public override void Skill1()
     {
         _damage = statsData.Damage + classData.classDamage;
-        if (Physics.Raycast(_playerTransform.position, _playerTransform.forward, out _raycastHit, 1) && damageManagement.index <= 1)
+        if (Physics.Raycast(_playerTransform.position, _playerTransform.forward, out _raycastHit, 1) && positionManager.CharacterStats()[positionManager.CharacterStats().IndexOf(positionManager.CharacterStatsInordered()[1])].HP > 0)
             if (_raycastHit.transform.CompareTag("Enemy") && cooldowns[0] <= 0)
             {
                 _raycastHit.transform.GetComponent<PL_Enemy_Attack>().OnTakeDamage(_damage);

@@ -28,7 +28,7 @@ public class EngineerClass : ClassesSkills
     public override void Skill1()
     {
         _damage = statsData.Damage + classData.classDamage;
-        if (Physics.Raycast(_playerTransform.position, _playerTransform.forward, out _raycastHit, 2) && damageManagement.index <= 2)
+        if (Physics.Raycast(_playerTransform.position, _playerTransform.forward, out _raycastHit, 2) && positionManager.CharacterStats()[positionManager.CharacterStats().IndexOf(positionManager.CharacterStatsInordered()[2])].HP > 0)
             if (_raycastHit.transform.CompareTag("Enemy") && cooldowns[0] <= 0)
             {
                 _raycastHit.transform.GetComponent<PL_Enemy_Attack>().OnTakeDamage(_damage);

@@ -87,4 +87,9 @@ public class PL_Position_PositionManager : MonoBehaviour
     {
         return characterStatsOrdered;
     }
+
+    public List<StatsData> CharacterStatsInordered()
+    {
+        return characterStats;
+    }
 }

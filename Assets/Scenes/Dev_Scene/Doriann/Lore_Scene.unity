@@ -718,17 +718,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text:
-  - Dans un monde autrefois prospere, la civilisation a ete balayee par une apocalypse
-    mysterieuse qui a transforme la Terre en un paysage devaste et chaotique.
-  - Les vestiges de la societe humaine sont maintenant enterres sous les decombres
-    de gratte-ciels effondres et de terres steriles.
-  - Les rares survivants luttent pour leur vie contre des creatures mutantes et des
-    factions rivales.
-  - Au milieu de ce chaos, un groupe de pigeons a miraculeusement developpe une intelligence
-    accrue en raison des effets etranges de l'apocalypse.
-  - Leur quete consiste a explorer les restes de la civilisation humaine pour decouvrir
-    les secrets de l'apocalypse et trouver un moyen de restaurer l'equilibre de la
-    nature.
+  - "Dans un monde autrefois prosp\xE8re, la civilisation a \xE9t\xE9 balay\xE9e
+    par une apocalypse myst\xE9rieuse qui a transform\xE9 la Terre en un paysage
+    d\xE9vast\xE9 et chaotique."
+  - "Les vestiges de la soci\xE9t\xE9 humaine sont maintenant enterr\xE9s sous les
+    d\xE9combres de gratte-ciels effondr\xE9s et de terres st\xE9riles."
+  - "Les rares survivants luttent pour leur vie contre des cr\xE9atures mutantes
+    et des factions rivales."
+  - "Au milieu de ce chaos, un groupe de pigeons a miraculeusement d\xE9velopp\xE9
+    une intelligence accrue en raison des effets \xE9tranges de l'apocalypse."
+  - "Leur qu\xEAte consiste \xE0 explorer les restes de la civilisation humaine pour
+    d\xE9couvrir les secrets de l'apocalypse et trouver un moyen de restaurer l'\xE9quilibre
+    de la nature."
 --- !u!1 &1306016220
 GameObject:
   m_ObjectHideFlags: 0

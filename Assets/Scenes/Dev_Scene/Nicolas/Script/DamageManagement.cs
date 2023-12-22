@@ -15,10 +15,10 @@ public class DamageManagement : MonoBehaviour
     [SerializeField] private PL_Position_PositionManager positionManager;
     [SerializeField] private GameObject _damageToPlayer;
 
-    private int _damageReduced;
-    [HideInInspector] public List<int> characterHP;
-    private List<int> characterArmor;
-    private List<int> classArmor;
+    private float _damageReduced;
+    [HideInInspector] public List<float> characterHP;
+    private List<float> characterArmor;
+    private List<float> classArmor;
     [HideInInspector] public StatsData currentAttackedPlayer;
     public int index { get; private set; } = 0;
 
@@ -31,8 +31,8 @@ public class DamageManagement : MonoBehaviour
 
     public void TakeDamage(int indexCharacter, int damage)
     {
-        _damageReduced = damage - characterArmor[indexCharacter] - classArmor[indexCharacter];
-
+        _damageReduced = damage - characterArmor[characterStats.IndexOf(positionManager.CharacterStats()[indexCharacter])] - classArmor[characterStats.IndexOf(positionManager.CharacterStats()[indexCharacter])];
+        print(_damageReduced);
         if (positionManager.CharacterStats()[0].HP - _damageReduced <= 0)
         {
             positionManager.CharacterStats()[0].HP = 0;
@@ -65,10 +65,20 @@ public class DamageManagement : MonoBehaviour
         {
             //characterArmor.RemoveAt(index);
             //classArmor.RemoveAt(index);
-            positionManager.CharacterStatsValue()[positionManager.CharacterStatsValue().FindIndex(dropdown => dropdown.value == 1)].value = 0;
-            positionManager.CharacterStatsValue()[positionManager.CharacterStatsValue().FindIndex(dropdown => dropdown.value == 2)].value = 1;
-            positionManager.CharacterStatsValue()[positionManager.CharacterStatsValue().FindIndex(dropdown => dropdown.value == 3)].value = 2;
-            positionManager.CharacterStatsValue()[positionManager.CharacterStatsValue().FindIndex(dropdown => dropdown.value == 0)].value = 3;
+            if (positionManager.CharacterStats().IndexOf(characterStats[0]) == 0)
+            {
+                positionManager.CharacterStatsValue()[positionManager.CharacterStatsValue().FindIndex(dropdown => dropdown.value == 1)].value = 0;
+                positionManager.CharacterStatsValue()[positionManager.CharacterStatsValue().FindIndex(dropdown => dropdown.value == 2)].value = 1;
+                positionManager.CharacterStatsValue()[positionManager.CharacterStatsValue().FindIndex(dropdown => dropdown.value == 3)].value = 2;
+                positionManager.CharacterStatsValue()[positionManager.CharacterStatsValue().FindIndex(dropdown => dropdown.value == 0)].value = 3;
+            }
+            else
+            {
+                positionManager.CharacterStatsValue()[positionManager.CharacterStatsValue().FindIndex(dropdown => dropdown.value == 0)].value = 3;
+                positionManager.CharacterStatsValue()[positionManager.CharacterStatsValue().FindIndex(dropdown => dropdown.value == 1)].value = 0;
+                positionManager.CharacterStatsValue()[positionManager.CharacterStatsValue().FindIndex(dropdown => dropdown.value == 2)].value = 1;
+                positionManager.CharacterStatsValue()[positionManager.CharacterStatsValue().FindIndex(dropdown => dropdown.value == 3)].value = 2;
+            }
             index++;
 
         }
@@ -76,9 +86,9 @@ public class DamageManagement : MonoBehaviour
 
     public void DamageManagementInitialization()
     {
-        characterHP = new List<int>();
-        characterArmor = new List<int>();
-        classArmor = new List<int>();
+        characterHP = new List<float>();
+        characterArmor = new List<float>();
+        classArmor = new List<float>();
         for(int i = 0; i < 4; i++)
         {
             characterStats[i].HP = characterStats[i].MaxHP;

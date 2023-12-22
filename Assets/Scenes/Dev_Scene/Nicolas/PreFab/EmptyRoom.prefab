@@ -961,11 +961,44 @@ PrefabInstance:
       propertyPath: m_Name
       value: tuyaux3fbx
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7329194387022e243852b85cf2b66762, type: 3}
+      propertyPath: m_TagString
+      value: wall
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7329194387022e243852b85cf2b66762, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3022866774914973368}
   m_SourcePrefab: {fileID: 100100000, guid: 7329194387022e243852b85cf2b66762, type: 3}
+--- !u!1 &4004036508353910621 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 7329194387022e243852b85cf2b66762, type: 3}
+  m_PrefabInstance: {fileID: 4274012994795235852}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &3022866774914973368
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4004036508353910621}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.0316753, y: 0.32817054, z: 2.6930482}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &4385064929209683431 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7329194387022e243852b85cf2b66762, type: 3}

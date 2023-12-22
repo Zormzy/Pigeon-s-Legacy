@@ -15,7 +15,7 @@ MonoBehaviour:
   description: Base Of Thief Data
   gameObjectmodel: {fileID: 0}
   classArmor: 0
-  classSpeed: 0
-  classDamage: 0
+  classSpeed: 5
+  classDamage: 2
   cooldownAttack: 1
-  cooldownSkill: 1
+  cooldownSkill: 0.5

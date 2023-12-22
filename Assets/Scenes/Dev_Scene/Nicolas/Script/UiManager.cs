@@ -35,7 +35,7 @@ public class UiManager : MonoBehaviour
         print(healthBars.Count);
     }
 
-    public void SetInitialHealth(int maxHealth)
+    public void SetInitialHealth(float maxHealth)
     {
         foreach (Slider slider in healthBars)
         {

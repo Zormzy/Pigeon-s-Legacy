@@ -34,7 +34,7 @@ public class EndMenu : MonoBehaviour
     {
         if (_isWin)
         {
-            gameOverTitle.text = "Etage termine";
+            gameOverTitle.text = "Étage terminé";
             if (SceneManager.GetActiveScene().name == "Final_Level_2")
             {
                 print("jeu fini");

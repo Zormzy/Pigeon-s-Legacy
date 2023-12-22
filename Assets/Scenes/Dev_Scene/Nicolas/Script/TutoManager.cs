@@ -66,12 +66,11 @@ public class TutoManager : MonoBehaviour
         CharacterUI.SetActive(true);
     }
 
-    //private void OnDestroy()
-    //{
-    //    _tutoData.tuto1 = false;
-    //    _tutoData.tuto2 = false;
-    //    _tutoData.tuto3 = false;
-    //    _tutoData.tuto4 = false;
-
-    //}
+    private void OnApplicationQuit()
+    {
+        _tutoData.tuto1 = false;
+        _tutoData.tuto2 = false;
+        _tutoData.tuto3 = false;
+        _tutoData.tuto4 = false;
+    }
 }

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PL_Enemy_PlayerDetecter : MonoBehaviour
 {
-    private bool playerDetected = false;
+    public bool playerDetected { get; private set; } = false;
     private Transform transformTrigger;
     private GameObject player;
 

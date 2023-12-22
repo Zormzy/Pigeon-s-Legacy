@@ -10,6 +10,8 @@ public class PL_Trap_PlayerDetecter : MonoBehaviour
     private int damage;
     private bool difused;
     private Transform transformTrap;
+    private AudioSource audioSource;
+    [SerializeField] private AudioClip trap;
 
     private void Awake()
     {
@@ -17,6 +19,7 @@ public class PL_Trap_PlayerDetecter : MonoBehaviour
         damage = trapScriptable.damage;
         difused = trapScriptable.difused;
         transformTrap = transform;
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -34,6 +37,8 @@ public class PL_Trap_PlayerDetecter : MonoBehaviour
             damageManagement = other.GetComponent<DamageManagement>();
             damageManagement.TakeDamage(Random.Range(0, 1), damage);
             cooldown = baseCooldown;
+            audioSource.clip = trap;
+            audioSource.Play();
             ParticleSystem greenParticle = Instantiate(trapParticle, transformTrap);
             Destroy(greenParticle, 1);
             print("Trap attack player");
@@ -43,5 +48,6 @@ public class PL_Trap_PlayerDetecter : MonoBehaviour
     public void DifuseTrap()
     {
         difused = true;
+        transformTrap.tag = "DesactivatedTrap";
     }
 }

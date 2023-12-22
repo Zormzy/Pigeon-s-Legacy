@@ -1,0 +1,572 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
+  m_Name: ChakraPetch-Regular SDF
+  m_EditorClassIdentifier: 
+  hashCode: 1311256510
+  material: {fileID: 8824252882636080266}
+  materialHashCode: 531953118
+  m_Version: 1.1.0
+  m_SourceFontFileGUID: fcb7d957b95f3c749817514a6f8da45e
+  m_SourceFontFile_EditorRef: {fileID: 12800000, guid: fcb7d957b95f3c749817514a6f8da45e, type: 3}
+  m_SourceFontFile: {fileID: 0}
+  m_AtlasPopulationMode: 0
+  m_FaceInfo:
+    m_FaceIndex: 0
+    m_FamilyName: Chakra Petch
+    m_StyleName: Regular
+    m_PointSize: 1
+    m_Scale: 1
+    m_UnitsPerEM: 1000
+    m_LineHeight: 1.3
+    m_AscentLine: 0.992
+    m_CapLine: 1
+    m_MeanLine: 1
+    m_Baseline: 0
+    m_DescentLine: -0.308
+    m_SuperscriptOffset: 0.992
+    m_SuperscriptSize: 0.5
+    m_SubscriptOffset: -0.308
+    m_SubscriptSize: 0.5
+    m_UnderlineOffset: -0.1
+    m_UnderlineThickness: 0.05
+    m_StrikethroughOffset: 0.4
+    m_StrikethroughThickness: 0.05
+    m_TabWidth: 0
+  m_GlyphTable:
+  - m_Index: 3
+    m_Metrics:
+      m_Width: 0
+      m_Height: 0
+      m_HorizontalBearingX: 0
+      m_HorizontalBearingY: 0
+      m_HorizontalAdvance: 0.25
+    m_GlyphRect:
+      m_X: 0
+      m_Y: 0
+      m_Width: 0
+      m_Height: 0
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+  - m_Index: 79
+    m_Metrics:
+      m_Width: 0.28125
+      m_Height: 0.90625
+      m_HorizontalBearingX: -0.015625
+      m_HorizontalBearingY: 0.90625
+      m_HorizontalAdvance: 0.25
+    m_GlyphRect:
+      m_X: 46
+      m_Y: 9
+      m_Width: 2
+      m_Height: 1
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+  - m_Index: 80
+    m_Metrics:
+      m_Width: 0.28125
+      m_Height: 0.875
+      m_HorizontalBearingX: -0.015625
+      m_HorizontalBearingY: 0.875
+      m_HorizontalAdvance: 0.25
+    m_GlyphRect:
+      m_X: 46
+      m_Y: 27
+      m_Width: 2
+      m_Height: 1
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+  - m_Index: 296
+    m_Metrics:
+      m_Width: 0.234375
+      m_Height: 0.90625
+      m_HorizontalBearingX: -0.046875
+      m_HorizontalBearingY: 0.6875
+      m_HorizontalAdvance: 0.265625
+    m_GlyphRect:
+      m_X: 9
+      m_Y: 9
+      m_Width: 2
+      m_Height: 2
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+  - m_Index: 546
+    m_Metrics:
+      m_Width: 0.109375
+      m_Height: 0.234375
+      m_HorizontalBearingX: 0.046875
+      m_HorizontalBearingY: 0.109375
+      m_HorizontalAdvance: 0.203125
+    m_GlyphRect:
+      m_X: 28
+      m_Y: 9
+      m_Width: 1
+      m_Height: 2
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+  - m_Index: 548
+    m_Metrics:
+      m_Width: 0.109375
+      m_Height: 0.578125
+      m_HorizontalBearingX: 0.046875
+      m_HorizontalBearingY: 0.453125
+      m_HorizontalAdvance: 0.203125
+    m_GlyphRect:
+      m_X: 27
+      m_Y: 47
+      m_Width: 1
+      m_Height: 2
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+  - m_Index: 562
+    m_Metrics:
+      m_Width: 0.203125
+      m_Height: 0.921875
+      m_HorizontalBearingX: 0.078125
+      m_HorizontalBearingY: 0.8125
+      m_HorizontalAdvance: 0.3125
+    m_GlyphRect:
+      m_X: 9
+      m_Y: 47
+      m_Width: 1
+      m_Height: 2
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+  - m_Index: 563
+    m_Metrics:
+      m_Width: 0.203125
+      m_Height: 0.921875
+      m_HorizontalBearingX: 0.03125
+      m_HorizontalBearingY: 0.8125
+      m_HorizontalAdvance: 0.3125
+    m_GlyphRect:
+      m_X: 27
+      m_Y: 28
+      m_Width: 1
+      m_Height: 2
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+  - m_Index: 595
+    m_Metrics:
+      m_Width: 0
+      m_Height: 0
+      m_HorizontalBearingX: 0
+      m_HorizontalBearingY: 0
+      m_HorizontalAdvance: 0.625
+    m_GlyphRect:
+      m_X: 0
+      m_Y: 0
+      m_Width: 0
+      m_Height: 0
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+  - m_Index: 596
+    m_Metrics:
+      m_Width: 0
+      m_Height: 0
+      m_HorizontalBearingX: 0
+      m_HorizontalBearingY: 0
+      m_HorizontalAdvance: 0.25
+    m_GlyphRect:
+      m_X: 0
+      m_Y: 0
+      m_Width: 0
+      m_Height: 0
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+  - m_Index: 602
+    m_Metrics:
+      m_Width: 0.484375
+      m_Height: 0.921875
+      m_HorizontalBearingX: 0.0625
+      m_HorizontalBearingY: 0.8125
+      m_HorizontalAdvance: 0.609375
+    m_GlyphRect:
+      m_X: 9
+      m_Y: 28
+      m_Width: 1
+      m_Height: 2
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+  - m_Index: 657
+    m_Metrics:
+      m_Width: 0.6875
+      m_Height: 0.6875
+      m_HorizontalBearingX: 0.0625
+      m_HorizontalBearingY: 0.640625
+      m_HorizontalAdvance: 0.8125
+    m_GlyphRect:
+      m_X: 45
+      m_Y: 45
+      m_Width: 1
+      m_Height: 2
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+  m_CharacterTable:
+  - m_ElementType: 1
+    m_Unicode: 32
+    m_GlyphIndex: 3
+    m_Scale: 1
+  - m_ElementType: 1
+    m_Unicode: 36
+    m_GlyphIndex: 602
+    m_Scale: 1
+  - m_ElementType: 1
+    m_Unicode: 40
+    m_GlyphIndex: 562
+    m_Scale: 1
+  - m_ElementType: 1
+    m_Unicode: 41
+    m_GlyphIndex: 563
+    m_Scale: 1
+  - m_ElementType: 1
+    m_Unicode: 44
+    m_GlyphIndex: 546
+    m_Scale: 1
+  - m_ElementType: 1
+    m_Unicode: 59
+    m_GlyphIndex: 548
+    m_Scale: 1
+  - m_ElementType: 1
+    m_Unicode: 64
+    m_GlyphIndex: 657
+    m_Scale: 1
+  - m_ElementType: 1
+    m_Unicode: 106
+    m_GlyphIndex: 296
+    m_Scale: 1
+  - m_ElementType: 1
+    m_Unicode: 160
+    m_GlyphIndex: 596
+    m_Scale: 1
+  - m_ElementType: 1
+    m_Unicode: 206
+    m_GlyphIndex: 79
+    m_Scale: 1
+  - m_ElementType: 1
+    m_Unicode: 207
+    m_GlyphIndex: 80
+    m_Scale: 1
+  - m_ElementType: 1
+    m_Unicode: 8199
+    m_GlyphIndex: 595
+    m_Scale: 1
+  m_AtlasTextures:
+  - {fileID: 7453412054442094129}
+  m_AtlasTextureIndex: 0
+  m_IsMultiAtlasTexturesEnabled: 0
+  m_ClearDynamicDataOnBuild: 0
+  m_UsedGlyphRects:
+  - m_X: 0
+    m_Y: 0
+    m_Width: 19
+    m_Height: 19
+  - m_X: 0
+    m_Y: 19
+    m_Width: 18
+    m_Height: 19
+  - m_X: 0
+    m_Y: 38
+    m_Width: 18
+    m_Height: 19
+  - m_X: 18
+    m_Y: 19
+    m_Width: 18
+    m_Height: 19
+  - m_X: 19
+    m_Y: 0
+    m_Width: 18
+    m_Height: 19
+  - m_X: 18
+    m_Y: 38
+    m_Width: 18
+    m_Height: 19
+  - m_X: 37
+    m_Y: 0
+    m_Width: 19
+    m_Height: 18
+  - m_X: 37
+    m_Y: 18
+    m_Width: 19
+    m_Height: 18
+  - m_X: 36
+    m_Y: 36
+    m_Width: 18
+    m_Height: 19
+  m_FreeGlyphRects:
+  - m_X: 0
+    m_Y: 57
+    m_Width: 63
+    m_Height: 6
+  - m_X: 56
+    m_Y: 0
+    m_Width: 7
+    m_Height: 63
+  - m_X: 36
+    m_Y: 55
+    m_Width: 27
+    m_Height: 8
+  - m_X: 54
+    m_Y: 36
+    m_Width: 9
+    m_Height: 27
+  - m_X: 36
+    m_Y: 19
+    m_Width: 1
+    m_Height: 17
+  m_fontInfo:
+    Name: 
+    PointSize: 0
+    Scale: 0
+    CharacterCount: 0
+    LineHeight: 0
+    Baseline: 0
+    Ascender: 0
+    CapHeight: 0
+    Descender: 0
+    CenterLine: 0
+    SuperscriptOffset: 0
+    SubscriptOffset: 0
+    SubSize: 0
+    Underline: 0
+    UnderlineThickness: 0
+    strikethrough: 0
+    strikethroughThickness: 0
+    TabWidth: 0
+    Padding: 0
+    AtlasWidth: 0
+    AtlasHeight: 0
+  atlas: {fileID: 0}
+  m_AtlasWidth: 64
+  m_AtlasHeight: 64
+  m_AtlasPadding: 8
+  m_AtlasRenderMode: 4165
+  m_glyphInfoList: []
+  m_KerningTable:
+    kerningPairs: []
+  m_FontFeatureTable:
+    m_GlyphPairAdjustmentRecords: []
+  fallbackFontAssets: []
+  m_FallbackFontAssetTable: []
+  m_CreationSettings:
+    sourceFontFileName: 
+    sourceFontFileGUID: fcb7d957b95f3c749817514a6f8da45e
+    pointSizeSamplingMode: 0
+    pointSize: 1
+    padding: 8
+    packingMode: 0
+    atlasWidth: 64
+    atlasHeight: 64
+    characterSetSelectionMode: 1
+    characterSequence: 32 - 126, 160 - 255, 8192 - 8303, 8364, 8482, 9633
+    referencedFontAssetGUID: d315c267a82a9714a82c77568846cede
+    referencedTextAssetGUID: df8a8eff0f68ed04a84296701d26f928
+    fontStyle: 0
+    fontStyleModifier: 0
+    renderMode: 4165
+    includeFontFeatures: 0
+  m_FontWeightTable:
+  - regularTypeface: {fileID: 0}
+    italicTypeface: {fileID: 0}
+  - regularTypeface: {fileID: 0}
+    italicTypeface: {fileID: 0}
+  - regularTypeface: {fileID: 0}
+    italicTypeface: {fileID: 0}
+  - regularTypeface: {fileID: 0}
+    italicTypeface: {fileID: 0}
+  - regularTypeface: {fileID: 0}
+    italicTypeface: {fileID: 0}
+  - regularTypeface: {fileID: 0}
+    italicTypeface: {fileID: 0}
+  - regularTypeface: {fileID: 0}
+    italicTypeface: {fileID: 0}
+  - regularTypeface: {fileID: 0}
+    italicTypeface: {fileID: 0}
+  - regularTypeface: {fileID: 0}
+    italicTypeface: {fileID: 0}
+  - regularTypeface: {fileID: 0}
+    italicTypeface: {fileID: 0}
+  fontWeights: []
+  normalStyle: 0
+  normalSpacingOffset: 0
+  boldStyle: 0.75
+  boldSpacing: 7
+  italicStyle: 35
+  tabSize: 10
+--- !u!28 &7453412054442094129
+Texture2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ChakraPetch-Regular SDF Atlas
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 2
+  m_Width: 64
+  m_Height: 64
+  m_CompleteImageSize: 4096
+  m_MipsStripped: 0
+  m_TextureFormat: 1
+  m_MipCount: 1
+  m_IsReadable: 0
+  m_IsPreProcessed: 0
+  m_IgnoreMipmapLimit: 0
+  m_MipmapLimitGroupName: 
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
+  m_VTOnly: 0
+  m_AlphaIsTransparency: 0
+  m_ImageCount: 1
+  m_TextureDimension: 2
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 0
+    m_WrapV: 0
+    m_WrapW: 0
+  m_LightmapFormat: 0
+  m_ColorSpace: 0
+  m_PlatformBlob: 
+  image data: 4096
+  _typelessdata: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000306070603000000000000000000000000000306070603000000000000000000000000000005070807050000000000000000000000000000000000000000050c11141614110c05000000000000000000040b10141514100b0400000000000000000000070e12151615120e0700000000000000000000000000000000000911191e2224221e191109000000000000000810181e2223221e18100800000000000000010b131a20232423201a130b01000000000000000000000000000009131d252c3032302c251d1309000000000008121c242b2f322f2b241c12080000000000000b151f272d3133312d271f150b0000000000000000000000000005111d2731383e403e3831271d110500000004101c2630373d403d3730261c10040000000007131f29323a3f413f3a32291f13070000000000000000000000000c1925313b454b4e4b453b3125190c0000000b1824303a434a4e4a433a3024180b000000000e1a27323d464d4f4d463d32271a0e000000000000000000000003111e2c38454f585c584f45382c1e11030003101e2b37434e575c574e43372b1e100300000512202d3a46515a5d5a51463a2d20120500000000000000000000061422303e4b58636b63584b3e30221406000614222f3d4a57626a62574a3d2f2214060000071523313f4d5a656b655a4d3f312315070000000000000000000007162432404e5c6b796b5c4e40322416070007152332404e5c6a766a5c4e4032231507000008162433414f5d6b796b5d4f41332416080000000000000000000008162432404f5d6b796b5d4f40322416080007152432404e5c6a776a5c4e40322415070000071523313f4d5a656b655a4d3f3123150700000000000000000000071523313f4c59656b65594c3f3123150700061422303d4b57636a63574b3d3022140600000512202d3a46515a5d5a51463a2d2012050000000000000000000004121f2d394650595d595046392d1f12040003111e2b38444f575c574f44382b1e11030000000e1a27323d464d4f4d463d32271a0e0000000000000000000000000d1a26323c464c4f4c463c32261a0d0000000b1824303b444b4e4b443b3024180b0000000007131f29323a3f413f3a32291f130700000000000000000000000006121e2832393f403f3932281e120600000005111c2730383d403d3830271c110500000000000b151f272d3133312d271f150b00000000000000000000000000000a141e262d3132312d261e140a000000000008131c242b3032302b241c1308000000000000010b131a20232423201a130b010000000000000000000000000000000a121a1f2324231f1a120a000000000000000811181e2224221e181108000000000000000000070e12151615120e07000000000000000000000000000000000000060d12151615120d06000000000000000000050b11141514110b0500000000000000000000000005070807050000000000000000000000000000000000000000000004070807040000000000000000000000000003060706030000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000507080705000000000000000000000000000000000000000000030607060300000000000000000000000000030607060300000000000000000000000000070e12151615120e070000000000000000000000000000000000040b10141514100b04000000000000000000050c11141514110c05000000000000000000010b131a20232423201a130b0100000000000000000000000000000810181e2223221e181008000000000000000811181e2224221e18110800000000000000000b151f272d3133312d271f150b0000000000000000000000000008121c242b2f322f2b241c1208000000000008131c252b3032302b251c130800000000000007131f29323a3f413f3a32291f1307000000000000000000000004101c2630373d403d3730261c100400000005111c2730383e403e3830271c110500000000000e1a27323d464d4f4d463d32271a0e00000000000000000000000b1824303a434a4e4a433a3024180b0000000c1825303b444b4e4b443b3025180c000000000512202d3a46515a5d5a51463a2d20120500000000000000000003101e2b37434e575c574e43372b1e10030003111e2b38444f585c584f44382b1e1103000000071523313f4d5a656b655a4d3f312315070000000000000000000614222f3d4a57626a62574a3d2f22140600061422303e4b58636a63584b3e3022140600000008162433414f5d6b796b5d4f413324160800000000000000000007152332404e5c6a766a5c4e40322315070007152432404e5c6a776a5c4e4032241507000000071523313f4d5a656b655a4d3f312315070000000000000000000918263442505e6d7b6d5e5042342618090008162433414f5d6b796b5d4f41332416080000000512202d3a46515a5d5a51463a2d20120500000000000000000009172533404e5b676d675b4e403325170900071523313f4d5a656b655a4d3f31231507000000000e1a27323d464d4f4d463d32271a0e000000000000000000000614212f3c48535b5e5b53483c2f211406000512202d3a46515a5d5a51463a2d2012050000000007131f29323a3f413f3a32291f130700000000000000000000020f1c29343f484e504e483f34291c0f0200000d1a27323d464d4f4d463d32271a0d0000000000000b151f272d3133312d271f150b0000000000000000000000000915212b343c4042403c342b21150900000007131e29323a3f413f3a32291e1307000000000000010b131a20232423201a130b01000000000000000000000000010d1721292f3334332f2921170d01000000000b151e272d3133312d271e150b000000000000000000070e12151615120e07000000000000000000000000000000030d151c21252625211c150d030000000000010b131a20232423201a130b010000000000000000000000050708070500000000000000000000000000000000000001090f14171817140f09010000000000000000070d12151615120d070000000000000000000000000000000000000000000000000000000000000000000000000000020609090906020000000000000000000000000507080705000000000000000000000000000306070603000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000050c11141614110c050000000000000000000000000000000000000000000306070603000000000000000000000000000306070603000000000000000000000911191e2224221e191109000000000000000000000000000000000000050c11141514110c05000000000000000000040b10141514100b040000000000000009131d252c3032302c251d1309000000000000000000000000000000000811181e2224221e181108000000000000000810181e2223221e181008000000000005111d2731383e403e3831271d1105000000000000000000000000000008131c252b3032302b251c1308000000000008121c242b2f322f2b241c1208000000000c1925313b454b4e4b453b3125190c0000000000000000000000000005111c2730383e403e3830271c110500000004101c2630373d403d3730261c1004000003111e2c38454f585c584f45382c1e11030000000000000000000000000c1825303b444b4e4b443b3025180c0000000b1824303a434a4e4a433a3024180b0000061422303e4b58636b63584b3e30221406000000000000000000000003111e2b38444f585c584f44382b1e11030003101e2b37434e575c574e43372b1e10030007162432404e5c6b776b5c4e40322416070000000000000000000000061422303e4b58636a63584b3e30221406000614222f3d4a57626a62574a3d2f221406000a18263442505f6d7b6d5f50423426180a000000000000000000000007152432404e5c6a776a5c4e40322415070007152332404e5c6a766a5c4e40322315070009172533414e5c676d675c4e4133251709000000000000000000000008162433414f5d6b796b5d4f41332416080007152432404e5c6a776a5c4e4032241507000614222f3c48535c5f5c53483c2f2214060000000000000000000000071523313f4d5a656b655a4d3f3123150700061422303e4b58636a63584b3e3022140600020f1c29353f484e504e483f35291c0f0200000000000000000000000512202d3a46515a5d5a51463a2d2012050003111e2b38444f585c584f44382b1e110300000915212b353c4142413c352b211509000000000000000000000000000d1a27323d464d4f4d463d32271a0d0000000c1925303b444b4e4b443b3025190c000000020d1721292f3334332f2921170d020000000000000000000000000007131e29323a3f413f3a32291e130700000005111d2730383e403e3830271d110500000000030d151c22252625221c150d030000000000000000000000000000000b151e272d3133312d271e150b000000000009131d252b3032302b251d130900000000000002090f14171817140f090200000000000000000000000000000000010b131a20232423201a130b010000000000000911191e2224221e1911090000000000000000000206090a0906020000000000000000000000000000000000000000070d12151615120d07000000000000000000050c11141514110c0500000000000000000000000000000000000000000000000000000000000000000000000000000005070807050000000000000000000000000003060706030000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  m_StreamData:
+    serializedVersion: 2
+    offset: 0
+    size: 0
+    path: 
+--- !u!21 &8824252882636080266
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ChakraPetch-Regular SDF Material
+  m_Shader: {fileID: 4800000, guid: 68e6db2ebdc24f95958faec2be5558d6, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FaceTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 7453412054442094129}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OutlineTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Ambient: 0.5
+    - _Bevel: 0.5
+    - _BevelClamp: 0
+    - _BevelOffset: 0
+    - _BevelRoundness: 0
+    - _BevelWidth: 0
+    - _BumpFace: 0
+    - _BumpOutline: 0
+    - _ColorMask: 15
+    - _CullMode: 0
+    - _Diffuse: 0.5
+    - _FaceDilate: 0
+    - _FaceUVSpeedX: 0
+    - _FaceUVSpeedY: 0
+    - _GlowInner: 0.05
+    - _GlowOffset: 0
+    - _GlowOuter: 0.05
+    - _GlowPower: 0.75
+    - _GradientScale: 9
+    - _LightAngle: 3.1416
+    - _MaskSoftnessX: 0
+    - _MaskSoftnessY: 0
+    - _OutlineSoftness: 0
+    - _OutlineUVSpeedX: 0
+    - _OutlineUVSpeedY: 0
+    - _OutlineWidth: 0
+    - _PerspectiveFilter: 0.875
+    - _Reflectivity: 10
+    - _ScaleRatioA: 0.8888889
+    - _ScaleRatioB: 0.7222222
+    - _ScaleRatioC: 0.7222222
+    - _ScaleX: 1
+    - _ScaleY: 1
+    - _ShaderFlags: 0
+    - _Sharpness: 0
+    - _SpecularPower: 2
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _TextureHeight: 64
+    - _TextureWidth: 64
+    - _UnderlayDilate: 0
+    - _UnderlayOffsetX: 0
+    - _UnderlayOffsetY: 0
+    - _UnderlaySoftness: 0
+    - _VertexOffsetX: 0
+    - _VertexOffsetY: 0
+    - _WeightBold: 0.75
+    - _WeightNormal: 0
+    m_Colors:
+    - _ClipRect: {r: -32767, g: -32767, b: 32767, a: 32767}
+    - _EnvMatrixRotation: {r: 0, g: 0, b: 0, a: 0}
+    - _FaceColor: {r: 1, g: 1, b: 1, a: 1}
+    - _GlowColor: {r: 0, g: 1, b: 0, a: 0.5}
+    - _MaskCoord: {r: 0, g: 0, b: 32767, a: 32767}
+    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
+    - _ReflectFaceColor: {r: 0, g: 0, b: 0, a: 1}
+    - _ReflectOutlineColor: {r: 0, g: 0, b: 0, a: 1}
+    - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
+    - _UnderlayColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_BuildTextureStacks: []

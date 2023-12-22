@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: Base Of Warrior Data
   gameObjectmodel: {fileID: 0}
-  classArmor: 0
-  classSpeed: 0
-  classDamage: 0
+  classArmor: 3
+  classSpeed: 1
+  classDamage: 3
   cooldownAttack: 1
   cooldownSkill: 1

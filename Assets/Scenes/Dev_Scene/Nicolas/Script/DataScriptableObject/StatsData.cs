@@ -6,9 +6,9 @@ public class StatsData : ScriptableObject
     public string name;
     public string description;
     public GameObject gameObjectmodel;
-    public int MaxHP;
-    public int HP;
-    public int Armor;
-    public int Speed;
-    public int Damage;
+    public float MaxHP;
+    public float HP;
+    public float Armor;
+    public float Speed;
+    public float Damage;
 }

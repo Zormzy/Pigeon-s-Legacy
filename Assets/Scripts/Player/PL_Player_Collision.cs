@@ -12,6 +12,7 @@ public class PL_Player_Collision : MonoBehaviour
     public static PL_Player_Collision Instance;
     private string[] nametags = new string[7] { "ClosedLockChest", "ClosedChest", "ClosedLockDoor", "ClosedDoor", "Exit", "wall", "Enemy" };
     private RaycastHit[] raycastsHit = new RaycastHit[4];
+    [SerializeField] private OpenInventory openInventory;
 
     private void Awake()
     {
@@ -46,7 +47,7 @@ public class PL_Player_Collision : MonoBehaviour
         if (Physics.Raycast(transformPlayer.position, transformPlayer.right, out raycastsHit[2], 1)) canGoRight = !Array.Exists(nametags, element => element == raycastsHit[2].transform.tag);
         if (Physics.Raycast(transformPlayer.position, -transformPlayer.forward, out raycastsHit[3], 1)) canGoBack = !Array.Exists(nametags, element => element == raycastsHit[3].transform.tag);
 
-        if (Physics.Raycast(transformPlayer.position, transformPlayer.forward, out raycastsHit[0], 1))
+        if (Physics.Raycast(transformPlayer.position, transformPlayer.forward, out raycastsHit[0], 1) && !openInventory.inventoryOpened)
         {
             switch (raycastsHit[0].transform.tag)
             {
@@ -55,23 +56,40 @@ public class PL_Player_Collision : MonoBehaviour
                     _playerInteract.objectInFront = raycastsHit[0].transform.gameObject;
                     break;
                 case "ClosedLockDoor":
-                    _playerInteract.interactionText.SetActive(true);
+                    if (_playerInteract.HasKey())
+                    {
+                        _playerInteract.interactionText.SetActive(true);
+                    }
+                    else
+                    {
+                        _playerInteract.hasNotKey.SetActive(true);
+                    }
                     _playerInteract.objectInFront = raycastsHit[0].transform.gameObject; break; //si le joueur a une clef, ouvrir la porte
                 case "ClosedDoor":
+                    _playerInteract.hasNotKey.SetActive(false);
                     _playerInteract.interactionText.SetActive(true);
                     _playerInteract.objectInFront = raycastsHit[0].transform.gameObject;
                     break;
                 //exit
-                case "Exit": 
+                case "Exit":
+                    _playerInteract.hasNotKey.SetActive(false);
                     _playerInteract.interactionText.SetActive(true);
                     _playerInteract.objectInFront = raycastsHit[0].transform.gameObject;
                     break;
                 default:
+                    _playerInteract.hasNotKey.SetActive(false);
                     _playerInteract.interactionText.SetActive(false); break;
             }
         }
         else
         {
+            _playerInteract.hasNotKey.SetActive(false);
+            _playerInteract.interactionText.SetActive(false);
+        }
+
+        if(openInventory.inventoryOpened)
+        {
+            _playerInteract.hasNotKey.SetActive(false);
             _playerInteract.interactionText.SetActive(false);
         }
     }
